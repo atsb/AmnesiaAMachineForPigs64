@@ -106,8 +106,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>.\include;..\dependencies\AngelScript\include;..\dependencies\DevIL\include;..\dependencies\DevIL\include\IL;..\dependencies\FBXSDK\include;..\dependencies\freealut\AL;..\dependencies\jpeg;..\dependencies\Newton\core;..\dependencies\Newton\newton;..\dependencies\Newton\include;..\dependencies\Newton\physics;..\dependencies\OALWrapper\include\OALWrapper;..\dependencies\ogg;..\dependencies\png;..\dependencies\SDL2\include;..\dependencies\theora;..\dependencies\vorbis;..\dependencies\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;HPL_EXPORTS;KFBX_DLLINFO;USE_SDL2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\include;..\dependencies\AngelScript\include;..\dependencies\DevIL\include;..\dependencies\DevIL\include\IL;..\dependencies\freealut\AL;..\dependencies\jpeg;..\dependencies\Newton\core;..\dependencies\Newton\newton;..\dependencies\Newton\include;..\dependencies\Newton\physics;..\dependencies\OALWrapper\include\OALWrapper;..\dependencies\ogg;..\dependencies\png;..\dependencies\SDL2\include;..\dependencies\theora;..\dependencies\vorbis;..\dependencies\zlib;..\..\3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;HPL_EXPORTS;KFBX_DLLINFO;USE_SDL2;_WIN_32_VER;_NEWTON_USE_LIB;ANGELSCRIPT_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
@@ -119,9 +119,9 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;DevIL.lib;glew32.lib; zlibwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;DevIL.lib;glew.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../lib/HPL2.lib</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreLinkEvent>
       <Message>Compiling BuildID file</Message>
@@ -153,6 +153,149 @@
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\dependencies\AngelScript\include\angelscript.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_array.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_atomic.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_builder.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_bytecode.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_callfunc.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_compiler.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_config.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_configgroup.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_context.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_criticalsection.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_datatype.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_debug.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_gc.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_generic.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_map.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_memory.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_module.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_objecttype.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_outputbuffer.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_parser.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_property.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_restore.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptcode.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptengine.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptfunction.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptnode.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptobject.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_string.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_string_util.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_texts.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_thread.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_tokendef.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_tokenizer.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_typeinfo.h" />
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_variablescope.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dg.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgAABBPolygonSoup.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgArray.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgConvexHull3d.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgConvexHull4d.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgCRC.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgDebug.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgDelaunayTetrahedralization.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgGeneralMatrix.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgGeneralVector.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgGoogol.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgGraph.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgHeap.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgIntersections.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgList.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgMatrix.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgMemory.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgNode.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgPathFinder.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgPlane.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgPolygonSoupBuilder.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgPolygonSoupDatabase.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgPolyhedra.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgPolyhedraMassProperties.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgQuaternion.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgRandom.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgRef.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgRefCounter.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgRtti.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgSimd_Instrutions.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgSmallDeterminant.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgSPDMatrix.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgSphere.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgStack.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgStdafx.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgThreads.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgTree.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgTypes.h" />
+    <ClInclude Include="..\dependencies\Newton\core\dgVector.h" />
+    <ClInclude Include="..\dependencies\Newton\include\Newton.h" />
+    <ClInclude Include="..\dependencies\Newton\newton\NewtonClass.h" />
+    <ClInclude Include="..\dependencies\Newton\newton\NewtonStdAfx.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgBallConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgBilateralConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgBody.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgBodyMasterList.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgBroadPhaseCollision.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollision.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionBox.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionBVH.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCapsule.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionChamferCylinder.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCompound.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCompoundBreakable.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCone.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionConvex.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionConvexHull.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionConvexModifier.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCylinder.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionEllipse.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionHeightField.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionMesh.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionNull.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionScene.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionSphere.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionUserMesh.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgConnectorConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgContact.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgCorkscrewConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgHingeConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgMeshEffect.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgMinkowskiConv.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgPhysics.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgPhysicsStdafx.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgPointToCurveConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgSlidingConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgUniversalConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgUpVectorConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgUserConstraint.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgWorld.h" />
+    <ClInclude Include="..\dependencies\Newton\physics\dgWorldDynamicUpdate.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_AudioData.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Buffer.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_CustomStream.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Device.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Effect.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_EffectSlot.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Effect_Reverb.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_EFX.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_EFXManager.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Filter.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Funcs.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Helper.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Init.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Loaders.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_LoggerObject.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_LowLevelObject.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_OggSample.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_OggStream.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Playback.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Sample.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Source.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_SourceManager.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Stream.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Types.h" />
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_WAVSample.h" />
     <ClInclude Include="include\graphics\PostEffect_ColorGrading.h" />
     <ClInclude Include="include\gui\GuiPopUpUIKeyboard.h" />
     <ClInclude Include="include\impl\GamepadSDL.h" />
@@ -352,31 +495,6 @@
     <ClInclude Include="include\impl\OpenALSoundChannel.h" />
     <ClInclude Include="include\impl\OpenALSoundData.h" />
     <ClInclude Include="include\impl\OpenALSoundEnvironment.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_AudioData.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Buffer.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Device.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Effect.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Effect_Reverb.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_EffectSlot.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_EFX.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_EFXManager.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Filter.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Funcs.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Helper.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Init.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Loaders.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_LoggerObject.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_LowLevelObject.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_OggHelper.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_OggSample.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_OggStream.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Playback.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Sample.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Source.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_SourceManager.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Stream.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Types.h" />
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_WAVSample.h" />
     <ClInclude Include="include\resources\AnimationManager.h" />
     <ClInclude Include="include\resources\BinaryBuffer.h" />
     <ClInclude Include="include\resources\BitmapLoader.h" />
@@ -474,6 +592,136 @@
     <ClInclude Include="include\HPL.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_atomic.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_builder.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_bytecode.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_arm.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_mips.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_ppc.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_ppc_64.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_sh4.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_gcc.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_mingw.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_msvc.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x86.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_xenon.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_compiler.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_configgroup.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_context.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_datatype.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_gc.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_generic.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_globalproperty.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_memory.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_module.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_objecttype.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_outputbuffer.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_parser.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_restore.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptcode.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptengine.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptfunction.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptnode.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptobject.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_string.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_string_util.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_thread.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_tokenizer.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_typeinfo.cpp" />
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_variablescope.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dg.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgAABBPolygonSoup.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgConvexHull3d.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgConvexHull4d.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgCRC.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgDebug.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgDelaunayTetrahedralization.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgGeneralMatrix.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgGeneralVector.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgGoogol.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgIntersections.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgMatrix.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgMemory.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgNode.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgPolygonSoupBuilder.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgPolyhedra.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgPolyhedraMassProperties.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgQuaternion.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgRandom.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgRef.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgRefCounter.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgSmallDeterminant.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgSPDMatrix.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgSphere.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgThreads.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgTree.cpp" />
+    <ClCompile Include="..\dependencies\Newton\core\dgTypes.cpp" />
+    <ClCompile Include="..\dependencies\Newton\newton\Newton.cpp" />
+    <ClCompile Include="..\dependencies\Newton\newton\NewtonClass.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgBallConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgBilateralConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgBody.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgBodyMasterList.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgBroadPhaseCollision.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollision.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionBox.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionBVH.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCapsule.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionChamferCylinder.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCompound.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCompoundBreakable.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCone.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionConvex.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionConvexHull.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionConvexModifier.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCylinder.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionEllipse.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionHeightField.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionMesh.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionNull.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionScene.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionSphere.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionUserMesh.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgConnectorConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgContact.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgCorkscrewConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgHingeConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgMeshEffect.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgMeshEffect2.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgMinkowskiConv.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgNarrowPhaseCollision.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgPointToCurveConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgSlidingConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgUniversalConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgUpVectorConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgUserConstraint.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgWorld.cpp" />
+    <ClCompile Include="..\dependencies\Newton\physics\dgWorldDynamicUpdate.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_AudioData.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Buffer.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_CustomStream.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Device.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Effect.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_EffectSlot.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Effect_Reverb.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_EFX.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_EFXManager.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Filter.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Helper.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Init.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Loaders.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_LoggerObject.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_OggSample.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_OggStream.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Playback.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Sample.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Source.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_SourceManager.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Stream.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Types.cpp" />
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_WAVSample.cpp" />
     <ClCompile Include="sources\graphics\PostEffect_ColorGrading.cpp" />
     <ClCompile Include="sources\gui\GuiPopUpUIKeyboard.cpp" />
     <ClCompile Include="sources\impl\GamepadSDL.cpp" />
@@ -653,29 +901,6 @@
     <ClCompile Include="sources\impl\OpenALSoundChannel.cpp" />
     <ClCompile Include="sources\impl\OpenALSoundData.cpp" />
     <ClCompile Include="sources\impl\OpenALSoundEnvironment.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_AudioData.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Buffer.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Device.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Effect.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Effect_Reverb.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_EffectSlot.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_EFX.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_EFXManager.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Filter.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Helper.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Init.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Loaders.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_LoggerObject.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_OggHelper.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_OggSample.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_OggStream.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Playback.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Sample.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Source.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_SourceManager.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Stream.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Types.cpp" />
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_WAVSample.cpp" />
     <ClCompile Include="sources\resources\AnimationManager.cpp" />
     <ClCompile Include="sources\resources\BinaryBuffer.cpp" />
     <ClCompile Include="sources\resources\BitmapLoaderHandler.cpp" />
@@ -770,6 +995,12 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VersionData_HPL2_0.h ;VersionData_HPL2_0_Win32.cpp;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">VersionData_HPL2_0.h ;VersionData_HPL2_0_Win32.cpp;%(Outputs)</Outputs>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_gcc.S" />
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_msvc.asm" />
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_xcode.S" />
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_x64_msvc_asm.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

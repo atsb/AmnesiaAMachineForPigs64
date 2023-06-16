@@ -52,9 +52,6 @@
     <Filter Include="Impl\Sound">
       <UniqueIdentifier>{17ce1836-a4f9-42f1-9ad1-d2e73237b48e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Impl\Sound\OpenAL">
-      <UniqueIdentifier>{d25e35ab-3cc2-43c3-810e-37aa5ca7e1d5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Impl\Haptic">
       <UniqueIdentifier>{448143f6-b204-46b5-901b-350c5d99def2}</UniqueIdentifier>
     </Filter>
@@ -75,6 +72,27 @@
     </Filter>
     <Filter Include="3rdparty">
       <UniqueIdentifier>{ff49dcd6-f2ac-48fc-ac6d-44dcab90e112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\AngelScript">
+      <UniqueIdentifier>{6c44473a-c5be-4c28-9263-36186db43560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\Newton">
+      <UniqueIdentifier>{92880b17-30cb-42c9-8f0f-5f31a07915c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\Newton\core">
+      <UniqueIdentifier>{a3d5ecc6-562b-40c3-9ce1-b5868dcd532c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\Newton\physics">
+      <UniqueIdentifier>{5aff4f15-3efb-4a75-8f74-023b2bc1e38c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\Newton\include">
+      <UniqueIdentifier>{116d4e40-fc6f-4f9e-993f-2dfebf50e973}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\Newton\newton">
+      <UniqueIdentifier>{89fcd91f-1637-43a4-8222-4eee3562da50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rdparty\OALWrapper">
+      <UniqueIdentifier>{b4008a4e-7030-4719-8763-fc0a52d9e103}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -639,81 +657,6 @@
     <ClInclude Include="include\impl\OpenALSoundEnvironment.h">
       <Filter>Impl\Sound</Filter>
     </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_AudioData.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Buffer.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Device.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Effect.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Effect_Reverb.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_EffectSlot.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_EFX.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_EFXManager.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Filter.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Funcs.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Helper.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Init.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Loaders.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_LoggerObject.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_LowLevelObject.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_OggHelper.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_OggSample.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_OggStream.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Playback.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Sample.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Source.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_SourceManager.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Stream.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_Types.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
-    <ClInclude Include="..\dependencies\include\OpenAL\OAL_WAVSample.h">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClInclude>
     <ClInclude Include="include\resources\AnimationManager.h">
       <Filter>Resources</Filter>
     </ClInclude>
@@ -1032,6 +975,435 @@
     </ClInclude>
     <ClInclude Include="include\impl\GamepadSDL2.h">
       <Filter>Impl\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\include\angelscript.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_array.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_atomic.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_builder.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_bytecode.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_callfunc.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_compiler.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_config.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_configgroup.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_context.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_criticalsection.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_datatype.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_debug.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_gc.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_generic.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_map.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_memory.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_module.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_objecttype.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_outputbuffer.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_parser.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_property.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_restore.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptcode.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptengine.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptfunction.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptnode.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptobject.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_string.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_string_util.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_texts.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_thread.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_tokendef.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_tokenizer.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_typeinfo.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\AngelScript\sources\as_variablescope.h">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dg.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgAABBPolygonSoup.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgArray.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgConvexHull3d.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgConvexHull4d.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgCRC.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgDebug.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgDelaunayTetrahedralization.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgGeneralMatrix.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgGeneralVector.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgGoogol.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgGraph.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgHeap.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgIntersections.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgList.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgMatrix.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgMemory.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgNode.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgPathFinder.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgPlane.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgPolygonSoupBuilder.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgPolygonSoupDatabase.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgPolyhedra.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgPolyhedraMassProperties.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgQuaternion.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgRandom.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgRef.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgRefCounter.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgRtti.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgSimd_Instrutions.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgSmallDeterminant.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgSPDMatrix.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgSphere.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgStack.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgStdafx.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgThreads.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgTree.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgTypes.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\core\dgVector.h">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgWorldDynamicUpdate.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgWorld.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgUserConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgUpVectorConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgUniversalConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgSlidingConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgPointToCurveConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgPhysicsStdafx.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgPhysics.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgMinkowskiConv.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgMeshEffect.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgHingeConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCorkscrewConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgContact.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgConnectorConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionUserMesh.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionSphere.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionScene.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionNull.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionMesh.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionHeightField.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionEllipse.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCylinder.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionConvexModifier.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionConvexHull.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionConvex.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCone.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCompoundBreakable.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCompound.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionChamferCylinder.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionCapsule.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionBVH.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollisionBox.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgCollision.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgBroadPhaseCollision.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgBodyMasterList.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgBody.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgBilateralConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\physics\dgBallConstraint.h">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\include\Newton.h">
+      <Filter>3rdparty\Newton\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\newton\NewtonClass.h">
+      <Filter>3rdparty\Newton\newton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\Newton\newton\NewtonStdAfx.h">
+      <Filter>3rdparty\Newton\newton</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_AudioData.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Buffer.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_CustomStream.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Device.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Effect.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Effect_Reverb.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_EffectSlot.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_EFX.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_EFXManager.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Filter.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Funcs.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Helper.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Init.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Loaders.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_LoggerObject.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_LowLevelObject.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_OggSample.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_OggStream.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Playback.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Sample.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Source.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_SourceManager.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Stream.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_Types.h">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_WAVSample.h">
+      <Filter>3rdparty\OALWrapper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1533,75 +1905,6 @@
     <ClCompile Include="sources\impl\OpenALSoundEnvironment.cpp">
       <Filter>Impl\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_AudioData.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Buffer.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Device.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Effect.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Effect_Reverb.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_EffectSlot.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_EFX.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_EFXManager.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Filter.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Helper.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Init.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Loaders.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_LoggerObject.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_OggHelper.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_OggSample.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_OggStream.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Playback.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Sample.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Source.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_SourceManager.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Stream.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_Types.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
-    <ClCompile Include="..\dependencies\sources\OpenAL\OAL_WAVSample.cpp">
-      <Filter>Impl\Sound\OpenAL</Filter>
-    </ClCompile>
     <ClCompile Include="sources\resources\AnimationManager.cpp">
       <Filter>Resources</Filter>
     </ClCompile>
@@ -1875,8 +2178,412 @@
     <ClCompile Include="sources\impl\GamepadSDL2.cpp">
       <Filter>Impl\Input</Filter>
     </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_atomic.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_builder.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_bytecode.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_arm.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_mips.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_ppc.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_ppc_64.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_sh4.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_gcc.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_mingw.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_msvc.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x86.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_xenon.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_compiler.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_configgroup.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_context.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_datatype.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_gc.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_generic.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_globalproperty.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_memory.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_module.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_objecttype.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_outputbuffer.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_parser.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_restore.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptcode.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptengine.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptfunction.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptnode.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptobject.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_string.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_string_util.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_thread.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_tokenizer.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_typeinfo.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\AngelScript\sources\as_variablescope.cpp">
+      <Filter>3rdparty\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dg.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgAABBPolygonSoup.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgConvexHull3d.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgConvexHull4d.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgCRC.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgDebug.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgDelaunayTetrahedralization.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgGeneralMatrix.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgGeneralVector.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgGoogol.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgIntersections.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgMatrix.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgMemory.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgNode.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgPolygonSoupBuilder.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgPolyhedra.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgPolyhedraMassProperties.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgQuaternion.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgRandom.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgRef.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgRefCounter.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgSmallDeterminant.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgSPDMatrix.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgSphere.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgThreads.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgTree.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\core\dgTypes.cpp">
+      <Filter>3rdparty\Newton\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgWorldDynamicUpdate.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgWorld.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgUserConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgUpVectorConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgUniversalConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgSlidingConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgPointToCurveConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgNarrowPhaseCollision.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgMinkowskiConv.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgMeshEffect2.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgMeshEffect.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgHingeConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCorkscrewConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgContact.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgConnectorConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionUserMesh.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionSphere.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionScene.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionNull.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionMesh.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionHeightField.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionEllipse.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCylinder.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionConvexModifier.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionConvexHull.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionConvex.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCone.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCompoundBreakable.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCompound.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionChamferCylinder.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionCapsule.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionBVH.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollisionBox.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgCollision.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgBroadPhaseCollision.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgBodyMasterList.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgBody.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgBilateralConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\physics\dgBallConstraint.cpp">
+      <Filter>3rdparty\Newton\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\newton\Newton.cpp">
+      <Filter>3rdparty\Newton\newton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\Newton\newton\NewtonClass.cpp">
+      <Filter>3rdparty\Newton\newton</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_AudioData.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Buffer.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_CustomStream.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Device.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Effect.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Effect_Reverb.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_EffectSlot.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_EFX.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_EFXManager.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Filter.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Helper.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Init.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Loaders.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_LoggerObject.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_OggSample.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_OggStream.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Playback.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Sample.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Source.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_SourceManager.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Stream.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_Types.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_WAVSample.cpp">
+      <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="buildcounterinput.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_gcc.S">
+      <Filter>3rdparty\AngelScript</Filter>
+    </None>
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_msvc.asm">
+      <Filter>3rdparty\AngelScript</Filter>
+    </None>
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_xcode.S">
+      <Filter>3rdparty\AngelScript</Filter>
+    </None>
+    <None Include="..\dependencies\AngelScript\sources\as_callfunc_x64_msvc_asm.asm">
+      <Filter>3rdparty\AngelScript</Filter>
+    </None>
   </ItemGroup>
 </Project>

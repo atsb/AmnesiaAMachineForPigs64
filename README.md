@@ -8,7 +8,7 @@ Amnesia: A Machine For Pigs has been upgraded for GNU/Linux and macOS systems.
 
 * Old-style C++ class declarations have been updated.
 * All dependencies are now using their modern equivalents (except AngelScript) which is on 2.24.1 - this is due to the fact that this version is perfectly 64bit compatible and has compilable sources.  The API for the latest versions is not compatible and changing the script engine on such a complex title is bound to introduce regressions.
-* Newton has been upgraded to a heavily customised 2.31 with backported fixes in order to work perfectly with the physics in Vanilla AMFP.  Sources included.  Again, this was to prevent regressions in functionality.
+* Newton has been upgraded to a heavily customised 2.32 with backported fixes in order to work perfectly with the physics in Vanilla AMFP.  Sources included.  Again, this was to prevent regressions in functionality.
 * The FBX functionality has been added back and upgraded to the latest (2020.3).
 * CMake project is buildable from scratch with no further setup.
 * All CMake projects have been upgraded to remove deprecation notices.

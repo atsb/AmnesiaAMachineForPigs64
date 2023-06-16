@@ -30,7 +30,7 @@
 
 #include "resources/MeshLoader.h"
 
-using namespace FBXSDK_NAMESPACE;
+using namespace fbxsdk;
 
 namespace hpl {
 
