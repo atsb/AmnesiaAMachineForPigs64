@@ -22,7 +22,7 @@
 
 #include "system/SystemTypes.h"
 #include "engine/LowLevelEngineSetup.h"
-
+#include "impl/LowLevelGraphicsSDL.h"
 namespace hpl {
 
 	class iLowLevelSystem;;
@@ -58,7 +58,8 @@ namespace hpl {
 //		#ifdef WIN32
 //			cLowLevelSoundFmod* mpLowLevelSound;
 //		#else
-			iLowLevelSound*	mpLowLevelSound;
+		iLowLevelSound*	mpLowLevelSound;
+		SDL_Window* mpScreen;
 //		#endif
 		iLowLevelPhysics* mpLowLevelPhysics;
 		iLowLevelHaptic* mpLowLevelHaptic;

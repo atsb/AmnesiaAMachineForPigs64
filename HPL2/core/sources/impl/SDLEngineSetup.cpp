@@ -40,7 +40,7 @@
 #include "impl/LowLevelPhysicsNewton.h"
 
 #ifdef INCLUDE_HAPTIC
-	#include "impl/LowLevelHapticHaptX.h"
+#include "impl/LowLevelHapticHaptX.h"
 #endif
 
 #if USE_SDL2
@@ -65,6 +65,7 @@ namespace hpl {
 
 	cSDLEngineSetup::cSDLEngineSetup(tFlag alHplSetupFlags)
 	{
+
 #if SDL_VERSION_ATLEAST(2,0,0)
 		SDL_SetHint(SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES, "0");
 #endif
@@ -74,14 +75,17 @@ namespace hpl {
 				FatalError("Error Initializing Display: %s",SDL_GetError());
 				exit(1);
 			}
-#if SDL_VERSION_ATLEAST(2,0,0)
-            SDL_DisableScreenSaver();
-#elif defined WIN32 // only on SDL1.2
+
+#ifdef WIN32
 			// Set up device notifications!
 			// This is bad, cos it is actually Windows specific code, should not be here. TODO: move it, obviously
 			SDL_SysWMinfo info;
 			SDL_VERSION(&info.version);
-			if(SDL_GetWMInfo(&info))
+#if SDL_VERSION_ATLEAST(2, 0, 0)
+			if (SDL_GetWindowWMInfo(mpScreen, &info))
+#else
+			if (SDL_GetWMInfo(&info))
+#endif
 			{
 				DEV_BROADCAST_DEVICEINTERFACE notificationFilter;
 				ZeroMemory(&notificationFilter, sizeof(notificationFilter));
@@ -95,14 +99,19 @@ namespace hpl {
 				notificationFilter.dbcc_size = sizeof(notificationFilter);
 
 				HDEVNOTIFY hDevNotify;
+#ifdef SDL_VERSION_ATLEAST(2, 0, 0)
+				hDevNotify = RegisterDeviceNotification(info.info.win.window, &notificationFilter,
+					DEVICE_NOTIFY_WINDOW_HANDLE |
+					DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);
+#else
 				hDevNotify = RegisterDeviceNotification(info.window, &notificationFilter,
 					DEVICE_NOTIFY_WINDOW_HANDLE |
 					DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);
-
+#endif
 				if(hDevNotify == NULL) {
 				}
 			}
-#endif // WIN32
+#endif
 		}
 		else
 		{

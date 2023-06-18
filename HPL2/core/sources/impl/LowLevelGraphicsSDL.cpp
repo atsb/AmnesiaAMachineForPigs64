@@ -92,10 +92,6 @@ namespace hpl {
 
 		mbDoubleSidedStencilIsSet = false;
 
-#ifdef WIN32
-		//mhKeyTrapper = NULL;
-#endif
-
 		mpFrameBuffer = NULL;
 
 		for(int i=0;i<kMaxTextureUnits;i++)
@@ -247,13 +243,33 @@ namespace hpl {
                 cPlatform::CreateMessageBox(_W("Warning!"),_W("Could not set displaymode and 640x480 is used instead!\n"));
             }
         }
+		else
         {
             // update with the screen size ACTUALLY obtained
             int w,h;
             SDL_GetWindowSize(mpScreen, &w, &h);
             mvScreenSize = cVector2l(w, h);
+#ifdef WIN32
+			//////////////////////////////
+			// Set up window position
+			if (abFullscreen == false)
+			{
+				SDL_SysWMinfo pInfo;
+				SDL_VERSION(&pInfo.version);
+				SDL_GetWindowWMInfo(mpScreen, &pInfo);
+
+				RECT r;
+				GetWindowRect(pInfo.info.win.window, &r);
+
+				if (avWindowPos.x >= 0 && avWindowPos.y >= 0)
+				{
+					SetWindowPos(pInfo.info.win.window, HWND_TOP, avWindowPos.x, avWindowPos.y, 0, 0, SWP_NOSIZE);
+				}
+			}
+#endif
+			mGLContext = SDL_GL_CreateContext(mpScreen);
         }
-        mGLContext = SDL_GL_CreateContext(mpScreen);
+       
 #else
 		unsigned int mlFlags = SDL_OPENGL;
 
@@ -286,7 +302,7 @@ namespace hpl {
 		}
         // update with the screen size ACTUALLY obtained
         mvScreenSize = cVector2l(mpScreen->w, mpScreen->h);
-#   ifdef WIN32
+#ifdef WIN32
 		//////////////////////////////
 		// Set up window position
 		if(abFullscreen==false)
@@ -303,7 +319,7 @@ namespace hpl {
 				SetWindowPos(pInfo.window, HWND_TOP, avWindowPos.x, avWindowPos.y, 0, 0,  SWP_NOSIZE);
 			}
 		}
-#   endif
+#endif
 #endif
         if (mbGrab) {
             SetWindowGrab(true);
