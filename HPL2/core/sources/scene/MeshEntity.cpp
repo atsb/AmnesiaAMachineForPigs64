@@ -111,7 +111,7 @@ namespace hpl {
 
 		////////////////////////////////////////////////
 		//Create sub entities
-		for(int i=0;i<mpMesh->GetSubMeshNum();i++)
+		for(size_t i=0;i<mpMesh->GetSubMeshNum();i++)
 		{
 			cSubMesh *pSubMesh = mpMesh->GetSubMesh(i);
 			cSubMeshEntity* pSub = hplNew( cSubMeshEntity, (asName + "_" + pSubMesh->GetName(),this,pSubMesh,mpMaterialManager) );
@@ -128,7 +128,7 @@ namespace hpl {
 		////////////////////////////////////////////////
 		//Create animation states from mesh.
 		mvAnimationStates.reserve( mpMesh->GetAnimationNum());
-		for(int i=0; i<  mpMesh->GetAnimationNum(); i++)
+		for(size_t i=0; i<  mpMesh->GetAnimationNum(); i++)
 		{
 			cAnimation* pAnimation = mpMesh->GetAnimation(i);
 
@@ -136,7 +136,7 @@ namespace hpl {
 
 			mvAnimationStates.push_back(pAnimState);
 
-			tAnimationStateIndexMap::value_type value(pAnimState->GetName(), (int)mvAnimationStates.size()-1);
+			tAnimationStateIndexMap::value_type value(pAnimState->GetName(), (int)GetAnimationStateNum() - 1);
 			m_mapAnimationStateIndices.insert(value);
 		}
 
@@ -160,7 +160,7 @@ namespace hpl {
 			//////////////////////////////////
 			//Fill the state array with the bones so
 			//that each state has the same index as the bones.
-			for(int i=0; i< pSkeleton->GetBoneNum(); i++)
+			for(size_t i=0; i< pSkeleton->GetBoneNum(); i++)
 			{
 				cBone* pBone = pSkeleton->GetBoneByIndex(i);
 
@@ -174,7 +174,7 @@ namespace hpl {
 
 			//////////////////////////////////
 			//Set parents and children of the nodes in the array
-			for(int i=0; i< (int)mvBoneStates.size();i++)
+			for(size_t i=0; i< GetBoneStateNum(); i++)
 			{
 				cNode3D* pState = mvBoneStates[i];
 				cBone* pBone = pSkeleton->GetBoneByIndex(i);
@@ -200,7 +200,7 @@ namespace hpl {
 
 			//////////////////////////////////
 			//Reset all bones states
-			for(size_t i=0;i < mvBoneStates.size(); i++)
+			for(size_t i=0;i < GetBoneStateNum(); i++)
 			{
 				cNode3D *pState = mvBoneStates[i];
 				cBone* pBone = mpMesh->GetSkeleton()->GetBoneByIndex((int)i);
@@ -210,15 +210,15 @@ namespace hpl {
 
 			//////////////////////////////////
 			//Create temp bone nodes
-			mvTempBoneStates.resize(mvBoneStates.size());
-			for(size_t i=0;i < mvTempBoneStates.size(); i++)
+			mvTempBoneStates.resize(GetBoneStateNum());
+			for(size_t i=0;i < GetTempBoneStatesNum(); i++)
 			{
 				mvTempBoneStates[i] = hplNew( cBoneState,(mvBoneStates[i]->GetName(),false));
 			}
 
 			//////////////////////////////////
 			//Iterate and attach the sub meshes
-			for(size_t i=0; i< mvSubMeshes.size(); ++i)
+			for(size_t i=0; i< GetSubMeshEntityNum(); ++i)
 			{
 				cSubMeshEntity *pSubEnt = mvSubMeshes[i];
 
@@ -237,7 +237,7 @@ namespace hpl {
 		else
 		{
 			//Iterate and attach the sub meshes
-			for(size_t i=0; i< mvSubMeshes.size(); ++i)
+			for(size_t i=0; i< GetSubMeshEntityNum(); ++i)
 			{
 				cSubMesh *pSubMesh = mpMesh->GetSubMesh((int)i);
 				cSubMeshEntity *pSubEnt = mvSubMeshes[i];
@@ -261,7 +261,7 @@ namespace hpl {
 
 	cMeshEntity::~cMeshEntity()
 	{
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i< GetSubMeshEntityNum();i++)
 		{
 			cSubMeshEntity *pSub = mvSubMeshes[i];
 
@@ -292,6 +292,10 @@ namespace hpl {
 	// PUBLIC METHODS
 	//////////////////////////////////////////////////////////////////////////
 
+	size_t cMeshEntity::GetTempBoneStatesNum()
+	{
+		return mvTempBoneStates.size();
+	}
 
 	//-----------------------------------------------------------------------
 
@@ -392,7 +396,7 @@ namespace hpl {
 		if(mbSkeletonPhysics && mfSkeletonPhysicsWeight==1.0f && mbSkeletonPhysicsCanSleep)
 		{
 			bool bEnabled = false;
-			for(int bone =0; bone< GetBoneStateNum(); ++bone)
+			for(size_t bone =0; bone< GetBoneStateNum(); ++bone)
 			{
 				cBoneState *pState = GetBoneState(bone);
 				iPhysicsBody *pBody = pState->GetBody();
@@ -416,7 +420,7 @@ namespace hpl {
 			////////////////////////
 			//Check if it is animated
 			bool bAnimationActive = false;
-			for(size_t i=0; i< mvAnimationStates.size(); i++)
+			for(size_t i=0; i< GetAnimationStateNum(); i++)
 			{
 				if(mvAnimationStates[i]->IsActive()){
 					bAnimationActive = true;
@@ -430,7 +434,7 @@ namespace hpl {
 
 			int soloIndex = -1;
 
-			for(size_t i=0; i< mvAnimationStates.size(); i++)
+			for(size_t i=0; i< GetAnimationStateNum(); i++)
 			{
 				cAnimationState *pAnimState = mvAnimationStates[i];
 				if ( !pAnimState->CanBlend() )
@@ -460,7 +464,7 @@ namespace hpl {
 					if(	bAnimationActive || mbUpdatedBones == false ||
 						(mbSkeletonPhysics && !mbSkeletonPhysicsSleeping))
 					{
-						for(size_t i=0;i < mvBoneStates.size(); i++)
+						for(size_t i=0;i < GetBoneStateNum(); i++)
 						{
 							cNode3D *pState = mvBoneStates[i];
 							cBone* pBone = mpMesh->GetSkeleton()->GetBoneByIndex((int)i);
@@ -499,7 +503,7 @@ namespace hpl {
 						//Interpolate matrices
 						if(mfSkeletonPhysicsWeight!=1.0f)
 						{
-							for(size_t i=0;i < mvBoneStates.size(); i++)
+							for(size_t i=0;i < GetBoneStateNum(); i++)
 							{
 								cMatrixf mtxMixLocal = cMath::MatrixSlerp(	mfSkeletonPhysicsWeight,
 																			mvTempBoneStates[i]->GetLocalMatrix(),
@@ -513,7 +517,7 @@ namespace hpl {
 
 					//////////////////////////////////
 					//Go through all animations states and update the bones
-					for(size_t i=0; i< mvAnimationStates.size(); i++)
+					for(size_t i=0; i< GetAnimationStateNum(); i++)
 					{
 						cAnimationState *pAnimState = mvAnimationStates[i];
 
@@ -525,7 +529,7 @@ namespace hpl {
 							{
 								/////////////////////////////////////
 								//Go through all tracks in animation and apply to nodes
-								for(int i=0; i<pAnim->GetTrackNum(); i++)
+								for(size_t i=0; i<pAnim->GetTrackNum(); i++)
 								{
 									cAnimationTrack *pTrack = pAnim->GetTrack(i);
 
@@ -573,7 +577,7 @@ namespace hpl {
 					//Update attached entities
 					if(bAnimationActive || mbSkeletonPhysics)
 					{
-						for(size_t i=0;i < mvBoneStates.size(); i++)
+						for(size_t i=0;i < GetBoneStateNum(); i++)
 						{
 							mvBoneStates[i]->UpdateEntityChildren();
 						}
@@ -584,7 +588,7 @@ namespace hpl {
 					//Note this must be done after all bone states are updated.
 					if(mbSkeletonColliders && mbSkeletonPhysics==false)
 					{
-						for(size_t i=0;i < mvBoneStates.size(); i++)
+						for(size_t i=0;i < GetBoneStateNum(); i++)
 						{
 							cBoneState *pState = mvBoneStates[i];
 							iPhysicsBody *pColliderBody = pState->GetColliderBody();
@@ -601,7 +605,7 @@ namespace hpl {
 					//Update the sub entity transform, so that they are updated in the renderable container.
 					if(bUpdateTransform)
 					{
-						for(size_t i=0; i<mvSubMeshes.size(); ++i)
+						for(size_t i=0; i<GetSubMeshEntityNum(); ++i)
 						{
 							mvSubMeshes[i]->SetTransformUpdated(true);
 						}
@@ -616,7 +620,7 @@ namespace hpl {
 					if(bAnimationActive)
 					{
 						//Reset all state matrices
-						for(size_t i=0;i < mvNodeStates.size(); i++)
+						for(size_t i=0;i < GetNodeStateNum(); i++)
 						{
 							cNode3D *pState = mvNodeStates[i];
 							if(pState->IsActive()) pState->SetMatrix(cMatrixf::Identity);
@@ -628,14 +632,14 @@ namespace hpl {
 
 						/////////////////////////
 						//Go through all animations states and set the node's
-						for(size_t i=0; i< mvAnimationStates.size(); i++)
+						for(size_t i=0; i< GetAnimationStateNum(); i++)
 						{
 							cAnimationState *pAnimState = mvAnimationStates[i];
 							if(pAnimState->IsActive())
 							{
 								cAnimation *pAnim = pAnimState->GetAnimation();
 
-								for(int i=0; i<pAnim->GetTrackNum(); i++)
+								for(size_t i=0; i<pAnim->GetTrackNum(); i++)
 								{
 									cAnimationTrack *pTrack = pAnim->GetTrack(i);
 
@@ -669,7 +673,7 @@ namespace hpl {
 					else if(mbHasUpdatedAnimation)
 					{
 						//Reset all state matrices
-						for(size_t i=0;i < mvNodeStates.size(); i++)
+						for(size_t i=0;i < GetNodeStateNum(); i++)
 						{
 							cNode3D *pState = mvNodeStates[i];
 							cNode3D* pMeshNode = mpMesh->GetNode((int)i);
@@ -691,7 +695,7 @@ namespace hpl {
 
 		/////////////////////////////////////////
 		/// Update Sub Entities
-		for(size_t i=0; i<mvSubMeshes.size(); ++i)
+		for(size_t i=0; i< GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSub = mvSubMeshes[i];
 
@@ -702,7 +706,7 @@ namespace hpl {
 		/// Update animation events
 		if(mvAnimationStates.empty()==false)
 		{
-			for(size_t i=0; i< mvAnimationStates.size(); ++i)
+			for(size_t i=0; i< GetAnimationStateNum(); ++i)
 			{
 				cAnimationState *pState = mvAnimationStates[i];
 
@@ -717,7 +721,7 @@ namespace hpl {
 
 				if(pState->IsActive()==false || pState->IsPaused() || pState->IsFadingOut()) continue;
 
-				for(int j=0; j < pState->GetEventNum(); ++j)
+				for(size_t j=0; j < pState->GetEventNum(); ++j)
 				{
 					cAnimationEvent *pEvent = pState->GetEvent(j);
 
@@ -748,7 +752,7 @@ namespace hpl {
 
 		mvAnimationStates.push_back(pAnimState);
 
-		tAnimationStateIndexMap::value_type value(pAnimState->GetName(), (int)mvAnimationStates.size()-1);
+		tAnimationStateIndexMap::value_type value(pAnimState->GetName(), (int)GetAnimationStateNum() - 1);
 		m_mapAnimationStateIndices.insert(value);
 
 		///////////////////////////////
@@ -794,16 +798,16 @@ namespace hpl {
 			return NULL;
 		}
 	}
-	int cMeshEntity::GetAnimationStateNum()
+	size_t cMeshEntity::GetAnimationStateNum()
 	{
-		return (int)mvAnimationStates.size();
+		return mvAnimationStates.size();
 	}
 
 	//-----------------------------------------------------------------------
 
 	void cMeshEntity::SetIsOccluder(bool abX)
 	{
-		for(size_t i=0;i<mvSubMeshes.size();i++)
+		for(size_t i=0;i< GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetIsOccluder(abX);
 		}
@@ -813,7 +817,7 @@ namespace hpl {
 
 	bool cMeshEntity::IsMeshCulled()
 	{
-		for(size_t i = 0; i < mvSubMeshes.size(); i++)
+		for(size_t i = 0; i < GetSubMeshEntityNum(); i++)
 		{
 			if(mvSubMeshes[i]->GetRenderFrameCount() == iRenderer::GetRenderFrameCount() && mvSubMeshes[i]->mfDistanceToFrustum < 20.0f * 20.0f)
 				return false;
@@ -824,10 +828,10 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	void cMeshEntity::Play(int alIndex,bool abLoop, bool bStopPrev)
+	void cMeshEntity::Play(size_t alIndex,bool abLoop, bool bStopPrev)
 	{
 		if(bStopPrev) Stop();
-		if(alIndex >= (int)mvAnimationStates.size()) return;
+		if(alIndex >= GetAnimationStateNum()) return;
 
 		mvAnimationStates[alIndex]->SetActive(true);
 		mvAnimationStates[alIndex]->SetTimePosition(0);
@@ -853,13 +857,13 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	void cMeshEntity::PlayFadeTo(int alIndex,bool abLoop, float afTime)
+	void cMeshEntity::PlayFadeTo(size_t alIndex,bool abLoop, float afTime)
 	{
 		///////////////////////
 		// Fade out previous
 		if(afTime != 0)
 		{
-			for(size_t i=0; i< mvAnimationStates.size(); i++)
+			for(size_t i=0; i< GetAnimationStateNum(); i++)
 			{
 				cAnimationState *pAnim = mvAnimationStates[i];
 				if(pAnim->IsActive()) pAnim->FadeOut(afTime);
@@ -867,7 +871,7 @@ namespace hpl {
 		}
 		else
 		{
-			for(size_t i=0; i< mvAnimationStates.size(); i++)
+			for(size_t i=0; i < GetAnimationStateNum(); i++)
 			{
 				cAnimationState *pAnim = mvAnimationStates[i];
 				pAnim->SetActive(false);
@@ -916,7 +920,7 @@ namespace hpl {
 
 	void cMeshEntity::FadeOutCurrent(float afTime)
 	{
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i< GetAnimationStateNum(); i++)
 		{
 			if(mvAnimationStates[i]->IsActive())
 			{
@@ -929,7 +933,7 @@ namespace hpl {
 	{
 		bool bAny = false;
 
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i< GetAnimationStateNum(); i++)
 		{
 			if(mvAnimationStates[i]->IsActive())
 			{
@@ -943,7 +947,7 @@ namespace hpl {
 		{
 			///////////////
 			// Play the first animation if none are active
-			for(size_t i=0; i< mvAnimationStates.size(); i++)
+			for(size_t i=0; i< GetAnimationStateNum(); i++)
 			{
 				mvAnimationStates[i]->SetActive(true);
 				mvAnimationStates[i]->SetTimePosition(0);
@@ -960,7 +964,7 @@ namespace hpl {
 
 	void cMeshEntity::Stop()
 	{
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i < GetAnimationStateNum(); i++)
 		{
 			mvAnimationStates[i]->SetActive(false);
 			mvAnimationStates[i]->SetTimePosition(0);
@@ -989,7 +993,7 @@ namespace hpl {
 
 	cBoneState* cMeshEntity::GetBoneState(size_t alIndex)
 	{
-		if ( alIndex < 0 || alIndex >= mvBoneStates.size() )
+		if ( alIndex < 0 || alIndex >= GetBoneStateNum() )
 		{
 			return NULL;
 		}
@@ -1009,11 +1013,11 @@ namespace hpl {
 		}
 	}
 
-	int cMeshEntity::GetBoneStateIndexFromPtr(cBoneState* apBoneState)
+	size_t cMeshEntity::GetBoneStateIndexFromPtr(cBoneState* apBoneState)
 	{
-		for(size_t i=0; i<mvBoneStates.size(); ++i)
+		for(size_t i=0; i<GetBoneStateNum(); ++i)
 		{
-			if(apBoneState == mvBoneStates[i]) return (int)i;
+			if(apBoneState == mvBoneStates[i]) return i;
 		}
 
 		return -1;
@@ -1031,9 +1035,9 @@ namespace hpl {
 			return NULL;
 		}
 	}
-	int cMeshEntity::GetBoneStateNum()
+	size_t cMeshEntity::GetBoneStateNum()
 	{
-		return (int)mvBoneStates.size();
+		return mvBoneStates.size();
 	}
 
 	//----------------------------------------------------------------------
@@ -1048,7 +1052,7 @@ namespace hpl {
 		mbSkeletonPhysicsFading = false;
 		mfSkeletonPhysicsWeight = 1.0f;
 
-		for(int bone =0; bone< GetBoneStateNum(); ++bone)
+		for(size_t bone =0; bone< GetBoneStateNum(); ++bone)
 		{
 			cBoneState *pState = GetBoneState(bone);
 			iPhysicsBody *pBody = pState->GetBody();
@@ -1087,7 +1091,7 @@ namespace hpl {
 			mbSkeletonPhysicsFading = true;
 			mfSkeletonPhysicsFadeSpeed = 1.0f / afTime;
 
-			for(int bone =0; bone< GetBoneStateNum(); ++bone)
+			for(size_t bone =0; bone< GetBoneStateNum(); ++bone)
 			{
 				cBoneState *pState = GetBoneState(bone);
 				iPhysicsBody *pBody = pState->GetBody();
@@ -1117,7 +1121,7 @@ namespace hpl {
 		mbSkeletonColliders = abX;
 
 		//Set active to the correct state.
-		for(int bone =0; bone< GetBoneStateNum(); ++bone)
+		for(size_t bone =0; bone< GetBoneStateNum(); ++bone)
 		{
 			cBoneState *pState = GetBoneState(bone);
 			iPhysicsBody *pColliderBody = pState->GetColliderBody();
@@ -1138,7 +1142,7 @@ namespace hpl {
 
 	void cMeshEntity::AlignBodiesToSkeleton(bool abCalculateSpeed)
 	{
-		for(int bone =0; bone< GetBoneStateNum(); ++bone)
+		for(size_t bone =0; bone< GetBoneStateNum(); ++bone)
 		{
 			cBoneState *pState = GetBoneState(bone);
 			iPhysicsBody *pBody = pState->GetBody();
@@ -1202,7 +1206,7 @@ namespace hpl {
 		cCollideData collideData;
 		collideData.SetMaxSize(1);
 
-		for(size_t i=0; i< mvBoneStates.size(); ++i)
+		for(size_t i=0; i< GetBoneStateNum(); ++i)
 		{
 			cBoneState *pState = mvBoneStates[i];
 			iPhysicsBody *pBody = pState->GetColliderBody();
@@ -1233,7 +1237,7 @@ namespace hpl {
 
 	void cMeshEntity::ResetGraphicsUpdated()
 	{
-		for(size_t i=0; i< mvSubMeshes.size(); ++i)
+		for(size_t i=0; i< GetSubMeshEntityNum(); ++i)
 		{
 			mvSubMeshes[i]->mbGraphicsUpdated = false;
 		}
@@ -1272,16 +1276,16 @@ namespace hpl {
 			return NULL;
 		}
 	}
-	int cMeshEntity::GetNodeStateNum()
+	size_t cMeshEntity::GetNodeStateNum()
 	{
-		return (int)mvNodeStates.size();
+		return mvNodeStates.size();
 	}
 
 	//-----------------------------------------------------------------------
 
-	cSubMeshEntity* cMeshEntity::GetSubMeshEntity(unsigned int alIdx)
+	cSubMeshEntity* cMeshEntity::GetSubMeshEntity(size_t alIdx)
 	{
-		if(alIdx >= mvSubMeshes.size()) return NULL;
+		if(alIdx >= GetSubMeshEntityNum()) return NULL;
 
 		return mvSubMeshes[alIdx];
 	}
@@ -1294,9 +1298,9 @@ namespace hpl {
 		return it->second;
 	}
 
-	int cMeshEntity::GetSubMeshEntityNum()
+	size_t cMeshEntity::GetSubMeshEntityNum()
 	{
-		return (int)mvSubMeshes.size();
+		return mvSubMeshes.size();
 	}
 
 	//-----------------------------------------------------------------------
@@ -1326,7 +1330,7 @@ namespace hpl {
 				m_mtxInvWorldMatrix = cMath::MatrixInverse(GetWorldMatrix());
 			}
 
-			for(int i=0; i< pSkeleton->GetBoneNum(); i++)
+			for(size_t i=0; i< pSkeleton->GetBoneNum(); i++)
 			{
 				cBone *pBone = pSkeleton->GetBoneByIndex(i);
 				cNode3D* pState = mvBoneStates[i];
@@ -1347,7 +1351,7 @@ namespace hpl {
 		if(abX == mbIsVisible) return;
 
 		mbIsVisible = abX;
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i< GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetVisible(abX);
 		}
@@ -1380,7 +1384,7 @@ namespace hpl {
 				cVector3f vFinalMin = pBV->GetMin();
 				cVector3f vFinalMax = pBV->GetMax();
 
-				for(int i=1; i< (int)mvSubMeshes.size(); i++)
+				for(size_t i=1; i< GetSubMeshEntityNum(); i++)
 				{
 					cBoundingVolume *pBV = mvSubMeshes[i]->GetSubMeshBoundingVolume();
 
@@ -1423,7 +1427,7 @@ namespace hpl {
 		if(abX == mbStatic) return;
 
 		mbStatic = abX;
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i<GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetStatic(abX);
 		}
@@ -1433,7 +1437,7 @@ namespace hpl {
 
 	void cMeshEntity::SetRenderFlagBit(tRenderableFlag alFlagBit, bool abSet)
 	{
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i<GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetRenderFlagBit(alFlagBit, abSet);
 		}
@@ -1445,7 +1449,7 @@ namespace hpl {
 
 		mfIlluminationAmount = afX;
 
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i<GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetIlluminationAmount(mfIlluminationAmount);
 		}
@@ -1457,7 +1461,7 @@ namespace hpl {
 
 		mfShaderTimer = afX;
 
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i<GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetShaderTimer(mfShaderTimer);
 		}
@@ -1469,7 +1473,7 @@ namespace hpl {
 
 		mfCoverageAmount = afX;
 
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i<GetSubMeshEntityNum();i++)
 		{
 			mvSubMeshes[i]->SetCoverageAmount(mfCoverageAmount);
 		}
@@ -1491,7 +1495,7 @@ namespace hpl {
 
 		float fAnimNum =0;
 		float fTotalAnimWeight =0;
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i < GetAnimationStateNum(); i++)
 		{
 			cAnimationState *pAnimState = mvAnimationStates[i];
 
@@ -1523,7 +1527,7 @@ namespace hpl {
 
 		////////////////////////
 		//Make sure that the submeshes are not added to t
-		for(size_t i=0; i<mvSubMeshes.size(); ++i)
+		for(size_t i=0; i<GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEnt = mvSubMeshes[i];
 
@@ -1540,7 +1544,7 @@ namespace hpl {
 
 		////////////////////////////////
 		//Create the nodes and attach sub meshes
-		for(int i=0; i< mpMesh->GetNodeNum(); i++)
+		for(size_t i=0; i< mpMesh->GetNodeNum(); i++)
 		{
 			cNode3D* pMeshNode = mpMesh->GetNode(i);
 
@@ -1561,7 +1565,7 @@ namespace hpl {
 
 		////////////////////////////////
 		//Set up hierarchy
-		for(int i=0; i< (int)mvNodeStates.size();i++)
+		for(size_t i=0; i<GetNodeStateNum();i++)
 		{
 			cNode3D* pStateNode = mvNodeStates[i];
 			cNode3D* pMeshNode = mpMesh->GetNode(i);
@@ -1641,12 +1645,12 @@ namespace hpl {
 
 		////////////////////////////
 		// Index all bones to correct states
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i < GetAnimationStateNum(); i++)
 		{
 			cAnimationState *pAnimState = mvAnimationStates[i];
 			cAnimation *pAnim = pAnimState->GetAnimation();
 
-			for(int j=0; j<pAnim->GetTrackNum(); j++)
+			for(size_t j=0; j<pAnim->GetTrackNum(); j++)
 			{
 				cAnimationTrack *pTrack = pAnim->GetTrack(j);
 
@@ -1671,7 +1675,7 @@ namespace hpl {
 
 		//////////
 		// Reset bones to their correct position
-		for(size_t i=0;i < mvBoneStates.size(); i++)
+		for(size_t i=0;i < GetBoneStateNum(); i++)
 		{
 			cNode3D *pState = mvBoneStates[i];
 			cBone* pBone = mpMesh->GetSkeleton()->GetBoneByIndex((int)i);
@@ -1687,7 +1691,7 @@ namespace hpl {
 
 		//////////////////////////////////
 		//Go through all animations states and update the bones
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i< GetAnimationStateNum(); i++)
 		{
 			cAnimationState *pAnimState = mvAnimationStates[i];
 
@@ -1697,7 +1701,7 @@ namespace hpl {
 
 				/////////////////////////////////////
 				//Go through all tracks in animation and apply to nodes
-				for(int i=0; i<pAnim->GetTrackNum(); i++)
+				for(size_t i=0; i<pAnim->GetTrackNum(); i++)
 				{
 					cAnimationTrack *pTrack = pAnim->GetTrack(i);
 
@@ -1741,14 +1745,14 @@ namespace hpl {
 
 		////////////////////////////
 		//Update attached entities
-		for(size_t i=0;i < mvBoneStates.size(); i++)
+		for(size_t i=0;i < GetBoneStateNum(); i++)
 		{
 			mvBoneStates[i]->UpdateEntityChildren();
 		}
 
 		/////////////////////////////////////
 		//Update the sub entity transform, so that they are updated in the renderable container.
-		for(size_t i=0; i<mvSubMeshes.size(); ++i)
+		for(size_t i=0; i<GetSubMeshEntityNum(); ++i)
 		{
 			mvSubMeshes[i]->SetTransformUpdated(true);
 		}
@@ -1768,7 +1772,7 @@ namespace hpl {
 			//Using vertices
 
 			//Go through all the sub meshes and build BV from vertices.
-			for(int i=0;i<GetSubMeshEntityNum();i++)
+			for(size_t i=0;i<GetSubMeshEntityNum();i++)
 			{
 				cSubMeshEntity* pSub = GetSubMeshEntity(i);
 
@@ -1805,7 +1809,7 @@ namespace hpl {
 		avMin = mvBoneStates[0]->GetWorldPosition();
 		avMax = avMin;
 
-		for(size_t i=1; i< mvBoneStates.size(); ++i)
+		for(size_t i=1; i< GetBoneStateNum(); ++i)
 		{
 			cBoneState *pState = mvBoneStates[i];
 			float fBoundingRadius = mpMesh->GetBoneBoundingRadius((int)i);
@@ -1834,7 +1838,7 @@ namespace hpl {
 		//////////////////////////////////////
 		// Calculate AABB for each animation
 		// Gets the max cached AABB per animation
-		for(size_t i=0; i< mvAnimationStates.size(); i++)
+		for(size_t i=0; i < GetAnimationStateNum(); i++)
 		{
 			cAnimationState *pAnimState = mvAnimationStates[i];
 

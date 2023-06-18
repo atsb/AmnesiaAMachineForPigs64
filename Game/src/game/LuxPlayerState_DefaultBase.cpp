@@ -289,7 +289,7 @@ void iLuxPlayerState_DefaultBase::AddOutlineObjects(iPhysicsBody *apBody, iLuxEn
 
 		cMeshEntity *pMeshEntity = pProp->GetEffectMeshEntity();
 		if(pMeshEntity==NULL) return;
-		for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 
@@ -304,7 +304,7 @@ void iLuxPlayerState_DefaultBase::AddOutlineObjects(iPhysicsBody *apBody, iLuxEn
 	else
 	{
 		cMeshEntity *pMeshEntity = pProp->GetEffectMeshEntity();
-		for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 

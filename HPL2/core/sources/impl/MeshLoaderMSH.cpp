@@ -361,7 +361,7 @@ namespace hpl {
 
 		////////////////////////////////////////
 		// Sub Meshes
-		for(int sub=0; sub< apMesh->GetSubMeshNum(); sub++)
+		for(size_t sub=0; sub< apMesh->GetSubMeshNum(); sub++)
 		{
 			cSubMesh* pSubMesh = apMesh->GetSubMesh(sub);
 			iVertexBuffer *pVtxBuff = pSubMesh->GetVertexBuffer();
@@ -474,7 +474,7 @@ namespace hpl {
 			binBuff.AddInt32(apMesh->GetAnimationNum());
 			if(gbLogMSHLoad) Log(" Animation num: %d\n",apMesh->GetAnimationNum());
 
-            for(int i=0; i<apMesh->GetAnimationNum(); ++i)
+            for(size_t i=0; i<apMesh->GetAnimationNum(); ++i)
 			{
 				AddAnimation(apMesh->GetAnimation(i), &binBuff);
 			}
@@ -573,7 +573,7 @@ namespace hpl {
 
 		////////////////////////
 		// Tracks
-        for(int track=0;track<apAnimation->GetTrackNum(); ++track)
+        for(size_t track=0;track<apAnimation->GetTrackNum(); ++track)
 		{
 			cAnimationTrack *pTrack = apAnimation->GetTrack(track);
 

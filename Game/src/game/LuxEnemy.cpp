@@ -1135,7 +1135,7 @@ void iLuxEnemy::FadeToSmoke(bool abPlaySound)
 	if(mpMeshEntity->GetMesh()->GetSkeleton())
 	{
 		cWorld *pWorld = mpMap->GetWorld();
-		for(int i=0; i<mpMeshEntity->GetBoneStateNum(); ++i)
+		for(size_t i=0; i<mpMeshEntity->GetBoneStateNum(); ++i)
 		{
 			cBoneState *pBone = mpMeshEntity->GetBoneState(i);
 
@@ -1895,7 +1895,7 @@ void iLuxEnemy::UpdateDarknessGlow(float afTimeStep)
 
 				float fAlpha = mfDarknessGlowAlpha*mfDarknessGlowAlpha*fDistMul*fInfectionMul;
 
-				for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+				for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 				{
 					gpBase->mpEffectRenderer->AddEnemyGlow(mpMeshEntity->GetSubMeshEntity(i),fAlpha, cColor(0));
 				}

@@ -820,7 +820,7 @@ void cLuxProp_Object::UpdateInfectionVision(float afTimeStep)
 	// Iterate submeshes and see if any is in player FOV
 	if(bInsideFOV==false)
 	{
-		for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEnt = mpMeshEntity->GetSubMeshEntity(i);
 

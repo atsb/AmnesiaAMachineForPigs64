@@ -1030,7 +1030,7 @@ void cLuxMap::AddDissolveEntity(cMeshEntity *apMeshEntity, float afTime)
 	{
 		pNewEntity->SetMatrix(apMeshEntity->GetWorldMatrix());
 
-		for(int i=0; i<pNewEntity->GetBoneStateNum(); ++i)
+		for(size_t i=0; i<pNewEntity->GetBoneStateNum(); ++i)
 		{
 			cBoneState *pOldBone = apMeshEntity->GetBoneState(i);
 			cBoneState *pNewBone = pNewEntity->GetBoneState(i);
@@ -1041,7 +1041,7 @@ void cLuxMap::AddDissolveEntity(cMeshEntity *apMeshEntity, float afTime)
 	}
 	else
 	{
-		for(int i=0; i<pNewEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<pNewEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pOldEnt = apMeshEntity->GetSubMeshEntity(i);
 			cSubMeshEntity *pSubEnt = pNewEntity->GetSubMeshEntity(i);

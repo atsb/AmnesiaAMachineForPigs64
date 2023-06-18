@@ -45,7 +45,7 @@ namespace hpl {
 		cAnimationTrack* GetTrack(int alIndex);
 		cAnimationTrack* GetTrackByName(const tString &asName);
 		void ReserveTrackNum(int alNum);
-		int GetTrackNum();
+		size_t GetTrackNum();
 
 		void SmoothAllTracks(float afAmount, float afPow, int alSamples,bool abTranslation, bool abRotation);
 

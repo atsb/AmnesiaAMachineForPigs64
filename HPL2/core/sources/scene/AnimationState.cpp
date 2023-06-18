@@ -365,7 +365,7 @@ namespace hpl {
 
 			/////////////////////////
 			// Find the smallest delta time
-			for(int i=0; i< mpAnimation->GetTrackNum(); i++)
+			for(size_t i=0; i< mpAnimation->GetTrackNum(); i++)
 			{
 				cAnimationTrack *pTrack = mpAnimation->GetTrack(i);
 
@@ -500,9 +500,9 @@ namespace hpl {
 		return mvEvents[alIdx];
 	}
 
-	int cAnimationState::GetEventNum()
+	size_t cAnimationState::GetEventNum()
 	{
-		return (int)mvEvents.size();
+		return mvEvents.size();
 	}
 
 	//-----------------------------------------------------------------------

@@ -129,9 +129,9 @@ namespace hpl {
 		}
 		return-1;
 	}
-	int cSkeleton::GetBoneNum()
+	size_t cSkeleton::GetBoneNum()
 	{
-		return (int)mvBones.size();
+		return mvBones.size();
 	}
 
 	//-----------------------------------------------------------------------

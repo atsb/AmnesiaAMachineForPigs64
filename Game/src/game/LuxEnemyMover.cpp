@@ -723,7 +723,7 @@ void cLuxEnemyMover::UpdateStepEffects(float afTimeStep)
 	///////////////////////////////////////
 	// Check if a step is occuring!
 	bool bStep = false;
-	for(int i=0; i<pAnim->GetEventNum(); ++i)
+	for(size_t i=0; i<pAnim->GetEventNum(); ++i)
 	{
 		cAnimationEvent *pEvent = pAnim->GetEvent(i);
         if(pEvent->mType != eAnimationEventType_Step) continue;

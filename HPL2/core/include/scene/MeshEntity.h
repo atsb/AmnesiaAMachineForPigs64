@@ -83,6 +83,8 @@ namespace hpl {
 					cMeshManager* apMeshManager, cAnimationManager *apAnimationManager);
 		~cMeshEntity();
 
+		size_t GetTempBoneStatesNum();
+
 		void SetWorld(cWorld *apWorld){ mpWorld = apWorld;}
 		cWorld* GetWorld(){ return mpWorld;}
 
@@ -91,9 +93,9 @@ namespace hpl {
 		void SetCallback(cMeshEntityCallback *apCallback){mpCallback = apCallback;}
 
 		//Sub mesh entities
-		cSubMeshEntity* GetSubMeshEntity(unsigned int alIdx);
+		cSubMeshEntity* GetSubMeshEntity(size_t alIdx);
 		cSubMeshEntity* GetSubMeshEntityName(const tString &asName);
-		int GetSubMeshEntityNum();
+		size_t GetSubMeshEntityNum();
 
 		//Animation states
 		cAnimationState* AddAnimation(cAnimation *apAnimation,const tString &asName, float afBaseSpeed);
@@ -102,17 +104,17 @@ namespace hpl {
 		cAnimationState* GetAnimationState(int alIndex);
 		int GetAnimationStateIndex(const tString &asName);
 		cAnimationState* GetAnimationStateFromName(const tString &asName);
-		int GetAnimationStateNum();
+		size_t GetAnimationStateNum();
 		bool IsMeshCulled();
 
 		void SetIsOccluder(bool abX);
 
 		//Animation controller
-		void Play(int alIndex,bool abLoop, bool bStopPrev);
+		void Play(size_t alIndex,bool abLoop, bool bStopPrev);
 		void PlayName(const tString &asName,bool abLoop, bool bStopPrev);
 		void Stop();
 
-		void PlayFadeTo(int alIndex,bool abLoop, float afTime);
+		void PlayFadeTo(size_t alIndex,bool abLoop, float afTime);
 		void PlayFadeToName(const tString &asName,bool abLoop, float afTime);
 
 		void FadeOutCurrent(float afTime);
@@ -128,9 +130,9 @@ namespace hpl {
 
 		cBoneState* GetBoneState(size_t alIndex);
 		int GetBoneStateIndex(const tString &asName);
-		int GetBoneStateIndexFromPtr(cBoneState* apBoneState);
+		size_t GetBoneStateIndexFromPtr(cBoneState* apBoneState);
 		cBoneState* GetBoneStateFromName(const tString &asName);
-		int GetBoneStateNum();
+		size_t GetBoneStateNum();
 
 		//Skeleton physics
 		void SetSkeletonPhysicsActive(bool abX);
@@ -176,7 +178,7 @@ namespace hpl {
 		cNode3D* GetNodeState(int alIndex);
 		int GetNodeStateIndex(const tString &asName);
 		cNode3D* GetNodeStateFromName(const tString &asName);
-		int GetNodeStateNum();
+		size_t GetNodeStateNum();
 
 		//Entity implementation
 		tString GetEntityType(){ return "MeshEntity";}
@@ -228,7 +230,6 @@ namespace hpl {
 		void UpdateBVFromSkeleton();
 		void GetAABBFromBones(cVector3f &avMin, cVector3f &avMax);
 
-		void BuildBoneStatesRec(cBone *apBone, cNode3D *apParent);
 		void UpdateSkeletonBounds(cAnimation* apAnimation, cAnimationState* apState);
 
 		bool GetAABBFromSkeletonBounds(cVector3f &avMin, cVector3f &avMax);

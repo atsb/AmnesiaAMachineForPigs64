@@ -171,7 +171,7 @@ void iLuxProp_CritterBase::OnSetupAfterLoad(cWorld *apWorld)
 	mpBody = mvBodies[0];
 
 	mvBaseMatrices.resize(mpMeshEntity->GetSubMeshEntityNum());
-	for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+	for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 	{
 		mvBaseMatrices[i] = mpMeshEntity->GetSubMeshEntity(i)->GetLocalMatrix();
 	}
@@ -515,7 +515,7 @@ void iLuxProp_CritterBase::UpdateMesh(float afTimeStep)
 	}
 	else
 	{
-		for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cMatrixf mtxLocal = cMath::MatrixMul(cMath::MatrixMul(mtxRotate.GetTranspose(),m_mtxMeshOffset), mvBaseMatrices[i]);
 			//cMatrixf mtxLocal = cMath::MatrixMul(mtxRotate.GetTranspose(),mvBaseMatrices[i]);

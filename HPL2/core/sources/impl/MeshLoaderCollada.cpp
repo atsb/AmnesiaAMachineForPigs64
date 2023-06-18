@@ -765,7 +765,7 @@ namespace hpl {
 					int lBoneIdx = pSkeleton->GetBoneIndexBySid(pRoot->GetSid());
 					////////
 					// Apply scale to the translation of root bones animation
-					for(int i = 0; i < pMesh->GetAnimationNum(); ++i)
+					for(size_t i = 0; i < pMesh->GetAnimationNum(); ++i)
 					{
 						cAnimation *pAnimation = pMesh->GetAnimation(i);
 
@@ -1033,7 +1033,7 @@ namespace hpl {
 		//Skeleton
 		if(apSkeleton)
 		{
-			for(int i=0; i< apSkeleton->GetBoneNum(); ++i)
+			for(size_t i=0; i< apSkeleton->GetBoneNum(); ++i)
 			{
 				cBone *pBone = apSkeleton->GetBoneByIndex(i);
 

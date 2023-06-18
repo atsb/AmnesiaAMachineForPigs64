@@ -186,7 +186,7 @@ void cLuxCommentaryIcon::OnUpdate(float afTimeStep)
 		}
 	}
 
-	for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+	for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 	{
 		cSubMeshEntity *pSubEnt = mpMeshEntity->GetSubMeshEntity(i);
 		cSubMesh *pSubMesh = pSubEnt->GetSubMesh();

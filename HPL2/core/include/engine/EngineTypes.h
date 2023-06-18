@@ -112,7 +112,7 @@ namespace hpl {
 			friend class cMultipleSettingsHandler;
 		public:
 			cGSEntry() : mfVal(1),mfDest(1), mTypes(0), mbDestroyAtDest(false){}
-			cGSEntry(float afVal,tFlag aTypes) : mfVal(afVal),mfDest(afVal), mTypes(aTypes), mbDestroyAtDest(false){}
+			cGSEntry(float afVal,tFlag aTypes) : mfVal(afVal),mfDest(afVal), mTypes(aTypes), mbDestroyAtDest(false) {}
 
 			void FadeTo(float afDest, float afSpeed, bool abDestroyAtDest);
 			void SetValAndDest(float afVal);

@@ -517,7 +517,7 @@ void iLuxProp::FlashIfNearPlayer(float afTimeStep)
 
 	if(mfFlashAlpha> 0)
 	{
-		for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEnt = mpMeshEntity->GetSubMeshEntity(i);
 
@@ -897,7 +897,7 @@ void iLuxProp::SetAnimationSpeed(float afSpeed)
 
 	//////////////
 	// Set the animation speed of all states
-	for(int i = 0; i < mpMeshEntity->GetAnimationStateNum(); ++i)
+	for(size_t i = 0; i < mpMeshEntity->GetAnimationStateNum(); ++i)
 	{
 		cAnimationState *pState = mpMeshEntity->GetAnimationState(i);
 
@@ -916,7 +916,7 @@ void iLuxProp::SetAnimationPosition(float afPosition)
 
 	//////////////
 	// Set the animation speed of all states
-	for(int i = 0; i < mpMeshEntity->GetAnimationStateNum(); ++i)
+	for(size_t i = 0; i < mpMeshEntity->GetAnimationStateNum(); ++i)
 	{
 		cAnimationState *pState = mpMeshEntity->GetAnimationState(i);
 

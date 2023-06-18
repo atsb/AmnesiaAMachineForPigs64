@@ -165,7 +165,7 @@ namespace hpl {
 
 		cAnimationEvent *CreateEvent();
 		cAnimationEvent *GetEvent(int alIdx);
-		int GetEventNum();
+		size_t GetEventNum();
 
 		/**
 		  * If either time is -1 then no limits are checked.

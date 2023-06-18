@@ -105,9 +105,9 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	int cAnimation::GetTrackNum()
+	size_t cAnimation::GetTrackNum()
 	{
-		return (int)mvTracks.size();
+		return mvTracks.size();
 	}
 
 	//-----------------------------------------------------------------------

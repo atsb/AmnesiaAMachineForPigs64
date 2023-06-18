@@ -71,7 +71,7 @@ void cLuxModelCache::Create()
 			pMesh->IncUserCount();
 			mlstMeshCache.push_back(pMesh);
 
-			for(int i=0; i<pMeshEntity->GetAnimationStateNum(); ++i)
+			for(size_t i=0; i<pMeshEntity->GetAnimationStateNum(); ++i)
 			{
 				cAnimationState *pAnimState =pMeshEntity->GetAnimationState(i);
 				if(pAnimState->DataIsInMeshFile()) continue; //Data will be saved with mesh!

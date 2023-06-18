@@ -439,7 +439,7 @@ namespace hpl {
 
 		//////////////////////////////
 		// Add submeshes to renderable container
-		for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEntity = pMeshEntity->GetSubMeshEntity(i);
 			if(pSubEntity->GetSubMesh()->IsCollideShape()) continue; //Collide shapes are never rendered!
@@ -459,7 +459,7 @@ namespace hpl {
 	{
 		if(apMesh==NULL) return;
 
-		for(int i=0; i<apMesh->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<apMesh->GetSubMeshEntityNum(); ++i)
 		{
 			RemoveRenderableFromContainer(apMesh->GetSubMeshEntity(i));
 		}

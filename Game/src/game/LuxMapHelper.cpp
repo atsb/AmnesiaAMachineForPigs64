@@ -60,7 +60,7 @@ bool cLuxLineOfSightCallback::BeforeIntersect(iPhysicsBody *apBody)
 		if(pMeshEntity)
 		{
 			bool bFoundSolid = false;
-			for(int i=0; i< pMeshEntity->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i< pMeshEntity->GetSubMeshEntityNum(); ++i)
 			{
 				cSubMeshEntity *pSubMeshEnt = pMeshEntity->GetSubMeshEntity(i);
 				if(pSubMeshEnt->GetEntityParent() != (iEntity3D*)apBody)

@@ -105,7 +105,7 @@ void cLuxPlayerHandsLoader::AfterLoad(cXmlElement *apRootElem, const cMatrixf &a
 
 	if(mpPlayerHands->mvHandAnimations.empty() && mpEntity)
 	{
-		for(int i=0; i<mpEntity->GetAnimationStateNum(); ++i)
+		for(size_t i=0; i<mpEntity->GetAnimationStateNum(); ++i)
 		{
 			cAnimationState *pAnimState = mpEntity->GetAnimationState(i);
             cAnimation *pAnim = pAnimState->GetAnimation();
@@ -157,7 +157,7 @@ void cLuxPlayerHands::Reset()
 
 void cLuxPlayerHands::Update(float afTimeStep)
 {
-	for(int i=0; i<mpHandsEntity->GetAnimationStateNum(); ++i)
+	for(size_t i=0; i<mpHandsEntity->GetAnimationStateNum(); ++i)
 	{
 		cAnimationState *pAnim = mpHandsEntity->GetAnimationState(i);
 	}

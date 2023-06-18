@@ -176,7 +176,7 @@ namespace hpl {
 			{
 				hplDelete(pDoc);
 
-				return nullptr;
+				return NULL;
 			}
 			bLoadedFromNormalFile = true;
 		}
@@ -188,7 +188,7 @@ namespace hpl {
 			if(compBuffer.Load(asFile)==false)
 			{
 				//Log("Could not load compressed map!\n");
-				return nullptr;
+				return NULL;
 			}
 
 			int lKey = kEncryptKey;
@@ -198,14 +198,14 @@ namespace hpl {
 			if(textBuff.DecompressAndAddFromBuffer(&compBuffer, false)==false)
 			{
 				//Log("Could not decompress map!\n");
-				return nullptr;
+				return NULL;
 			}
 
 			if(pDoc->CreateFromString(textBuff.GetDataPointerAtCurrentPos())==false)
 			{
 				hplDelete(pDoc);
 				//Log("Could not parse map!\n");
-				return nullptr;
+				return NULL;
 			}
 		}
 
@@ -313,7 +313,7 @@ namespace hpl {
 		if(pXmlContents==NULL)
 		{
 			hplDelete(pDoc);
-			return nullptr;
+			return NULL;
 		}
 
 		///////////////////////////////////
@@ -1672,7 +1672,7 @@ namespace hpl {
 		bool bHasNormalColliderShapeMesh = false;
 		if(bCollides)
 		{
-			for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 			{
 				cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 				cSubMesh *pSubMesh = pSubEnt->GetSubMesh();
@@ -1689,7 +1689,7 @@ namespace hpl {
 
 		///////////////////////
 		// Add all sub meshes to a new vector
-		for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+		for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 		{
 			cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 			cSubMesh *pSubMesh = pSubEnt->GetSubMesh();
@@ -1762,7 +1762,7 @@ namespace hpl {
 			cMatrixf mtxBodyTransform = cMath::MatrixRotate(vRotation, eEulerRotationOrder_XYZ);
 			mtxBodyTransform.SetTranslation(vPosition);
 
-			for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 			{
 				cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 				CreateSubMeshShapeBodies(pSubEnt, mtxBodyTransform, vScale);
@@ -1970,7 +1970,7 @@ namespace hpl {
 			alstMeshEntities.push_back(pMeshEntity);
 
 			// Add all sub meshes to a new vector
-			for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 			{
 				cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 				cSubMesh *pSubMesh = pSubEnt->GetSubMesh();
@@ -2063,7 +2063,7 @@ namespace hpl {
 			pMeshEntity->SetUniqueID(lID);
 
 			// Add all sub meshes to a new vector
-			for(int i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i<pMeshEntity->GetSubMeshEntityNum(); ++i)
 			{
 				cSubMeshEntity *pSubEnt = pMeshEntity->GetSubMeshEntity(i);
 
@@ -2127,7 +2127,7 @@ namespace hpl {
 			}
 
 			lstCombineMeshes.push_back(pMeshEnt);
-			for(int i=0; i<pMeshEnt->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i<pMeshEnt->GetSubMeshEntityNum(); ++i)
 			{
 				lstCombineSubMeshes.push_back(pMeshEnt->GetSubMeshEntity(i));
 			}
@@ -2145,7 +2145,7 @@ namespace hpl {
 		{
 			cMeshEntity *pMeshEnt = *it;
 
-			for(int i=0; i<pMeshEnt->GetSubMeshEntityNum(); ++i)
+			for(size_t i=0; i<pMeshEnt->GetSubMeshEntityNum(); ++i)
 			{
 				apContainer->Remove(pMeshEnt->GetSubMeshEntity(i));
 			}

@@ -83,7 +83,7 @@ namespace hpl {
 		cSubMesh* GetSubMesh(unsigned int alIdx);
 		int GetSubMeshIndex(const tString &asName);
 		cSubMesh* GetSubMeshName(const tString &asName);
-		int GetSubMeshNum();
+		size_t GetSubMeshNum();
 
 		int GetTriangleCount();
 
@@ -98,7 +98,7 @@ namespace hpl {
 
 		void ClearAnimations(bool abDeleteAll);
 
-		int GetAnimationNum();
+		size_t GetAnimationNum();
 
 		void CompileBonesAndSubMeshes();
 

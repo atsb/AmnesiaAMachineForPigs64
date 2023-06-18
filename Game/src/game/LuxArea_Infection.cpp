@@ -30,7 +30,7 @@
 
 cLuxAreaLoader_Infection::cLuxAreaLoader_Infection(const tString& asName) : iLuxAreaLoader(asName)
 {
-
+	miNumberOfInfectionLevels = 0;
 }
 
 cLuxAreaLoader_Infection::~cLuxAreaLoader_Infection()
@@ -50,11 +50,11 @@ iLuxArea *cLuxAreaLoader_Infection::CreateArea(const tString& asName, int alID, 
 
 void cLuxAreaLoader_Infection::LoadVariables(iLuxArea *apArea, cWorld *apWorld)
 {
-	miNumberOfInfectionLevels = gpBase->mpGameCfg->GetFloat("Player_Infection","NumberOfInfectionLevels",0);
+	miNumberOfInfectionLevels = gpBase->mpGameCfg->GetInt("Player_Infection","NumberOfInfectionLevels",0);
 
 	cLuxArea_Infection *pInfectionArea = static_cast<cLuxArea_Infection*>(apArea);
 
-	pInfectionArea->mfIncrementSpeed = GetVarFloat("IncrementSpeed",0.0f);;
+	pInfectionArea->mfIncrementSpeed = GetVarFloat("IncrementSpeed",0.0f);
 	pInfectionArea->mfTotalIncrementBound = GetVarFloat("TotalIncrementBound",0.0f);
 	pInfectionArea->mfInfectionLevelLowerBound = GetInfectionLevelMiddle(GetVarInt("InfectionLevelLowerBound",-1));
 	pInfectionArea->mfInfectionLevelUpperBound = GetInfectionLevelMiddle(GetVarInt("InfectionLevelUpperBound",5));

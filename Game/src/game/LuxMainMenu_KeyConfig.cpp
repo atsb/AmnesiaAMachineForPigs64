@@ -135,8 +135,8 @@ void cLuxInputMenuEntry::RetrieveInitialValue()
 	cInput* pInput = gpBase->mpEngine->GetInput();
 	cAction* pAction = pInput->GetAction(mlActionId);
 
-	int i=0;
-	for(;i<pAction->GetSubActionNum();++i)
+	
+	for(size_t i = 0;i<pAction->GetSubActionNum();++i)
 	{
 		if(i>=eInputMenuEntryPos_LastEnum)
 			break;
@@ -146,7 +146,7 @@ void cLuxInputMenuEntry::RetrieveInitialValue()
 		mvSubActions[i] = GetSubActionWrapperFromSubAction(pSubAction);
 	}
 
-	for(;i<eInputMenuEntryPos_LastEnum;++i)
+	for(int i = 0;i<eInputMenuEntryPos_LastEnum;++i)
 	{
 		mvSubActions[i].mType = eInputDeviceType_LastEnum;
 		mvSubActions[i].mlInputId = -1;

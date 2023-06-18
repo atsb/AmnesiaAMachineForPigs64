@@ -52,7 +52,7 @@ namespace hpl {
 		cBone* GetBoneBySid(const tString &asSid);
 		int GetBoneIndexBySid(const tString &asName);
 		int GetBoneIndexByName(const tString &asName);
-		int GetBoneNum();
+		size_t GetBoneNum();
 
 	private:
 		cBone* mpRootBone;

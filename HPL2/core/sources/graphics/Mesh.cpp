@@ -133,9 +133,9 @@ namespace hpl {
 		return it->second;
 	}
 
-	int cMesh::GetSubMeshNum()
+	size_t cMesh::GetSubMeshNum()
 	{
-		return (int)mvSubMeshes.size();
+		return mvSubMeshes.size();
 	}
 
 	//-----------------------------------------------------------------------
@@ -224,9 +224,9 @@ namespace hpl {
 		m_mapAnimIndices.clear();
 	}
 
-	int cMesh::GetAnimationNum()
+	size_t cMesh::GetAnimationNum()
 	{
-		return (int)mvAnimations.size();
+		return mvAnimations.size();
 	}
 
 	//-----------------------------------------------------------------------

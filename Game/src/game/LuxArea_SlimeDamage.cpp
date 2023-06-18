@@ -142,7 +142,7 @@ void cLuxArea_SlimeDamage::OnUpdate(float afTimeStep)
 
 		/////////////////////////
 		//ScreenShake
-		gpBase->mpEffectHandler->GetScreenShake()->Start(mfScreenShakeAmount, 0.5, 0.1,0.3f);
+		gpBase->mpEffectHandler->GetScreenShake()->Start(mfScreenShakeAmount, 0.5f, 0.1f,0.3f);
 
 		/////////////////////////
 		//Run Callback
