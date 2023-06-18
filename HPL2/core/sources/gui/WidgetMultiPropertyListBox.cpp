@@ -165,7 +165,7 @@ namespace hpl {
 		/////////////////////////////
 		// Draws items
 		vPosition = GetItemStartPos();
-		for(size_t i=mlFirstItem; i<mvItems.size(); ++i)
+		for(size_t i=(size_t)mlFirstItem; i<mvItems.size(); ++i)
 		{
 			if(i-mlFirstItem > mlMaxItems) break;
 

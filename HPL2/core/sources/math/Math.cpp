@@ -1401,7 +1401,7 @@ namespace hpl {
 
 	float cMath::RoundFloatToDecimals(float afVal, int alPrecision)
 	{
-			float fPow = pow((float)10,alPrecision);
+			float fPow = (float)pow(10,alPrecision);
 			float fInvPow = 1.0f/fPow;
 			float fAdd = 0.5f*fInvPow;
 

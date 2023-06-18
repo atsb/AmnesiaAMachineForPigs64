@@ -426,7 +426,7 @@ namespace hpl {
 					pTrack->ApplyToNode(pState,fTimePosition,fWeight,fWeight);
 				}
 
-				for(int i = 0; i < apvBoneStates->size(); i++)
+				for(size_t i = 0; i < apvBoneStates->size(); i++)
 				{
 					(*apvBoneStates)[i]->UpdateMatrix(false);
 				}

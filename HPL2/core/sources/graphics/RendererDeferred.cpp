@@ -860,7 +860,7 @@ namespace hpl {
 		return mpGBufferTexture[lType][alIdx];
 	}
 
-	cDeferredLight* cRendererDeferred::GetDeferredLight(int alID)
+	cDeferredLight* cRendererDeferred::GetDeferredLight(size_t alID)
 	{
 		if(alID < mvTempDeferredLights.size()) return mvTempDeferredLights[alID];
 		return NULL;

@@ -160,7 +160,7 @@ cLuxCommentaryIcon::~cLuxCommentaryIcon()
 void cLuxCommentaryIcon::SetupAfterLoad(cWorld *apWorld)
 {
 	mvSubMeshMatrix.resize(mpMeshEntity->GetSubMeshEntityNum());
-	for(int i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
+	for(size_t i=0; i<mpMeshEntity->GetSubMeshEntityNum(); ++i)
 	{
 		cSubMeshEntity *pSubEnt = mpMeshEntity->GetSubMeshEntity(i);
 

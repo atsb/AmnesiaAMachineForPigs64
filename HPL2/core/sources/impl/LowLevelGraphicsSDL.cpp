@@ -21,9 +21,9 @@
 #pragma comment(lib, "OpenGL32.lib")
 #pragma comment(lib, "GLu32.lib")
 //#pragma comment(lib, "GLaux.lib")
-#pragma comment(lib, "Cg.lib")
-#pragma comment(lib, "CgGL.lib")
-#pragma comment(lib, "SDL_ttf.lib")
+//#pragma comment(lib, "Cg.lib")
+//#pragma comment(lib, "CgGL.lib")
+//#pragma comment(lib, "SDL_ttf.lib")
 #pragma comment(lib, "TaskKeyHook.lib")
 #endif
 
@@ -540,21 +540,21 @@ namespace hpl {
 
 		case eGraphicCaps_MaxTextureImageUnits:
 			{
-				int lUnits;
-				glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS_ARB,(GLint *)&lUnits);
+				GLint lUnits;
+				glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS_ARB,&lUnits);
 				return lUnits;
 			}
 
 		case eGraphicCaps_MaxTextureCoordUnits:
 			{
-				int lUnits;
-				glGetIntegerv(GL_MAX_TEXTURE_COORDS_ARB,(GLint *)&lUnits);
+				GLint lUnits;
+				glGetIntegerv(GL_MAX_TEXTURE_COORDS_ARB,&lUnits);
 				return lUnits;
 			}
 		case eGraphicCaps_MaxUserClipPlanes:
 			{
-				int lClipPlanes;
-				glGetIntegerv( GL_MAX_CLIP_PLANES,(GLint *)&lClipPlanes);
+				GLint lClipPlanes;
+				glGetIntegerv( GL_MAX_CLIP_PLANES,&lClipPlanes);
 				return lClipPlanes;
 			}
 

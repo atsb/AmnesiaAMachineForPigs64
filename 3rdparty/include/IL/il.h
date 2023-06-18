@@ -55,12 +55,6 @@ extern "C" {
 	#define IL_NO_LCMS
 #endif //DJGPP*/
 
-#define IL_NO_EXR
-#define IL_NO_JP2
-#define IL_NO_MNG
-#define IL_NO_TIF
-#define IL_NO_LCMS
-
 #ifdef _WIN32
 	#if (defined(IL_USE_PRAGMA_LIBS)) && (!defined(_IL_BUILD_LIBRARY))
 		#if defined(_MSC_VER) || defined(__BORLANDC__)

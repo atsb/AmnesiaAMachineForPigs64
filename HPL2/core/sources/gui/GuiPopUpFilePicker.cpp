@@ -230,7 +230,7 @@ namespace hpl {
 
 		////////////////////////////////////////
 		// If selection is a system item (e.g. begins with "<") handle it differently
-        if(lSelection < (lNumItems - mvCurrentDirFullPath.size()))
+        if(lSelection < (int)(lNumItems - mvCurrentDirFullPath.size()))
         {
             mvCurrentDirFullPath.clear();
             NavigateTo(pBox->GetItemText(lSelection));

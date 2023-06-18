@@ -462,7 +462,7 @@ void cLuxDebugHandler::OnDraw(float afFrameTime)
 		gpBase->mpGameDebugSet->DrawFont(gpBase->mpDefaultFont,cVector3f(5,fY,0),14,cColor(1,1),_W("Expensive Light(s):"));
 		fY+=12;
 
-		for(int i = 0; i < mvLightComplexity.size(); ++i)
+		for(size_t i = 0; i < mvLightComplexity.size(); ++i)
 		{
 			float fComplexity = mvLightComplexity[i].first;
 

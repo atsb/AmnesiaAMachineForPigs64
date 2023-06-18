@@ -148,7 +148,7 @@ namespace hpl {
 
 		cBone* LoadSkeletonData(cBone* apBone,FbxNode *apNode, int alDepth);
 
-		const char* GetTabs(int alDepth);
+		tString GetTabs(int alDepth);
 		const char* GetAttrName(FbxNodeAttribute::EType alNum);
 		const char* GetSkelTypeName(FbxSkeleton::EType alNum);
 		

@@ -17,7 +17,7 @@
  * along with Amnesia: A Machine For Pigs.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "StdAfx.h"
+#include "hpl.h"
 
 #include "LuxBase.h"
 #include "LuxAchievementHandler.h"

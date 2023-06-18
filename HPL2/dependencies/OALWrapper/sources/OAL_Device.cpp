@@ -316,7 +316,7 @@ static eOAL_SampleFormat DetectFormatByFileName(const wstring& asFilename)
 
 static bool CompareBuffer(const char* apBuffer, const char* asMatch, size_t aSize)
 {
-	for (int p= 0; p < aSize; ++p)
+	for (size_t p= 0; p < aSize; ++p)
 	{
 		if (apBuffer[p] != asMatch[p]) return false;
 	}

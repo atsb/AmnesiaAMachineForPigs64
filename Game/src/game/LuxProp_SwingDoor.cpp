@@ -270,7 +270,7 @@ void cLuxProp_SwingDoor::OnSetupAfterLoad(cWorld *apWorld)
 		cMeshEntity *pDamageEntity = apWorld->CreateMeshEntity(msName+"damage"+cString::ToString(i+1),pMesh);
 		pDamageEntity->SetMatrix(mpMeshEntity->GetLocalMatrix());
 
-		for(int sub=0; sub < pDamageEntity->GetSubMeshEntityNum(); ++sub)
+		for(size_t sub=0; sub < pDamageEntity->GetSubMeshEntityNum(); ++sub)
 		{
 			cSubMeshEntity *pDamSubEnt = pDamageEntity->GetSubMeshEntity(sub);
 			int lIdx = mpMeshEntity->GetMesh()->GetSubMeshIndex(pDamSubEnt->GetSubMesh()->GetName());
@@ -337,7 +337,7 @@ void cLuxProp_SwingDoor::OnResetProperties()
 		while(entIt.HasNext())
 		{
 			iEntity3D *pEntity = entIt.Next();
-			for(int j=0; j<mpMeshEntity->GetSubMeshEntityNum(); ++j)
+			for(size_t j=0; j<mpMeshEntity->GetSubMeshEntityNum(); ++j)
 			{
 				cSubMeshEntity *pMeshEnt = mpMeshEntity->GetSubMeshEntity(j);
 				if((iEntity3D*)pMeshEnt == pEntity)
@@ -454,7 +454,7 @@ void cLuxProp_SwingDoor::OnHealthChange()
 			while(entIt.HasNext())
 			{
 				iEntity3D *pEntity = entIt.Next();
-				for(int j=0; j<mpMeshEntity->GetSubMeshEntityNum(); ++j)
+				for(size_t j=0; j<mpMeshEntity->GetSubMeshEntityNum(); ++j)
 				{
 					cSubMeshEntity *pMeshEnt = mpMeshEntity->GetSubMeshEntity(j);
 					if((iEntity3D*)pMeshEnt == pEntity)

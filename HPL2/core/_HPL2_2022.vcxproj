@@ -66,7 +66,7 @@
     <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PreLinkEventUseInBuild>
     <PreLinkEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">false</PreLinkEventUseInBuild>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">HPL2_2010_Debug</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">HPL2_2010</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">HPL2</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">HPL2_2010_NoHPLMain</TargetName>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IncludePath)</IncludePath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LibraryPath)</LibraryPath>
@@ -107,7 +107,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <AdditionalIncludeDirectories>.\include;..\dependencies\AngelScript\include;..\dependencies\DevIL\include;..\dependencies\DevIL\include\IL;..\dependencies\freealut\AL;..\dependencies\jpeg;..\dependencies\Newton\core;..\dependencies\Newton\newton;..\dependencies\Newton\include;..\dependencies\Newton\physics;..\dependencies\OALWrapper\include\OALWrapper;..\dependencies\ogg;..\dependencies\png;..\dependencies\SDL2\include;..\dependencies\theora;..\dependencies\vorbis;..\dependencies\zlib;..\..\3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;HPL_EXPORTS;KFBX_DLLINFO;USE_SDL2;_WIN_32_VER;_NEWTON_USE_LIB;ANGELSCRIPT_EXPORT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;HPL_EXPORTS;KFBX_DLLINFO;USE_SDL2;_WIN_32_VER;_NEWTON_USE_LIB;ANGELSCRIPT_EXPORT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>
@@ -119,9 +119,9 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;DevIL.lib;glew.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glew32.lib;zlib.lib;zlibwapi.lib;libfbxsdk-md.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../lib/HPL2.lib</OutputFile>
-      <AdditionalLibraryDirectories>F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86;F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreLinkEvent>
       <Message>Compiling BuildID file</Message>
@@ -459,9 +459,15 @@
     <ClInclude Include="include\impl\VertexBufferOGL_VBO.h" />
     <ClInclude Include="include\impl\VertexBufferOpenGL.h" />
     <ClInclude Include="include\impl\VideoStreamTheora.h" />
-    <ClInclude Include="include\impl\BitmapLoaderDevil.h" />
-    <ClInclude Include="include\impl\BitmapLoaderDevilDDS.h" />
-    <ClInclude Include="include\impl\BitmapLoaderDevilMisc.h" />
+    <ClInclude Include="include\impl\BitmapLoaderDevil.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="include\impl\BitmapLoaderDevilDDS.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="include\impl\BitmapLoaderDevilMisc.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="include\impl\LowLevelResourcesSDL.h" />
     <ClInclude Include="include\impl\MeshLoaderCollada.h" />
     <ClInclude Include="include\impl\MeshLoaderMSH.h" />
@@ -863,9 +869,15 @@
     <ClCompile Include="sources\impl\VertexBufferOGL_VBO.cpp" />
     <ClCompile Include="sources\impl\VertexBufferOpenGL.cpp" />
     <ClCompile Include="sources\impl\VideoStreamTheora.cpp" />
-    <ClCompile Include="sources\impl\BitmapLoaderDevil.cpp" />
-    <ClCompile Include="sources\impl\BitmapLoaderDevilDDS.cpp" />
-    <ClCompile Include="sources\impl\BitmapLoaderDevilMisc.cpp" />
+    <ClCompile Include="sources\impl\BitmapLoaderDevil.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="sources\impl\BitmapLoaderDevilDDS.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="sources\impl\BitmapLoaderDevilMisc.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="sources\impl\LowLevelResourcesSDL.cpp" />
     <ClCompile Include="sources\impl\MeshLoaderCollada.cpp" />
     <ClCompile Include="sources\impl\MeshLoaderColladaHelpers.cpp" />

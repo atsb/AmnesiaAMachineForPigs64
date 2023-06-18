@@ -126,7 +126,7 @@ namespace hpl {
 		//Bone states
 		cNode3D* GetBoneStateRoot(){ return mpBoneStateRoot;}
 
-		cBoneState* GetBoneState(int alIndex);
+		cBoneState* GetBoneState(size_t alIndex);
 		int GetBoneStateIndex(const tString &asName);
 		int GetBoneStateIndexFromPtr(cBoneState* apBoneState);
 		cBoneState* GetBoneStateFromName(const tString &asName);

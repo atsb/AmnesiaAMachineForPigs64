@@ -292,9 +292,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>original</Filter>
     </ClCompile>
-    <ClCompile Include="StdAfx.cpp">
-      <Filter>original</Filter>
-    </ClCompile>
     <ClCompile Include="LuxInfectionHandler.cpp">
       <Filter>pigs</Filter>
     </ClCompile>
@@ -333,9 +330,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StdAfx.h">
-      <Filter>original</Filter>
-    </ClInclude>
     <ClInclude Include="LuxArea.h">
       <Filter>original</Filter>
     </ClInclude>

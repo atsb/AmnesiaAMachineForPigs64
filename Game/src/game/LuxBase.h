@@ -22,7 +22,7 @@
 
 //----------------------------------------------
 
-#include "StdAfx.h"
+#include "hpl.h"
 
 #include "LuxTypes.h"
 

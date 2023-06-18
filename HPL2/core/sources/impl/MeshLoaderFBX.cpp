@@ -1347,7 +1347,7 @@ namespace hpl {
 	
 	//-----------------------------------------------------------------------
 	
-	const char* cMeshLoaderFBX::GetTabs(int alDepth)
+	tString cMeshLoaderFBX::GetTabs(int alDepth)
 	{
 		msTemp = "";
 

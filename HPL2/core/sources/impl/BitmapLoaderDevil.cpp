@@ -17,6 +17,9 @@
  * along with Amnesia: A Machine For Pigs.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#pragma comment(lib, "DevIL.lib")
+#pragma comment(lib, "ILU.lib")
+#pragma comment(lib, "ILUT.lib")
 #include "impl/BitmapLoaderDevil.h"
 
 #include "graphics/Bitmap.h"

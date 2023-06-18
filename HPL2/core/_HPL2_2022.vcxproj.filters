@@ -34,9 +34,6 @@
     <Filter Include="Impl\TinyXml">
       <UniqueIdentifier>{ebecadac-44e7-4046-a196-1862cbaa18ef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Impl\Graphics">
-      <UniqueIdentifier>{5a6d6c9a-63ae-4027-8540-12b009170da5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Impl\Input">
       <UniqueIdentifier>{f71a512b-e3f5-4aec-bd37-012c171075e2}</UniqueIdentifier>
     </Filter>
@@ -93,6 +90,9 @@
     </Filter>
     <Filter Include="3rdparty\OALWrapper">
       <UniqueIdentifier>{b4008a4e-7030-4719-8763-fc0a52d9e103}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Impl\Graphics">
+      <UniqueIdentifier>{5a6d6c9a-63ae-4027-8540-12b009170da5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

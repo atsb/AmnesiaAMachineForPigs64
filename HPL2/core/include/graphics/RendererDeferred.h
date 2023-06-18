@@ -145,7 +145,7 @@ namespace hpl {
 		iTexture* GetRefractionTexture(){ return mpRefractionTexture;}
 		iTexture* GetReflectionTexture(){ return mpReflectionTexture;}
 
-		cDeferredLight* GetDeferredLight(int alID);
+		cDeferredLight* GetDeferredLight(size_t alID);
 		int GetDeferredLightNum();
 		float GetLightComplexity(cDeferredLight* apLightData);
 

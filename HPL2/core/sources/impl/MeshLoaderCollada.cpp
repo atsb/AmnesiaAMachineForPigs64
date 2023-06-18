@@ -264,7 +264,7 @@ namespace hpl {
 
 		//////////////////
 		// Generate new tangents
-		for(int geom=0; geom<vColladaGeometries.size(); ++geom)
+		for(size_t geom=0; geom<vColladaGeometries.size(); ++geom)
 		{
 			GenerateTangents(vColladaGeometries[geom]);
 		}

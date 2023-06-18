@@ -106,7 +106,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>HPL2.lib;wsock32.lib;comctl32.lib;libfbxsdk-md.lib;zlib.lib;Wininet.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>HPL2.lib;wsock32.lib;comctl32.lib;libfbxsdk-md.lib;zlib.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;glew32.lib;opengl32.lib;libtheora.lib;libvorbis.lib;libvorbisfile.lib;SDL2.lib;ILUT.lib;ILU.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\..\redist\aamfp.exe</OutputFile>
       <AdditionalLibraryDirectories>..\..\..\HPL2\lib;..\..\..\3rdparty\lib\x86;..\..\..\3rdparty\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreEmbeddedIDL>false</IgnoreEmbeddedIDL>
@@ -161,7 +161,6 @@
     <ClCompile Include="LuxTypes.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PostEffect_Cells.cpp" />
-    <ClCompile Include="StdAfx.cpp" />
     <ClCompile Include="LuxArea.cpp" />
     <ClCompile Include="LuxArea_Examine.cpp" />
     <ClCompile Include="LuxArea_Flashback.cpp" />
@@ -273,7 +272,6 @@
     <ClInclude Include="LuxProp_VoiceFlashbackTrigger.h" />
     <ClInclude Include="LuxTypes.h" />
     <ClInclude Include="PostEffect_Cells.h" />
-    <ClInclude Include="StdAfx.h" />
     <ClInclude Include="LuxArea.h" />
     <ClInclude Include="LuxArea_Examine.h" />
     <ClInclude Include="LuxArea_Flashback.h" />

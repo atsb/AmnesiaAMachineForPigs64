@@ -574,7 +574,7 @@ namespace hpl {
 		{
 			//////////
 			// Pad the data
-			for(int i = 0; i < (8 - lAlignment); ++i)
+			for(int i = 0; i < (int)(8 - lAlignment); ++i)
 			{
 				AddChar(1);
 			}
@@ -590,7 +590,7 @@ namespace hpl {
 			////////
 			// Encrypt the data 64 bits at a time
 			size_t* p4ByteData = (size_t*)mvDataChunks[c];
-			int lLength = lChunkSize / 8;
+			size_t lLength = lChunkSize / 8;
 			size_t lDelta = 0x9e3779b9;
 
 			for(size_t i = 0; i < lLength; i+= 2)
@@ -634,7 +634,7 @@ namespace hpl {
 			////////
 			// Decrypt the data 64 bits at a time
 			size_t* p4ByteData = (size_t*)mvDataChunks[c];
-			int lLength = lChunkSize / 8;
+			size_t lLength = lChunkSize / 8;
 			size_t lDelta = 0x9e3779b9;
 
 			for(size_t i = 0; i < lLength; i+= 2)
