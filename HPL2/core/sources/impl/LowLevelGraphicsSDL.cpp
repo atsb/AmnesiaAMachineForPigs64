@@ -20,10 +20,9 @@
 #ifdef WIN32
 #pragma comment(lib, "OpenGL32.lib")
 #pragma comment(lib, "GLu32.lib")
-//#pragma comment(lib, "GLaux.lib")
 //#pragma comment(lib, "Cg.lib")
 //#pragma comment(lib, "CgGL.lib")
-//#pragma comment(lib, "SDL_ttf.lib")
+#pragma comment(lib, "SDL2_ttf.lib")
 #pragma comment(lib, "TaskKeyHook.lib")
 #endif
 
@@ -135,6 +134,8 @@ namespace hpl {
 		{
 #if !SDL_VERSION_ATLEAST(2, 0, 0)
 			SDL_SetGammaRamp(mvStartGammaArray[0],mvStartGammaArray[1],mvStartGammaArray[2]);
+#else
+			SDL_SetWindowGammaRamp(mpScreen, mvStartGammaArray[0], mvStartGammaArray[1], mvStartGammaArray[2]);
 #endif
 		}
 
@@ -146,7 +147,7 @@ namespace hpl {
 #ifdef WITH_CG
 		ExitCG();
 #endif
-		//TTF_Quit();
+		TTF_Quit();
 #if SDL_VERSION_ATLEAST(2, 0, 0)
         SDL_DestroyWindow(mpScreen);
 #endif

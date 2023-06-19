@@ -210,8 +210,6 @@ namespace hpl {
 
 		}
 
-
-
 		//Destroy XML
 		fclose(pFile);
 		hplDelete(pXmlDoc);
@@ -223,7 +221,7 @@ namespace hpl {
 	bool cSDLFontData::CreateFromFontFile(const tWString &asFileName, int alSize, unsigned short alFirstChar,
 											unsigned short alLastChar)
 	{
-		/*SetFullPath(asFileName);
+		SetFullPath(asFileName);
 
 		cGlyph* pGlyph=NULL;
 
@@ -258,7 +256,7 @@ namespace hpl {
 		//Cleanup
 		TTF_CloseFont(pFont);
 
-		return true;*/
+		return true;
 		return false;
 	}
 
@@ -270,7 +268,7 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	/*cGlyph* cSDLFontData::RenderGlyph(TTF_Font* apFont,unsigned short aChar, int alFontSize)
+	cGlyph* cSDLFontData::RenderGlyph(TTF_Font* apFont,unsigned short aChar, int alFontSize)
 	{
 		//If the font is saved to disk, then load the bitmap from disk instead.
 
@@ -290,18 +288,27 @@ namespace hpl {
 		//create a surface with the glyph
 		SDL_Color Col;Col.r=255;Col.g=255;Col.b=255;
 		SDL_Surface* pGlyphSurface = TTF_RenderGlyph_Blended(apFont,aChar,Col);
-
-		SDL_Surface* pTempSurface = SDL_CreateRGBSurface(	SDL_SWSURFACE, vSize.x, vSize.y,32,
+#ifdef USE_SDL2
+		SDL_Surface* pTempSurface = SDL_CreateRGBSurface(0, vSize.x, vSize.y, 32,
+			0x000000ff, 0x0000ff00, 0x00ff0000, 0xff000000);
+#else
+		SDL_Surface* pTempSurface = SDL_CreateRGBSurface(SDL_SWSURFACE, vSize.x, vSize.y,32,
 															0x000000ff,0x0000ff00,0x00ff0000,0xff000000);
-
+#endif
 		//Blit the surface using blending. This way it should create a nice
 		//b&w image where the font is white.
 		//TODO: Get Surface data and do a raw data blit.
+#ifdef USE_SDL2
+		SDL_SetSurfaceAlphaMod(pTempSurface, 0);
+		SDL_SetSurfaceAlphaMod(pGlyphSurface, SDL_ALPHA_OPAQUE);
+		SDL_BlitSurface(pGlyphSurface, NULL, pTempSurface, NULL);
+		SDL_SetSurfaceAlphaMod(pTempSurface, 0);
+#else
 		SDL_SetAlpha(pTempSurface,0,0);
 		SDL_SetAlpha(pGlyphSurface,SDL_SRCALPHA,0);
 		SDL_BlitSurface(pGlyphSurface, NULL, pTempSurface,NULL);
 		SDL_SetAlpha(pTempSurface,0,0);
-
+#endif
         //Set the alpha of the bitmap to the average color.
 		//So we get some alpha bledning.
 		int lBmpSize = 4;
@@ -342,7 +349,7 @@ namespace hpl {
 		SDL_FreeSurface(pGlyphSurface);
 
 		return pGlyph;
-	}*/
+	}
 
 	//-----------------------------------------------------------------------
 

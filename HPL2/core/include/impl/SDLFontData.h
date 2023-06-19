@@ -22,9 +22,13 @@
 
 #include "graphics/FontData.h"
 
-//#include <SDL/SDL.h>
-//#include <SDL/SDL_ttf.h>
-
+#ifdef USE_SDL2
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+#else
+#include <SDL/SDL.h>
+#include <SDL/SDL_ttf.h>
+#endif
 namespace hpl {
 
 	class cSDLFontData : public iFontData
@@ -38,7 +42,7 @@ namespace hpl {
 		bool CreateFromBitmapFile(const tWString &asFileName);
 
 	private:
-		//cGlyph* RenderGlyph(TTF_Font* apFont,unsigned short aChar, int alFontSize);
+		cGlyph* RenderGlyph(TTF_Font* apFont,unsigned short aChar, int alFontSize);
 
 	};
 
