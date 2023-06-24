@@ -54,7 +54,6 @@ void OAL_Effect_Destroy( cOAL_Effect* apEffect );
 // Effect Slot Management
 
 // OAL_UseEffect : Will return an integer value referencing to the Effect Slot to which the Effect passed as parameter will attach, -1 if failure
-int OAL_UseEffect ( cOAL_Effect* apEffect );
 bool OAL_EffectSlot_AttachEffect(int alSlotId, cOAL_Effect* apEffect);
 void OAL_EffectSlot_SetGain ( int alSlotHandle, float afGain );
 void OAL_EffectSlot_SetAutoAdjust ( int alSlotHandle, bool abAutoAdjust );

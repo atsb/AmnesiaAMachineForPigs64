@@ -26,7 +26,7 @@ iOAL_AudioData::iOAL_AudioData(eOAL_AudioDataType aType, int alBuffersToCreate)
 
 iOAL_AudioData::~iOAL_AudioData()
 {
-	for(int i=0;i<(int)mvBuffers.size();++i)
+	for(size_t i=0;i<mvBuffers.size();++i)
 		delete mvBuffers[i];
 }
 
@@ -62,7 +62,7 @@ int iOAL_AudioData::GetBytesPerSample()
 
 cOAL_Buffer* iOAL_AudioData::GetBufferByID(ALuint alID)
 {
-	for(int i=0;i<(int)mvBuffers.size();++i)
+	for(size_t i=0;i<mvBuffers.size();++i)
 	{
 		cOAL_Buffer* pBuffer = mvBuffers[i];
 		if(alID==pBuffer->GetObjectID())

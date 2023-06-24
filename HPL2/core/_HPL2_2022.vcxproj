@@ -119,7 +119,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>SDL2.lib;glew32.lib;zlib.lib;zlibwapi.lib;libfbxsdk-md.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;zlib.lib;zlibwapi.lib;libfbxsdk-md.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>../lib/HPL2.lib</OutputFile>
       <AdditionalLibraryDirectories>F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86;F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
