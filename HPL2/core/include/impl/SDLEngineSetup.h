@@ -55,7 +55,7 @@ namespace hpl {
 		iLowLevelGraphics *mpLowLevelGraphics;
 		iLowLevelInput *mpLowLevelInput;
 		iLowLevelResources *mpLowLevelResources;
-//		#ifdef WIN32
+//		#ifdef _WIN32
 //			cLowLevelSoundFmod* mpLowLevelSound;
 //		#else
 		iLowLevelSound*	mpLowLevelSound;

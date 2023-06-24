@@ -29,7 +29,7 @@
 #include "SDL/SDL_stdinc.h"
 #endif
 
-#if defined WIN32
+#if defined _WIN32
 #define SIZEOF_WCHAR 2
 #else
 #define SIZEOF_WCHAR 4
@@ -65,7 +65,7 @@ namespace hpl {
 	{
         tString sTemp;
 
-		#ifdef WIN32
+		#ifdef _WIN32
 			sTemp.resize(awsString.size());
 			for(size_t i=0; i<awsString.length(); ++i)
 			{
@@ -955,7 +955,7 @@ namespace hpl {
 
 		tWString sFormat = _W("%0*d");
 
-#ifdef WIN32
+#ifdef _WIN32
 		swprintf(buff, sFormat.c_str(), alPaddingZeros, alX);
 #else
 		swprintf(buff, 256, sFormat.c_str(), alPaddingZeros, alX);
@@ -970,7 +970,7 @@ namespace hpl {
 
 		tWString sFormat = _W("%0*ld");
 
-#ifdef WIN32
+#ifdef _WIN32
 		swprintf(buff, sFormat.c_str(), alPaddingZeros, alX);
 #else
 		swprintf(buff, 256, sFormat.c_str(), alPaddingZeros, alX);
@@ -987,7 +987,7 @@ namespace hpl {
 		////////////////////////////////////////////////////////////
 		// Print the float into a wstring, using a given precision
 		tWString sFormat = _W("%.*f");
-#ifdef WIN32
+#ifdef _WIN32
 		swprintf(buff, sFormat.c_str(), alNumDecimals ,afX);
 #else
 		swprintf(buff, 256, sFormat.c_str(), alNumDecimals, afX);

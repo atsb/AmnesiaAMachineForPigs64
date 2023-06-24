@@ -31,7 +31,7 @@ namespace hpl {
 
 	cTimerSDL::cTimerSDL()
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		QueryPerformanceFrequency(&mFrequency);
 		mStartCount.QuadPart = 0;
 		mEndCount.QuadPart = 0;
@@ -64,7 +64,7 @@ namespace hpl {
 	void cTimerSDL::Start()
 	{
 		mbStopped = false;
-#ifdef WIN32
+#ifdef _WIN32
 		QueryPerformanceCounter(&mStartCount);
 #else
 		gettimeofday(&mStartCount, NULL);
@@ -73,7 +73,7 @@ namespace hpl {
 
 	void cTimerSDL::Stop()
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		QueryPerformanceCounter(&mEndCount);
 #else
 		gettimeofday(&mEndCount, NULL);
@@ -83,7 +83,7 @@ namespace hpl {
 
 	double cTimerSDL::GetTimeInMicroSec()
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		if(mbStopped==false)
 			QueryPerformanceCounter(&mEndCount);
 

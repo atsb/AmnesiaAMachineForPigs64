@@ -5,13 +5,25 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release_NoHPLMain|Win32">
       <Configuration>Release_NoHPLMain</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_NoHPLMain|x64">
+      <Configuration>Release_NoHPLMain</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -36,6 +48,16 @@
     <CharacterSet>NotSet</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v143</PlatformToolset>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -55,7 +77,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\Intermediate\$(ConfigurationName)</IntDir>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</PostBuildEventUseInBuild>
     <PreBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</PreBuildEventUseInBuild>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../lib/</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../lib/x86</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">../lib/</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\Intermediate\$(ConfigurationName)</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">$(SolutionDir)\Intermediate\$(ConfigurationName)</IntDir>
@@ -72,8 +94,12 @@
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LibraryPath)</LibraryPath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">$(IncludePath)</IncludePath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">$(LibraryPath)</LibraryPath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>../lib/x64</OutDir>
+    <IntDir>$(SolutionDir)\Intermediate\$(ConfigurationName)</IntDir>
+    <TargetName>HPL2</TargetName>
+    <PreLinkEventUseInBuild>false</PreLinkEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -119,9 +145,9 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>glew32.lib;zlib.lib;zlibwapi.lib;libfbxsdk-md.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../lib/HPL2.lib</OutputFile>
-      <AdditionalLibraryDirectories>F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86;F:\Source Ports\NakedMachineForPigs\3rdparty\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;zlib.lib;libfbxsdk-md.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;opengl32.lib;zlibwapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../lib/x86/HPL2.lib</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\lib\x86;$(SolutionDir)3rdparty\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
     <PreLinkEvent>
       <Message>Compiling BuildID file</Message>
@@ -152,43 +178,27 @@
       <Command>cl $(ProjectDir)sources\BuildID_HPL2_0_Win32.cpp   /O2 /I ".\include" /I "..\dependencies\include" /I "..\dependencies\include\AL" /I "..\dependencies\include\HaptX" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "HPL_EXPORTS" /D "MEMORY_MANAGER_ACTIVE" /FD /EHsc /MD /GS /Fo$(OutDir) /Fd$(OutDir) /W3 /nologo /c /Wp64 /Zi /TP</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\include;..\dependencies\AngelScript\include;..\dependencies\DevIL\include;..\dependencies\DevIL\include\IL;..\dependencies\freealut\AL;..\dependencies\jpeg;..\dependencies\Newton\core;..\dependencies\Newton\newton;..\dependencies\Newton\include;..\dependencies\Newton\physics;..\dependencies\OALWrapper\include\OALWrapper;..\dependencies\ogg;..\dependencies\png;..\dependencies\SDL2\include;..\dependencies\theora;..\dependencies\vorbis;..\dependencies\zlib;..\..\3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;HPL_EXPORTS;KFBX_DLLINFO;USE_SDL2;_WIN_64_VER;_NEWTON_USE_LIB;ANGELSCRIPT_EXPORT;_CRT_SECURE_NO_WARNINGS;TIXML_USE_STL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <OutputFile>../lib/x64/HPL2.lib</OutputFile>
+    </Link>
+    <Lib>
+      <OutputFile>../lib/x64/HPL2.lib</OutputFile>
+      <AdditionalDependencies>glew32.lib;zlib.lib;zlibwapi.lib;libfbxsdk-md.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rdparty\lib\x64;$(SolutionDir)3rdparty\lib\x64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PreLinkEvent>
+      <Command>cl $(ProjectDir)sources\BuildID_HPL2_0_Win32.cpp   /O2 /I ".\include" /I "..\dependencies\include" /I "..\dependencies\include\AL" /I "..\dependencies\include\HaptX" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_USRDLL" /D "HPL_EXPORTS" /D "MEMORY_MANAGER_ACTIVE" /FD /EHsc /MD /GS /Fo$(OutDir) /Fd$(OutDir) /W3 /nologo /c /Wp64 /Zi /TP</Command>
+      <Message>Compiling BuildID file</Message>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\dependencies\AngelScript\include\angelscript.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_array.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_atomic.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_builder.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_bytecode.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_callfunc.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_compiler.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_config.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_configgroup.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_context.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_criticalsection.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_datatype.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_debug.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_gc.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_generic.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_map.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_memory.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_module.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_objecttype.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_outputbuffer.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_parser.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_property.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_restore.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptcode.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptengine.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptfunction.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptnode.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_scriptobject.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_string.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_string_util.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_texts.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_thread.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_tokendef.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_tokenizer.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_typeinfo.h" />
-    <ClInclude Include="..\dependencies\AngelScript\sources\as_variablescope.h" />
     <ClInclude Include="..\dependencies\Newton\core\dg.h" />
     <ClInclude Include="..\dependencies\Newton\core\dgAABBPolygonSoup.h" />
     <ClInclude Include="..\dependencies\Newton\core\dgArray.h" />
@@ -598,44 +608,6 @@
     <ClInclude Include="include\HPL.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_atomic.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_builder.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_bytecode.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_arm.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_mips.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_ppc.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_ppc_64.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_sh4.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_gcc.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_mingw.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x64_msvc.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_x86.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_callfunc_xenon.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_compiler.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_configgroup.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_context.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_datatype.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_gc.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_generic.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_globalproperty.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_memory.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_module.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_objecttype.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_outputbuffer.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_parser.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_restore.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptcode.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptengine.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptfunction.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptnode.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_scriptobject.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_string.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_string_util.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_thread.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_tokenizer.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_typeinfo.cpp" />
-    <ClCompile Include="..\dependencies\AngelScript\sources\as_variablescope.cpp" />
     <ClCompile Include="..\dependencies\Newton\core\dg.cpp" />
     <ClCompile Include="..\dependencies\Newton\core\dgAABBPolygonSoup.cpp" />
     <ClCompile Include="..\dependencies\Newton\core\dgConvexHull3d.cpp" />
@@ -1007,12 +979,6 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">VersionData_HPL2_0.h ;VersionData_HPL2_0_Win32.cpp;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release_NoHPLMain|Win32'">VersionData_HPL2_0.h ;VersionData_HPL2_0_Win32.cpp;%(Outputs)</Outputs>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_gcc.S" />
-    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_msvc.asm" />
-    <None Include="..\dependencies\AngelScript\sources\as_callfunc_arm_xcode.S" />
-    <None Include="..\dependencies\AngelScript\sources\as_callfunc_x64_msvc_asm.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

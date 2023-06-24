@@ -35,7 +35,7 @@
 #endif
 #include <errno.h>
 
-#ifdef WIN32
+#ifdef _WIN32
 	#define ZLIB_WINAPI
 #endif
 #include <zlib.h>
@@ -1139,7 +1139,7 @@ namespace hpl {
     // sizeof(wchar_t) is not the same on all systems
     void cBinaryBuffer::GetStringW(tWString *apStr)
     {
-    #ifdef WIN32
+    #ifdef _WIN32
         *apStr = _W("");
         wchar_t c = (wchar_t)GetShort16();
         while(c != 0 && IsEOF()==false)

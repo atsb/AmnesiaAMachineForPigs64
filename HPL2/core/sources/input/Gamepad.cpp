@@ -59,7 +59,7 @@ namespace hpl
 	{
 		switch(aButton)
 		{
-#if USE_SDL2 && !WIN32
+#if USE_SDL2 && !_WIN32
         case eGamepadButton_A: return "Button A";
         case eGamepadButton_B: return "Button B";
         case eGamepadButton_X: return "Button X";
@@ -116,7 +116,7 @@ namespace hpl
 
 	eGamepadButton iGamepad::StringToButton(const tString& asButton)
 	{
-#if USE_SDL2 && !WIN32
+#if USE_SDL2 && !_WIN32
         if(asButton=="Button A") return eGamepadButton_A;
         if(asButton=="Button B") return eGamepadButton_B;
         if(asButton=="Button X") return eGamepadButton_X;
@@ -174,7 +174,7 @@ namespace hpl
 	{
 		switch(aAxis)
 		{
-#if USE_SDL2 && !WIN32
+#if USE_SDL2 && !_WIN32
         case eGamepadAxis_LeftX: return "Axis LeftX";
         case eGamepadAxis_LeftY: return "Axis LeftY";
         case eGamepadAxis_RightX: return "Axis RightX";
@@ -200,7 +200,7 @@ namespace hpl
 
 	eGamepadAxis iGamepad::StringToAxis(const tString& asAxis)
 	{
-#if USE_SDL2 && !WIN32
+#if USE_SDL2 && !_WIN32
         if(asAxis=="Axis LeftX") return eGamepadAxis_LeftX;
         if(asAxis=="Axis LeftY") return eGamepadAxis_LeftY;
         if(asAxis=="Axis RightX") return eGamepadAxis_RightX;

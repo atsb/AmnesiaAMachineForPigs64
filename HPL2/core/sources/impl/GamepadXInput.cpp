@@ -24,7 +24,7 @@
 #include "math/Math.h"
 #include <limits>
 
-#ifdef Win32
+#ifdef _WIN32
 #include <conio.h>
 #endif
 

@@ -345,7 +345,7 @@ cLuxInputHandler::cLuxInputHandler() : iLuxUpdateable("LuxInputHandler")
 	SetUpGamepad();
 #endif
 
-#ifdef WIN32
+#ifdef _WIN32
 	mfPointerSpeed = cPlatform::GetMousePointerSpeed();
 
 	if(mfPointerSpeed == 0.0f) mfPointerSpeed = 1.0f;
@@ -759,7 +759,7 @@ void cLuxInputHandler::UpdateGlobalInput()
 	{
 		tWString sFileName = _W("");
 		tWString sBaseName = _W("Screen_");
-#ifndef WIN32
+#ifndef _WIN32
 		tWString sScreenShotDir = cPlatform::GetSystemSpecialPath(eSystemPath_Personal);
 		if (cPlatform::FolderExists(cString::AddSlashAtEndW(sScreenShotDir) + _W("Desktop"))) {
 			sScreenShotDir = cString::AddSlashAtEndW(sScreenShotDir) + _W("Desktop");

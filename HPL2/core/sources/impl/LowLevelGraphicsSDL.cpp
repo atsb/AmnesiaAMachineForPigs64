@@ -17,7 +17,7 @@
  * along with Amnesia: A Machine For Pigs.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifdef WIN32
+#ifdef _WIN32
 #pragma comment(lib, "OpenGL32.lib")
 #pragma comment(lib, "GLu32.lib")
 //#pragma comment(lib, "Cg.lib")
@@ -57,11 +57,11 @@
 #include "SDL/SDL_syswm.h"
 #endif
 
-#ifdef WIN32
+#ifdef _WIN32
 #include "impl/TaskKeyHook.h"
 #endif
 
-#ifndef WIN32
+#ifndef _WIN32
 #define CALLBACK __attribute__ ((__stdcall__))
 #endif
 
@@ -250,7 +250,7 @@ namespace hpl {
             int w,h;
             SDL_GetWindowSize(mpScreen, &w, &h);
             mvScreenSize = cVector2l(w, h);
-#ifdef WIN32
+#ifdef _WIN32
 			//////////////////////////////
 			// Set up window position
 			if (abFullscreen == false)
@@ -303,7 +303,7 @@ namespace hpl {
 		}
         // update with the screen size ACTUALLY obtained
         mvScreenSize = cVector2l(mpScreen->w, mpScreen->h);
-#ifdef WIN32
+#ifdef _WIN32
 		//////////////////////////////
 		// Set up window position
 		if(abFullscreen==false)
@@ -327,13 +327,13 @@ namespace hpl {
         }
 
 		//Trap Alt tab if in fullscreen
-#ifdef WIN32
+#ifdef _WIN32
 		if(abFullscreen)
 		{
 			//mhKeyTrapper = LoadLibrary( "keyhook.dll" );
 			//::DisableTaskKeys(true,false);
 		}
-#endif //WIN32
+#endif //_WIN32
 
 		Log(" Init Glew...");
 		if(glewInit() == GLEW_OK)
@@ -346,7 +346,7 @@ namespace hpl {
 		}
 
 		///Setup up windows specifc context:
-#if defined(WIN32) && !SDL_VERSION_ATLEAST(2,0,0)
+#if defined(_WIN32) && !SDL_VERSION_ATLEAST(2,0,0)
 		mGLContext = wglGetCurrentContext();
 		mDeviceContext = wglGetCurrentDC();
 #endif
@@ -715,7 +715,7 @@ namespace hpl {
         ;
 #if SDL_VERSION_ATLEAST(2, 0, 0)
         SDL_GL_SetSwapInterval(abX ? (abAdaptive ? -1 : 1) : 0);
-#elif defined(WIN32)
+#elif defined(_WIN32)
 		if(WGLEW_EXT_swap_control)
 		{
 			wglSwapIntervalEXT(abX ? (abAdaptive ? -1 : 1) : 0);

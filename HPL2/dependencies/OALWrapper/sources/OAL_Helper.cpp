@@ -77,7 +77,7 @@ std::wstring String2WString(const std::string& asString)
 
 FILE *OpenFileW(const std::wstring& asFileName, const std::wstring asMode)
 {
-#ifdef WIN32
+#ifdef _WIN32
     return _wfopen(asFileName.c_str(), asMode.c_str());
 #else
     std::string sFileName = WString2String(asFileName);

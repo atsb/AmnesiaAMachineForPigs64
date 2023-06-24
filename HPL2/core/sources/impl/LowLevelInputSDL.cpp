@@ -37,7 +37,7 @@
 #include "SDL/SDL_syswm.h"
 #endif
 
-#if defined WIN32 && !SDL_VERSION_ATLEAST(2,0,0)
+#if defined _WIN32 && !SDL_VERSION_ATLEAST(2,0,0)
 #include <Windows.h>
 #include <Dbt.h>
 #include "impl/GamepadXInput.h"
@@ -100,7 +100,7 @@ namespace hpl {
 		mlstEvents.clear();
 		while(SDL_PollEvent(&sdlEvent)!=0)
 		{
-#if defined WIN32 && !SDL_VERSION_ATLEAST(2,0,0)
+#if defined _WIN32 && !SDL_VERSION_ATLEAST(2,0,0)
 			if(sdlEvent.type==SDL_SYSWMEVENT)
 			{
 				SDL_SysWMmsg* pMsg = sdlEvent.syswm.msg;
@@ -119,7 +119,7 @@ namespace hpl {
 				}
 			}
 			else
-#endif //WIN32
+#endif //_WIN32
 #if SDL_VERSION_ATLEAST(2, 0, 0)
             // built-in SDL2 gamepad hotplug code
             // this whole contract should be rewritten to allow clean adding/removing

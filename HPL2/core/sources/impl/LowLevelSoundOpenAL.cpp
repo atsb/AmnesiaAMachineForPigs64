@@ -399,7 +399,7 @@ namespace hpl {
 		//for ( int i = 0; i < OAL_ pDeviceInfo->vsExtensions->size(); ++i )
 			//Log(" \t%s\n", (*pDeviceInfo->vsExtensions)[i].c_str());
 
-		#ifdef WIN32
+		#ifdef _WIN32
 		if(abUseEnvAudio)
 		{
 			mbEnvAudioEnabled = OAL_Info_IsEFXActive();

@@ -107,7 +107,7 @@ void cLuxProgressLogHandler::CreateAndResetLogFile()
 	/////////////////////////////
 	// Open file
 	tWString sPath = gpBase->msBaseSavePath + sFileName;
-#ifdef WIN32
+#ifdef _WIN32
 	mpFile = _wfopen(sPath.c_str(),_W("w"));
 #else
 	mpFile = fopen(cString::To8Char(sPath).c_str(),"w");

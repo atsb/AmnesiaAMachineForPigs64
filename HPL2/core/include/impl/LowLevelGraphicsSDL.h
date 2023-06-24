@@ -21,7 +21,7 @@
 #define HPL_LOWLEVELGRAPHICS_SDL_H
 
 #include <GL/glew.h>
-#ifdef WIN32
+#ifdef _WIN32
 #include <GL/wglew.h>
 #endif
 
@@ -324,7 +324,7 @@ namespace hpl {
 
 		//////////////////////////////////////
 		//Windows stuff
-		#if defined(WIN32) && !SDL_VERSION_ATLEAST(2,0,0)
+		#if defined(_WIN32) && !SDL_VERSION_ATLEAST(2,0,0)
 			HGLRC mGLContext;
 			HDC   mDeviceContext;
 			HINSTANCE mhKeyTrapper;

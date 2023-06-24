@@ -28,7 +28,7 @@
 #include "impl/LowLevelInputSDL.h"
 #include "system/String.h"
 
-#ifdef Win32
+#ifdef _WIN32
 #include <conio.h>
 #endif
 

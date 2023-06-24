@@ -90,7 +90,7 @@ namespace hpl {
 		std::vector<eGamepadAxisRange>	mvAxisRange;
 		std::vector<bool>				mvButtonArray;
 
-#ifdef WIN32
+#ifdef _WIN32
 		std::vector<float>				mvRemappedAxisArray;
 		std::vector<eGamepadHatState>	mvHatArray;
 		std::vector<bool>				mvRemappedButtonArray;

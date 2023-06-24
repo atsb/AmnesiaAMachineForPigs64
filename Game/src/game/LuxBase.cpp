@@ -102,7 +102,7 @@
 
 #include "LuxCommentaryIcon.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <windows.h>
 #include <dbghelp.h>
 #include <shellapi.h>
@@ -496,7 +496,7 @@ void cLuxBase::Exit()
 }
 
 //-----------------------------------------------------------------------
-#ifdef WIN32
+#ifdef _WIN32
 int GenerateDump(EXCEPTION_POINTERS* pExceptionPointers)
 {
     BOOL bMiniDumpSuccessful;
@@ -527,7 +527,7 @@ int GenerateDump(EXCEPTION_POINTERS* pExceptionPointers)
 
     return EXCEPTION_EXECUTE_HANDLER;
 }
-#endif // WIN32
+#endif // _WIN32
 
 void cLuxBase::Run()
 {
@@ -1117,7 +1117,7 @@ bool cLuxBase::InitEngine()
 	vars.mSound.mlStreamBufferSize = mpConfigHandler->mlSoundStreamBufferSize;
 
 	// Sound device filter set here (if needed)
-#if defined(WIN32)
+#if defined(_WIN32)
 	iLowLevelSound::SetSoundDeviceNameFilter("software");
 #endif
 

@@ -61,7 +61,7 @@ namespace hpl {
 		}
 		//ClearKeyList();
 
-#ifdef WIN32
+#ifdef _WIN32
 		mvRemappedAxisArray.resize(mvAxisArray.size());
 		mvRemappedButtonArray.resize(mvButtonArray.size());
 		mvHatArray.resize(mvButtonArray.size());
@@ -158,7 +158,7 @@ namespace hpl {
             }
 		}
 
-#ifdef WIN32
+#ifdef _WIN32
 		//////////////////
 		// Remapp buttons to SDL1 version, cant use SDL2 directly because then the patch would destroy binds
 		if(mvAxisArray.size() >= 6 && mvRemappedAxisArray.size() >= 6)
@@ -267,7 +267,7 @@ namespace hpl {
     bool cGamepadSDL2::ButtonIsDown(eGamepadButton aButton)
 	{
         if ((size_t)aButton >= mvButtonArray.size()) return false;
-#ifdef WIN32
+#ifdef _WIN32
 		return mvRemappedButtonArray[aButton];
 #else
 		return mvButtonArray[aButton];
@@ -316,7 +316,7 @@ namespace hpl {
 	float cGamepadSDL2::GetAxisValue(eGamepadAxis aAxis)
 	{
         if ((size_t)aAxis >= mvAxisArray.size()) return 0;
-#ifdef WIN32
+#ifdef _WIN32
 		return mvRemappedAxisArray[aAxis];
 #else
 		return mvAxisArray[aAxis];
@@ -351,7 +351,7 @@ namespace hpl {
 
 	eGamepadHatState cGamepadSDL2::GetHatCurrentState(eGamepadHat aHat)
 	{
-#ifdef WIN32
+#ifdef _WIN32
 		return mvHatArray[aHat];
 #else
 		return eGamepadHatState_Centered;

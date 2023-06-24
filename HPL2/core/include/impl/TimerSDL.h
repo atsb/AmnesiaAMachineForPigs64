@@ -22,7 +22,7 @@
 
 #include "system/Timer.h"
 
-#ifdef WIN32   // Windows system specific
+#ifdef _WIN32   // Windows system specific
 	#include <windows.h>
 #else          // Unix based system specific
 	#include <sys/time.h>
@@ -46,7 +46,7 @@ namespace hpl {
 		double mfEndTimeInMicroSec;
 		bool   mbStopped;
 
-		#ifdef WIN32
+		#ifdef _WIN32
 			LARGE_INTEGER mFrequency;
 			LARGE_INTEGER mStartCount;
 			LARGE_INTEGER mEndCount;

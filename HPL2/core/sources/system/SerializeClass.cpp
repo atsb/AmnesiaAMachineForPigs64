@@ -426,7 +426,7 @@ namespace hpl {
 		//Normal Load
 		if(abCompressedAndCrc==false)
 		{
-			#ifdef WIN32
+			#ifdef _WIN32
 				FILE *pFile = _wfopen(asFile.c_str(),_W("rb"));
 			#else
 				FILE *pFile = fopen(cString::To8Char(asFile).c_str(),"rb");

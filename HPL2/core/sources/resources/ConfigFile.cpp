@@ -162,7 +162,7 @@ namespace hpl {
 		// Normal load
 		else
 		{
-			#ifdef WIN32
+			#ifdef _WIN32
 						tWString sFile = cString::ReplaceCharToW(msFile, _W("/"), _W("\\"));
 						FILE *pFile = _wfopen(sFile.c_str(),_W("w+"));
 			#else

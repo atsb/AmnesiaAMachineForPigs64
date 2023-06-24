@@ -102,7 +102,7 @@ namespace hpl {
 
 			if(pEvent->type == SDL_MOUSEMOTION)
 			{
-#if SDL_VERSION_ATLEAST(2, 0, 0) && WIN32
+#if SDL_VERSION_ATLEAST(2, 0, 0) && _WIN32
 				/*if(pLowLevelGfx->GetFullscreenModeActive() == false)
 				{
 					/////////////

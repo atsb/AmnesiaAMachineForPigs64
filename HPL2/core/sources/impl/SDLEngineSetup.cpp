@@ -50,7 +50,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_syswm.h"
 #endif
-#ifdef WIN32
+#ifdef _WIN32
 #include "Windows.h"
 #include "Dbt.h"
 #endif

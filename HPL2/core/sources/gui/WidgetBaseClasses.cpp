@@ -484,7 +484,7 @@ namespace hpl {
 			{
 				mvCurrentDirFullPath.push_back(asPath);
 			}
-#ifndef WIN32
+#ifndef _WIN32
             // Unix does the whole "/" thing as the system root.. (No drive letters!!)
             else if (mvCurrentDirFullPath.empty() && asPath.length() > 0 && asPath[0] != _W('/')
                      && cPlatform::FolderExists( GetCurrentFullPath() + asPath )) {
@@ -583,7 +583,7 @@ namespace hpl {
 	tWString iFileBrowser::GetCurrentFullPath()
 	{
 		tWString sPath;
-#ifndef WIN32
+#ifndef _WIN32
 		sPath = _W("/");
 #endif
 

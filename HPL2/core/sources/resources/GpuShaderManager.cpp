@@ -29,7 +29,7 @@
 
 #include "resources/FileSearcher.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 #include <io.h>
 #endif
 
@@ -52,7 +52,7 @@ namespace hpl {
 		mpPreprocessParser->GetEnvVarContainer()->Add("ScreenWidth",mpLowLevelGraphics->GetScreenSizeInt().x);
 		mpPreprocessParser->GetEnvVarContainer()->Add("ScreenHeigth",mpLowLevelGraphics->GetScreenSizeInt().y);
 
-#ifdef WIN32
+#ifdef _WIN32
 		mpPreprocessParser->GetEnvVarContainer()->Add("OS_Windows");
 #elif defined(__APPLE__)
 		mpPreprocessParser->GetEnvVarContainer()->Add("OS_OSX");

@@ -45,7 +45,7 @@ namespace hpl {
 		void UnBind();
 
 	private:
-		#ifdef WIN32
+#ifdef _WIN32
 		HDC         mDeviceContext;
 		HGLRC       mGLContext;
 		HPBUFFERARB mPBuffer;
