@@ -19,7 +19,6 @@
 
 extern cOAL_Device* gpDevice;
 
-using namespace std;
 
 //////////////////////////////////////////////////////////////////
 ////	OAL_Test_Sample_Play ( const cOAL_Sample* apSample )

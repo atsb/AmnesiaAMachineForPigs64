@@ -24,8 +24,6 @@
 #include <cstdio>
 #include <cstring>
 
-using namespace std;
-
 //------------------------------------------------------------------
 
 ///////////////////////////////////////////////////////////
@@ -35,7 +33,7 @@ using namespace std;
 
 //------------------------------------------------------------------
 
-bool cOAL_WAVSample::CreateFromFile(const wstring &asFilename)
+bool cOAL_WAVSample::CreateFromFile(const std::wstring &asFilename)
 {
 	FILE *fileHandle = OpenFileW(asFilename, L"rb");
 	fseek(fileHandle, 0, SEEK_END);

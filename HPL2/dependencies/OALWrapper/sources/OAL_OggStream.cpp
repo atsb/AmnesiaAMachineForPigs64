@@ -20,8 +20,6 @@
 #include <cstdlib>
 #include <cstring>
 
-using namespace std;
-
 struct tMemoryReader {
 	char* buff;
 	ogg_int64_t buff_size;
@@ -205,7 +203,7 @@ double cOAL_OggStream::GetTime()
 
 //---------------------------------------------------------------------
 
-bool cOAL_OggStream::CreateFromFile(const wstring &asFilename)
+bool cOAL_OggStream::CreateFromFile(const std::wstring &asFilename)
 {
 	DEF_FUNC_NAME("cOAL_OggStream::CreateFromFile()");
 

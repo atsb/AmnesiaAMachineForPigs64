@@ -18,26 +18,24 @@
 #include <shlobj.h>
 #endif
 
-using namespace std;
-
-static wstring BuildLogFilename ( const string& asFilename );
+static std::wstring BuildLogFilename ( const std::string& asFilename );
 
 
 bool					iOAL_LoggerObject::mbLogEnabled = false;
 eOAL_LogOutput			iOAL_LoggerObject::mLogOutput = eOAL_LogOutput_File;
 eOAL_LogVerbose	iOAL_LoggerObject::mLogVerboseLevel = eOAL_LogVerbose_Low;
-wstring					iOAL_LoggerObject::msLogFile = BuildLogFilename("OAL.log");
+std::wstring					iOAL_LoggerObject::msLogFile = BuildLogFilename("OAL.log");
 
 //---------------------------------------------------------------------------------------
 
-void iOAL_LoggerObject::SetLogFilename ( const string& asLogFilename )
+void iOAL_LoggerObject::SetLogFilename ( const std::string& asLogFilename )
 {
 	msLogFile = BuildLogFilename ( asLogFilename );
 }
 
 //---------------------------------------------------------------------------------------
 
-void iOAL_LoggerObject::LogMsg(const string& asIDStr, eOAL_LogVerbose aVerbose, eOAL_LogMsg aType, const char* asMessage, ...)
+void iOAL_LoggerObject::LogMsg(const std::string& asIDStr, eOAL_LogVerbose aVerbose, eOAL_LogMsg aType, const char* asMessage, ...)
 {
 	if(!mbLogEnabled)
 		return;
@@ -47,7 +45,7 @@ void iOAL_LoggerObject::LogMsg(const string& asIDStr, eOAL_LogVerbose aVerbose, 
 	if(asMessage==NULL)
 		return;
 
-	string sMessage;
+	std::string sMessage;
 
 	char text[2048];
 	va_list ap;
@@ -75,7 +73,7 @@ void iOAL_LoggerObject::LogMsg(const string& asIDStr, eOAL_LogVerbose aVerbose, 
 
 //---------------------------------------------------------------------------------------
 
-void iOAL_LoggerObject::Write( const string& asMessage )
+void iOAL_LoggerObject::Write( const std::string& asMessage )
 {
 	if (!mbLogEnabled)
 		return;
@@ -102,10 +100,10 @@ void iOAL_LoggerObject::Write( const string& asMessage )
 
 //---------------------------------------------------------------------------------------
 
-wstring BuildLogFilename ( const string& asFilename )
+std::wstring BuildLogFilename ( const std::string& asFilename )
 {
-	wstring wsName;
-	wstring wsTemp;
+	std::wstring wsName;
+	std::wstring wsTemp;
 	wsName = String2WString(asFilename);
 
 	#if defined(_WIN32)
@@ -115,7 +113,7 @@ wstring BuildLogFilename ( const string& asFilename )
 			CSIDL_PERSONAL | CSIDL_FLAG_CREATE,
 			NULL,0,sPath)))
 		{
-			wsTemp = wstring(sPath).append(L"/").append(wsName);
+			wsTemp = std::wstring(sPath).append(L"/").append(wsName);
 		}
 		else
 		{
@@ -134,7 +132,7 @@ wstring BuildLogFilename ( const string& asFilename )
 	{
 		swprintf(buffer, 100, L"_%d.log", i);
 
-		pTempFile = OpenFileW(wstring(wsTemp).append(wstring(buffer)),L"r");
+		pTempFile = OpenFileW(std::wstring(wsTemp).append(std::wstring(buffer)),L"r");
 		if (pTempFile)
 		{
 			fclose(pTempFile);
@@ -142,7 +140,7 @@ wstring BuildLogFilename ( const string& asFilename )
 		}
 		else
 		{
-			wsTemp.append(wstring(buffer));
+			wsTemp.append(std::wstring(buffer));
 			break;
 		}
 	}

@@ -31,8 +31,6 @@
 
 extern cOAL_Device*	gpDevice;
 
-using namespace std;
-
 //--------------------------------------------------------------------------------
 
 cOAL_Source::cOAL_Source(cOAL_SourceManager *apSourceManager, int alId, int alSends): iOAL_LowLevelObject("Source"),

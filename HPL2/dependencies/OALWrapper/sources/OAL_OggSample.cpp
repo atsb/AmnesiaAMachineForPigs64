@@ -21,8 +21,6 @@
 
 #include <vorbis/vorbisfile.h>
 
-using namespace std;
-
 typedef struct
 {
 	unsigned char* data;
@@ -95,7 +93,7 @@ static ov_callbacks OAL_CALLBACKS_BUFFER = {
 
 //-------------------------------------------------------------------------------
 
-bool cOAL_OggSample::CreateFromFile(const wstring &asFilename)
+bool cOAL_OggSample::CreateFromFile(const std::wstring &asFilename)
 {
 	DEF_FUNC_NAME("cOAL_OggSample::CreateFromFile()");
 	FUNC_USES_AL;

@@ -18,8 +18,6 @@
 #include "OALWrapper/OAL_Sample.h"
 #include "OALWrapper/OAL_Stream.h"
 
-using namespace std;
-
 extern cOAL_Device* gpDevice;
 
 //------------------------------------------------------------------------
@@ -31,7 +29,7 @@ extern cOAL_Device* gpDevice;
 
 //------------------------------------------------------------------------
 
-cOAL_Sample* OAL_Sample_Load(const string &asFilename, eOAL_SampleFormat format)
+cOAL_Sample* OAL_Sample_Load(const std::string&asFilename, eOAL_SampleFormat format)
 {
 	if (gpDevice == NULL) return NULL;
 
@@ -40,7 +38,7 @@ cOAL_Sample* OAL_Sample_Load(const string &asFilename, eOAL_SampleFormat format)
 
 //------------------------------------------------------------------------
 
-cOAL_Sample* OAL_Sample_Load(const wstring& asFilename, eOAL_SampleFormat format)
+cOAL_Sample* OAL_Sample_Load(const std::wstring& asFilename, eOAL_SampleFormat format)
 {
 	if(gpDevice==NULL) return NULL;
 
@@ -78,7 +76,7 @@ void OAL_Sample_Unload(cOAL_Sample* apSample)
 
 //------------------------------------------------------------------------
 
-cOAL_Stream* OAL_Stream_Load(const string &asFilename, eOAL_SampleFormat format)
+cOAL_Stream* OAL_Stream_Load(const std::string&asFilename, eOAL_SampleFormat format)
 {
 	if (gpDevice == NULL) return NULL;
 
@@ -87,7 +85,7 @@ cOAL_Stream* OAL_Stream_Load(const string &asFilename, eOAL_SampleFormat format)
 
 //------------------------------------------------------------------------
 
-cOAL_Stream* OAL_Stream_Load(const wstring& asFilename, eOAL_SampleFormat fomat)
+cOAL_Stream* OAL_Stream_Load(const std::wstring& asFilename, eOAL_SampleFormat fomat)
 {
 	if(gpDevice==NULL) return NULL;
 
