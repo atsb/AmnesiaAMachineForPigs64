@@ -45,7 +45,7 @@ cLuxPlayerHands::cLuxPlayerHands(cLuxPlayer *apPlayer) : iLuxPlayerHelper(apPlay
 	mpHandObjectLoader = hplNew( cLuxHandObjectLoader, ("HandObject") );
 	gpBase->mpEngine->GetResources()->AddEntityLoader(mpHandObjectLoader);
 
-	mlMaxCamRotations = gpBase->mpGameCfg->GetInt("Player_General", "HandsRotationSmoothNum", 0);
+	mlMaxCamRotations = (size_t)gpBase->mpGameCfg->GetInt("Player_General", "HandsRotationSmoothNum", 0);
 	mfPosAddMul = gpBase->mpGameCfg->GetFloat("Player_General", "HandsPosAddMul", 0);
 
 	mpHandsMesh = NULL;

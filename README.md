@@ -23,7 +23,7 @@ After that, you'll need to install it (follow the instructions) and then change 
 
 Go into the directory you cloned this to, enter the 'Game/src' directory and perform a 'mkdir build' and 'cmake ..'
 
-All dependencies are included here and so after it finished the setup, run 'make'.  Then grab a beverage because it takes about 20 minutes.
+All dependencies are included here and so after it finished the setup, run 'make' or if you´re on windows use Visual Studio 2022.  Then grab a beverage because it takes about 20 minutes.
 
 Please note, that this project deals with GNU/Linux, macOS builds and Windows.
 
