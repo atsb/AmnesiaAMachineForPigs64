@@ -110,11 +110,11 @@ namespace hpl {
 
 		cRCNode_BoxTree* mpRoot;
 
-		int mlMinLeafObjects;
+		size_t mlMinLeafObjects;
 		float mfMinSideLength;
 		float mfMaxSideLength;
 		float mfMaxIntersectionAmount;
-		int mlMaxVolumeCalcObjects;
+		size_t mlMaxVolumeCalcObjects;
 		float mfMinForceIntersectionRelativeSize;
 
 		tRenderableList m_mlstTempObjects;

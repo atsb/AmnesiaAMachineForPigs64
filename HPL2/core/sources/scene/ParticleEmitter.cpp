@@ -62,7 +62,7 @@ namespace hpl {
 
 	iParticleEmitterData::~iParticleEmitterData()
 	{
-		for(int i=0;i<(int)mvMaterials.size();i++)
+		for(size_t i=0;i<mvMaterials.size();i++)
 		{
 			if(mvMaterials[i]) mpResources->GetMaterialManager()->Destroy(mvMaterials[i]);
 		}
@@ -176,7 +176,7 @@ namespace hpl {
 
 	iParticleEmitter::~iParticleEmitter()
 	{
-		for(int i=0;i<(int)mvParticles.size();i++)
+		for(size_t i=0;i<mvParticles.size();i++)
 		{
 			hplDelete(mvParticles[i]);
 		}

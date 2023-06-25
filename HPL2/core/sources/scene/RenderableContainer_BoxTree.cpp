@@ -380,7 +380,7 @@ namespace hpl {
 
 		///////////////////////////
 		// See if there is enough object to continue splitting
-		int lNumOfObjects = (int)apNode->mlstObjects.size();
+		size_t lNumOfObjects = apNode->mlstObjects.size();
 		if(	lNumOfObjects < mlMinLeafObjects *2 &&	//Multiplied by two, because we want to split it too.
 			apNode->mpParent != NULL &&				//Always try and split first node independant of object number!
 			fLongestSide < mfMaxSideLength)			//Override number of objects if the longest side is long enough!
@@ -428,7 +428,7 @@ namespace hpl {
 		////////////////////////////////////////
 		// Calculate best cut plane by evaluation several and comparing with a heuristic
 		// Only use if there the number of objects is than a certain number (to increase speed)
-		if((int)apNode->mlstObjects.size() < mlMaxVolumeCalcObjects)
+		if(apNode->mlstObjects.size() < mlMaxVolumeCalcObjects)
 		{
 			fCutPlaneVal = CalculateBestCutPlane(apNode->mlstObjects,lAxis,vNodeSize);
 		}
@@ -437,7 +437,7 @@ namespace hpl {
 		// Get Plane cut value by sorting temp vec and getting median.
 		else
 		{
-			int lMedian = lNumOfObjects / 2;
+			size_t lMedian = lNumOfObjects / 2;
 
 			//Sort vector
 			std::sort(vSortedObjects.begin(), vSortedObjects.end(), gvSortFunctions[lAxis]);

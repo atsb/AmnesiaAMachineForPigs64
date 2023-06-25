@@ -373,7 +373,7 @@ namespace hpl {
 
 				cKeyFrame* pKeyframe = pTrack->GetKeyFrame(0);
 
-				for(int k = 1; k < pTrack->GetKeyFrameNum(); k++)
+				for(size_t k = 1; k < pTrack->GetKeyFrameNum(); k++)
 				{
 					cKeyFrame* pNextKeyframe = pTrack->GetKeyFrame(k);
 
@@ -395,7 +395,7 @@ namespace hpl {
 			for(float fTimePosition = 0.0f; fTimePosition <= GetLength(); fTimePosition += fDeltaTime)
 			{
 				const float fWeight = 1;
-				const int lSize = mpAnimation->GetTrackNum();
+				const size_t lSize = mpAnimation->GetTrackNum();
 
 				//Reset bone states
 				for(size_t i=0;i < apvBoneStates->size(); i++)

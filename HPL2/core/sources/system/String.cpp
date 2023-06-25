@@ -269,7 +269,7 @@ namespace hpl {
 	{
 		tString sTemp;
 		sTemp.resize(aString.size());
-		for(int i=0;i<(int)aString.size();i++)
+		for(size_t i=0;i<aString.size();i++)
 		{
 			sTemp[i] = tolower(aString[i]);
 		}
@@ -280,7 +280,7 @@ namespace hpl {
 	{
 		tWString sTemp;
 		sTemp.resize(aString.size());
-		for(int i=0;i<(int)aString.size();i++)
+		for(size_t i=0;i<aString.size();i++)
 		{
 			sTemp[i] = tolower(aString[i]);
 		}
@@ -293,7 +293,7 @@ namespace hpl {
 	{
 		tString sTemp;
 		sTemp.resize(aString.size());
-		for(int i=0;i<(int)aString.size();i++)
+		for(size_t i=0;i<aString.size();i++)
 		{
 			sTemp[i] = toupper(aString[i]);
 		}
@@ -304,7 +304,7 @@ namespace hpl {
 	{
 		tWString sTemp;
 		sTemp.resize(aString.size());
-		for(int i=0;i<(int)aString.size();i++)
+		for(size_t i=0;i<aString.size();i++)
 		{
 			sTemp[i] = toupper(aString[i]);
 		}
@@ -600,7 +600,7 @@ namespace hpl {
 		{
 			tString sNewString = aString;
 
-			for(int i=0;i<(int)aString.size();i++)
+			for(size_t i=0;i<aString.size();i++)
 			{
 				if(aString[i] == asOldChar[0]) sNewString[i] = asNewChar[0];
 			}
@@ -611,7 +611,7 @@ namespace hpl {
 			tString sNewString;
 			sNewString.reserve(aString.size());
 
-			for(int i=0;i<(int)aString.size();i++)
+			for(size_t i=0;i<aString.size();i++)
 			{
 				if(aString[i] != asOldChar[0]) sNewString.push_back(aString[i]);
 			}
@@ -624,7 +624,7 @@ namespace hpl {
 		if(asNewChar !=_W(""))
 		{
 			tWString sNewString  = aString;
-			for(int i=0;i<(int)aString.size();i++)
+			for(size_t i=0;i<aString.size();i++)
 			{
 				if(aString[i] == asOldChar[0]) sNewString[i] = asNewChar[0];
 			}
@@ -635,7 +635,7 @@ namespace hpl {
 			tWString sNewString;
 			sNewString.reserve(aString.size());
 
-			for(int i=0;i<(int)aString.size();i++)
+			for(size_t i=0;i<aString.size();i++)
 			{
 				if(aString[i] != asOldChar[0]) sNewString.push_back(aString[i]);
 			}
@@ -834,7 +834,7 @@ namespace hpl {
 		tStringVec mvStr;
 		GetStringVec(asData, mvStr, apSeparators);
 
-		for(int i=0;i<(int)mvStr.size();i++)
+		for(size_t i=0;i<mvStr.size();i++)
 		{
 			avVec.push_back(ToInt(mvStr[i].c_str(),0) );
 		}
@@ -849,7 +849,7 @@ namespace hpl {
 		tStringVec mvStr;
 		GetStringVec(asData, mvStr, apSeparators);
 
-		for(int i=0;i<(int)mvStr.size();i++)
+		for(size_t i=0;i<mvStr.size();i++)
 		{
 			avVec.push_back(ToInt(mvStr[i].c_str(),0) );
 		}
@@ -865,7 +865,7 @@ namespace hpl {
 		tStringVec mvStr;
 		GetStringVec(asData, mvStr,apSeparators);
 
-		for(int i=0;i<(int)mvStr.size();i++)
+		for(size_t i=0;i<mvStr.size();i++)
 		{
 			avVec.push_back(ToFloat(mvStr[i].c_str(),0) );
 		}
@@ -1473,9 +1473,9 @@ namespace hpl {
 	tString cString::GetNumericSuffix(const tString& aString, int* apIndex)
 	{
 		const char* str = aString.c_str();
-		int lIndex=-1;
-		int lStringSize=(int)aString.size();
-		for(int i=lStringSize-1;i>=0;--i)
+		size_t lIndex=-1;
+		size_t lStringSize=aString.size();
+		for(size_t i=lStringSize-1;i>=0;--i)
 		{
 			if(str[i]<'0' || str[i]>'9')
 			{
@@ -1498,9 +1498,9 @@ namespace hpl {
 	tWString cString::GetNumericSuffixW(const tWString& aString, int* apIndex)
 	{
 		const wchar_t* str = aString.c_str();
-		int lIndex=-1;
-		int lStringSize=(int)aString.size();
-		for(int i=lStringSize-1;i>=0;--i)
+		size_t lIndex=-1;
+		size_t lStringSize=(int)aString.size();
+		for(size_t i=lStringSize-1;i>=0;--i)
 		{
 			if(str[i]<_W('0') || str[i]>_W('9'))
 			{

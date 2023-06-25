@@ -570,7 +570,7 @@ namespace hpl {
 		//////////////////////////////////////////////////
 		// Transform clip planes to local submesh coordinates
 		tPlanefVec vTransformedPlanes;
-		for(int i=0;i<(int)mvClipPlanes.size();++i)
+		for(size_t i=0;i<mvClipPlanes.size();++i)
 		{
 			vTransformedPlanes.push_back(cMath::TransformPlane(mtxInvSubMeshWorldMatrix, mvClipPlanes[i]));
 			//Log("Plane %d transformed normal:(%s) d:%f\n", i, vTransformedPlanes.back().GetNormal().ToFileString().c_str(), vTransformedPlanes.back().d);

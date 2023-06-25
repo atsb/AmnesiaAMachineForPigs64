@@ -327,7 +327,7 @@ namespace hpl {
 			return true;
 		}
 
-		for(int i=0;i<(int)mvMenuItems.size();++i)
+		for(size_t i=0;i<mvMenuItems.size();++i)
 		{
 			if(mvMenuItems[i]->ProcessMessage(eGuiMessage_KeyPress, aData))
 				break;

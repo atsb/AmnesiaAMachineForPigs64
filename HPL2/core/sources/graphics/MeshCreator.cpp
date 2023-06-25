@@ -156,7 +156,7 @@ namespace hpl {
 
 		tVector3fVec vCoords;
 		vCoords.resize(4);
-		for(int i=0;i<(int)vCoords.size(); ++i)
+		for(size_t i=0;i<vCoords.size(); ++i)
 		{
 			int lCornerIndex;
 			cVector3f vCorner = vTempCoords[i] - vCenter;
@@ -177,7 +177,7 @@ namespace hpl {
 			vCoords[lCornerIndex] = vTempCoords[i];
 		}
 		cVector3f vFirstCorner = vCoords[1];
-		for(int i=0;i<(int)vCoords.size();++i)
+		for(size_t i=0;i<vCoords.size();++i)
 		{
 			vCoords[i]-=vFirstCorner;
 		}
@@ -264,7 +264,7 @@ namespace hpl {
 			tVector3fVec vVertices;
 
 			CreateCircumference(afRadius*cos(fAngle), fSectionStep, fHeight, vVertices);
-			for(int j=0;j<(int)vVertices.size();++j)
+			for(size_t j=0;j<vVertices.size();++j)
 			{
 				const cVector3f& vVertex = vVertices[j];
 				cVector3f vNormal = vVertex;
@@ -343,7 +343,7 @@ namespace hpl {
 
 		for(int i=0;i<2;++i)
 		{
-			for(int j=0;j<(int)vVertices.size();++j)
+			for(size_t j=0;j<vVertices.size();++j)
 			{
 				cVector3f vVertex = vVertices[j];
 				vVertex.y = vHeights[i];
@@ -432,7 +432,7 @@ namespace hpl {
 			tVector3fVec vVertices;
 
 			CreateCircumference(avSize.x*cos(fAngle), fSectionStep, fHeight, vVertices);
-			for(int j=0;j<(int)vVertices.size();++j)
+			for(size_t j=0;j<vVertices.size();++j)
 			{
 				const cVector3f& vVertex = vVertices[j];
 				cVector3f vNormal = vVertex - fCylinderHalfHeight;
@@ -452,7 +452,7 @@ namespace hpl {
 			for(int i=0;i<2;++i)
 			{
 				float fHeight = vCylinderHeights[i];
-				for(int j=0;j<(int)vCylinderVertices.size();++j)
+				for(size_t j=0;j<vCylinderVertices.size();++j)
 				{
 					cVector3f vVertex = vCylinderVertices[j];
 					vVertex.y = fHeight;
@@ -477,7 +477,7 @@ namespace hpl {
 
 			// and height is negative here
 			CreateCircumference(avSize.x*cos(fAngle), fSectionStep, -fHeight, vVertices);
-			for(int j=0;j<(int)vVertices.size();++j)
+			for(size_t j=0;j<vVertices.size();++j)
 			{
 				const cVector3f& vVertex = vVertices[j];
 				cVector3f vNormal = vVertex - fCylinderHalfHeight;
@@ -551,7 +551,7 @@ namespace hpl {
 		tVector3fVec vVertices;
 		CreateCircumference(avSize.x, fAngleStep, -fHalfHeight, vVertices);
 
-		for(int i=0;i<(int)vVertices.size();++i)
+		for(size_t i=0;i<vVertices.size();++i)
 		{
 			const cVector3f& vVertex = vVertices[i];
 			cVector3f vNormal = vVertex;

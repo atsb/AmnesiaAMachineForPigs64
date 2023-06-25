@@ -130,7 +130,7 @@ namespace hpl {
 			NewtonReleaseCollision(mpNewtonWorld,mpNewtonCollision);
 
 		//Release all subshapes (for compound objects)
-		for(int i=0; i < (int)mvSubShapes.size(); i++)
+		for(size_t i=0; i < mvSubShapes.size(); i++)
 		{
 			mpWorld->DestroyShape(mvSubShapes[i]);
 		}

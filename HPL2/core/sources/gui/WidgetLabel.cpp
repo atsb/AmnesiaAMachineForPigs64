@@ -133,7 +133,7 @@ namespace hpl {
 												mvDefaultFontSize, msText,
 												&vRows);
 
-			mfWordWrapRowsHeight = (fHeight-1) * (int)vRows.size();
+			mfWordWrapRowsHeight = (fHeight-1) * vRows.size();
 
 			for(size_t i=0; i< vRows.size(); ++i)
 			{

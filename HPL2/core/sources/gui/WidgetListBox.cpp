@@ -69,7 +69,7 @@ namespace hpl {
 	void cWidgetListBox::DrawItems(float afTimeStep, cGuiClipRegion* apClipRegion)
 	{
 		cVector3f vPosition = GetItemStartPos()+cVector3f(3,0,mfBackgroundZ+0.1f);
-		for(int i=mlFirstItem; i < (int)mvItems.size(); ++i)
+		for(size_t i=mlFirstItem; i < mvItems.size(); ++i)
 		{
 			if(i-mlFirstItem > mlMaxItems) break;
 			cWidgetItem* pItem = mvItems[i];

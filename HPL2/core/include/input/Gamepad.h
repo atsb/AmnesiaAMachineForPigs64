@@ -45,22 +45,22 @@ namespace hpl {
 		 *
 		 * \return the number of buttons in the gamepad
 		 */
-		virtual int GetNumButtons()=0;
+		virtual size_t GetNumButtons()=0;
 		/**
 		 *
 		 * \return the number of axes in the gamepad
 		 */
-		virtual int GetNumAxes()=0;
+		virtual size_t GetNumAxes()=0;
 		/**
 		 *
 		 * \return the number of hats in the gamepad
 		 */
-		virtual int GetNumHats()=0;
+		virtual size_t GetNumHats()=0;
 		/**
 		 *
 		 * \return the number of trackballs in the gamepad
 		 */
-		virtual int GetNumBalls()=0;
+		virtual size_t GetNumBalls()=0;
 		/**
 		 *
  		 * Can be checked many times to see all updated input

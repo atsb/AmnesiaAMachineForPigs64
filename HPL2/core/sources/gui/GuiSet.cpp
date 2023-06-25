@@ -311,7 +311,7 @@ namespace hpl {
 
 		// 9 mouse buttons defined in InputTypes and GuiTypes
 		mvMouseDown.resize(9);
-		for(int i=0; i<(int)mvMouseDown.size(); ++i) mvMouseDown[i] = false;
+		for(size_t i=0; i<mvMouseDown.size(); ++i) mvMouseDown[i] = false;
 		mbMouseMovementEnabled = true;
 
 		SetSkin(apSkin);
@@ -2524,7 +2524,7 @@ namespace hpl {
 
 					tWStringVec vRows;
 					pFont->GetWordWrapRows(fMaxTextLength, mvFontSize.y+2, mvFontSize, sTipText, &vRows);
-					int lRows = (int)vRows.size();
+					size_t lRows = vRows.size();
 
 					cVector3f vPos = mvMousePos + mpGfxCurrentPointer->GetImageSize();
 					vPos.z = mfMouseZ - 2;

@@ -364,7 +364,7 @@ namespace hpl {
 		/////////////////////////////////////
 		//Create the side planes:
 
-		for(int i=0; i< (int)mShadowVolume.mvPoints.size(); i+=4)
+		for(size_t i=0; i< mShadowVolume.mvPoints.size(); i+=4)
 		{
 			//Normal should point inwards
 			cVector3f vNormal = cMath::Vector3Cross(
@@ -398,7 +398,7 @@ namespace hpl {
 		}
 
 		int lPlane = mShadowVolume.mlCapPlanes;
-		for(int quad = 0; quad < (int)pVolume->mvPoints.size(); quad+=4)
+		for(int quad = 0; quad < pVolume->mvPoints.size(); quad+=4)
 		{
 
 			for(int i=0; i<4; i++)

@@ -823,7 +823,7 @@ namespace hpl {
 
 	eVariableType cEngine::GetEngineTypeFromString(const tString& asType)
 	{
-		for(int i=0;i<(int)mvEngineTypeStrings.size();++i)
+		for(size_t i=0;i<mvEngineTypeStrings.size();++i)
 		{
 			if(asType==mvEngineTypeStrings[i])
 				return (eVariableType)i;

@@ -190,7 +190,7 @@ namespace hpl {
 				if(pBmp==NULL){
 					Error("Couldn't load bitmap '%s'!\n",cString::To8Char(vPaths[i]).c_str());
 
-					for(int j=0;j<(int)vBitmaps.size();j++) hplDelete(vBitmaps[j]);
+					for(size_t j=0;j<vBitmaps.size();j++) hplDelete(vBitmaps[j]);
 
 					EndLoad();
 					return NULL;
@@ -209,13 +209,13 @@ namespace hpl {
 			{
 				Error("Couldn't create animated texture '%s'!\n", sBaseName.c_str());
 				hplDelete(pTexture);
-				for(int j=0;j<(int)vBitmaps.size();j++) hplDelete(vBitmaps[j]);
+				for(size_t j=0;j<vBitmaps.size();j++) hplDelete(vBitmaps[j]);
 				EndLoad();
 				return NULL;
 			}
 
 			//Bitmaps no longer needed.
-			for(int j=0;j<(int)vBitmaps.size();j++) hplDelete(vBitmaps[j]);
+			for(size_t j=0;j<vBitmaps.size();j++) hplDelete(vBitmaps[j]);
 
 			mlMemoryUsage += pTexture->GetMemorySize();
 			AddResource(pTexture);
@@ -286,7 +286,7 @@ namespace hpl {
 					cBitmap* pBmp = mpBitmapLoaderHandler->LoadBitmap(vPaths[i],0);
 					if(pBmp==NULL){
 						Error("Couldn't load bitmap '%s'!\n",cString::To8Char(vPaths[i]).c_str());
-						for(int j=0;j<(int)vBitmaps.size();j++) hplDelete(vBitmaps[j]);
+						for(size_t j=0;j<vBitmaps.size();j++) hplDelete(vBitmaps[j]);
 						EndLoad();
 						return NULL;
 					}
@@ -305,13 +305,13 @@ namespace hpl {
 				{
 					Error("Couldn't create cubemap '%s'!\n", sName.c_str());
 					hplDelete(pTexture);
-					for(int j=0;j<(int)vBitmaps.size();j++) hplDelete(vBitmaps[j]);
+					for(size_t j=0;j<vBitmaps.size();j++) hplDelete(vBitmaps[j]);
 					EndLoad();
 					return NULL;
 				}
 
 				//Bitmaps no longer needed.
-				for(int j=0;j<(int)vBitmaps.size();j++)	hplDelete(vBitmaps[j]);
+				for(size_t j=0;j<vBitmaps.size();j++)	hplDelete(vBitmaps[j]);
 
 				mlMemoryUsage += pTexture->GetMemorySize();
 				AddResource(pTexture);

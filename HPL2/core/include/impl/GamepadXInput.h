@@ -73,10 +73,10 @@ namespace hpl {
 
 		tString GetGamepadName() { return msGamepadName; }
 
-		int GetNumButtons();
-		int GetNumAxes();
-		int GetNumHats();
-		int GetNumBalls();
+		size_t GetNumButtons();
+		size_t GetNumAxes();
+		size_t GetNumHats();
+		size_t GetNumBalls();
 
 		void Update();
 

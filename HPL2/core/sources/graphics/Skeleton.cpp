@@ -77,7 +77,7 @@ namespace hpl {
 		//Rebuild the map
 		m_mapBonesIdxByName.clear();
 
-		for(int i=0;i< (int) mvBones.size(); i++)
+		for(size_t i=0;i<mvBones.size(); i++)
 		{
 			m_mapBonesIdxByName.insert(tBoneIdxNameMap::value_type(
 								mvBones[i]->GetName(),i));

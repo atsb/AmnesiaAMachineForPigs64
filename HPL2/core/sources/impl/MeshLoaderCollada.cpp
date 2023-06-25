@@ -106,7 +106,7 @@ namespace hpl {
 	{
 		tString sControlId="";
 		bool bGuess=false;
-		for(int ctrl=0; ctrl < (int)avColladaControllers.size(); ctrl++)
+		for(size_t ctrl=0; ctrl < avColladaControllers.size(); ctrl++)
 		{
 			cColladaController &Control = avColladaControllers[ctrl];
 			if(Control.msTarget == asGeomId){
@@ -1142,7 +1142,7 @@ namespace hpl {
 
 	static bool HasParam(const tStringVec & avVec, const tString &asParam)
 	{
-		for(int i=0; i< (int)avVec.size(); i++)
+		for(size_t i=0; i< avVec.size(); i++)
 		{
 			if(cString::ToLowerCase(avVec[i]) == asParam){
 				return true;

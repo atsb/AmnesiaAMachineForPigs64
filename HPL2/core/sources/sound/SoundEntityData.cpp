@@ -99,7 +99,7 @@ namespace hpl {
 	const tString& cSoundEntityData::GetRandomSoundName(eSoundEntityType aType, bool abSkipPrevious)
 	{
 		if(mvSoundNameVecs[aType].empty()) return gsEmptyString;
-		int lSize = (int)mvSoundNameVecs[aType].size();
+		size_t lSize = mvSoundNameVecs[aType].size();
 		if(lSize==1) return mvSoundNameVecs[aType][0];
 
         int lRand = cMath::RandRectl(0, lSize - 1);

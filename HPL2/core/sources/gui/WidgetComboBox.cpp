@@ -157,15 +157,15 @@ namespace hpl {
 
 	void cWidgetComboBox::UpdateProperties()
 	{
-		if((int)mvItems.size() <= mlMaxItems)
-			mlItemsShown = (int)mvItems.size();
+		if(mvItems.size() <= mlMaxItems)
+			mlItemsShown = mvItems.size();
 		else
 			mlItemsShown = mlMaxItems;
 
 		mfMenuHeight = 2 + (mvDefaultFontSize.y+2)* (float)mlItemsShown + 2;
 
-		if(mlSelectedItem>=(int)mvItems.size())
-			SetSelectedItem((int)mvItems.size()-1);
+		if(mlSelectedItem>=mvItems.size())
+			SetSelectedItem(mvItems.size()-1);
 
 		OnChangeSize();
 	}

@@ -80,7 +80,7 @@ namespace hpl {
 
 		cSubMesh* CreateSubMesh(const tString &asName);
 
-		cSubMesh* GetSubMesh(unsigned int alIdx);
+		cSubMesh* GetSubMesh(size_t alIdx);
 		int GetSubMeshIndex(const tString &asName);
 		cSubMesh* GetSubMeshName(const tString &asName);
 		size_t GetSubMeshNum();

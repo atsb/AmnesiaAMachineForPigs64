@@ -78,24 +78,24 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	int cGamepadSDL::GetNumButtons()
+	size_t cGamepadSDL::GetNumButtons()
 	{
-		return (int)mvButtonArray.size();
+		return mvButtonArray.size();
 	}
 
-	int cGamepadSDL::GetNumAxes()
+	size_t cGamepadSDL::GetNumAxes()
 	{
-		return (int)mvAxisArray.size();
+		return mvAxisArray.size();
 	}
 
-	int cGamepadSDL::GetNumHats()
+	size_t cGamepadSDL::GetNumHats()
 	{
-		return (int)mvHatArray.size();
+		return mvHatArray.size();
 	}
 
-	int cGamepadSDL::GetNumBalls()
+	size_t cGamepadSDL::GetNumBalls()
 	{
-		return (int)mvBallAbsPosArray.size();
+		return mvBallAbsPosArray.size();
 	}
 
 	//-----------------------------------------------------------------------

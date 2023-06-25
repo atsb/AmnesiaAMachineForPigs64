@@ -345,13 +345,13 @@ namespace hpl {
 		// it adds an item per category, and writes the filters on the item text
 		mpFilterList->ClearItems();
 
-		for(int i=0;i<(int)mvCategories.size();++i)
+		for(size_t i=0;i<mvCategories.size();++i)
 		{
 			cFileBrowserCategory* pCat = mvCategories[i];
 
 			tWString sFilterText = pCat->msName + _W(" (");
 
-			for(int j=0;j <(int)pCat->mvFilters.size();++j)
+			for(size_t j=0;j <pCat->mvFilters.size();++j)
 			{
 				if(j!=0) sFilterText += _W(", ");
 
@@ -378,7 +378,7 @@ namespace hpl {
         if (iFileBrowser::msGameDir.length()) {
             mpCurrentDirectory->AddItem(_W("<Game Folder>"));
         }
-        for(int i=0;i<(int)mvCurrentDirFullPath.size();++i)
+        for(size_t i=0;i<mvCurrentDirFullPath.size();++i)
 		{
 			mpCurrentDirectory->AddItem(mvCurrentDirFullPath[i]);
 		}
@@ -408,7 +408,7 @@ namespace hpl {
 		// If we are at the root, set up special folders
 		if(sCurrentFullPath==_W(""))
 		{
-			for(int i=0;i<(int)mvSystemRootFolders.size();++i)
+			for(size_t i=0;i<mvSystemRootFolders.size();++i)
 			{
 				cWidgetItem* pItem = mpFileList->AddItem();
 

@@ -41,10 +41,10 @@ namespace hpl {
 
 		tString GetGamepadName() { return msGamepadName; }
 
-		int GetNumButtons();
-		int GetNumAxes();
-		int GetNumHats();
-		int GetNumBalls();
+		size_t GetNumButtons();
+		size_t GetNumAxes();
+		size_t GetNumHats();
+		size_t GetNumBalls();
 
 		void Update();
 
@@ -75,7 +75,7 @@ namespace hpl {
 	private:
 		eGamepadButton		SDLToButton(Uint8 alButton);
 		eGamepadAxis		SDLToAxis(Uint8 alAxis);
-		float				SDLToAxisValue(Sint16 alAxisValue);
+		float				SDLToAxisValue(float alAxisValue);
 		eGamepadHat			SDLToHat(Uint8 alHat);
 		eGamepadHatState	SDLToHatState(Uint8 alHat);
 		eGamepadBall		SDLToBall(Uint8 alBall);
@@ -89,6 +89,8 @@ namespace hpl {
 		std::vector<float>				mvAxisArray;
 		std::vector<eGamepadAxisRange>	mvAxisRange;
 		std::vector<bool>				mvButtonArray;
+		std::vector<cVector2l>			mvBallAbsPosArray;
+		std::vector<cVector2l>			mvBallRelPosArray;
 
 #ifdef _WIN32
 		std::vector<float>				mvRemappedAxisArray;

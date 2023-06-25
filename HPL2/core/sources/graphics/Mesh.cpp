@@ -64,13 +64,13 @@ namespace hpl {
 
 	cMesh::~cMesh()
 	{
-		for(int i=0;i<(int)mvSubMeshes.size();i++)
+		for(size_t i=0;i<mvSubMeshes.size();i++)
 		{
 			hplDelete(mvSubMeshes[i]);
 		}
 		if(mpSkeleton) hplDelete(mpSkeleton);
 
-		for(int i=0;i< (int)mvAnimations.size(); i++)
+		for(size_t i=0;i<mvAnimations.size(); i++)
 		{
 			//mpAnimationManager->Destroy(mvAnimations[i]);
 			hplDelete(mvAnimations[i]);
@@ -108,7 +108,7 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	cSubMesh* cMesh::GetSubMesh(unsigned int alIdx)
+	cSubMesh* cMesh::GetSubMesh(size_t alIdx)
 	{
 		if(alIdx >= mvSubMeshes.size()) return NULL;
 
@@ -213,7 +213,7 @@ namespace hpl {
 	{
 		if(abDeleteAll)
 		{
-			for(int i=0;i< (int)mvAnimations.size(); i++)
+			for(size_t i=0;i<mvAnimations.size(); i++)
 			{
 				//mpAnimationManager->Destroy(mvAnimations[i]);
 				hplDelete(mvAnimations[i]);

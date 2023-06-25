@@ -197,7 +197,7 @@ namespace hpl {
             
 			pSubMesh->SetVertexBuffer(subData.mpVtxBuffer);
 
-			for(int i=0; i < (int)subData.mvVtxBonePairs.size(); i++)
+			for(size_t i=0; i < subData.mvVtxBonePairs.size(); i++)
 			{
 				cVertexBonePair VBPair;
 				VBPair.boneIdx = subData.mvVtxBonePairs[i].boneIdx;
@@ -479,7 +479,7 @@ namespace hpl {
 	{
 		for(int axis=0;axis<3;axis++)
 		{
-			for(int index = 0; index < (int)apSrcVec[axis].size(); index++)
+			for(size_t index = 0; index < apSrcVec[axis].size(); index++)
 			{
 				cTakeKeyData *data = &apSrcVec[axis][index];
 				int lPos = FindTimeIndex(apDestVec, data->mfTime);
@@ -602,7 +602,7 @@ namespace hpl {
 			//Add all of the temporary keyframes to the track. Subtract bone rest pose's translation and orientation ( the latter by premultiplying with inv bone rot )
 			cAnimationTrack *pTrack = apAnimation->CreateTrack(apNode->GetName(),transFlags);
 			
-			for(int i=0; i< vTempKeyFrame.size(); i++)
+			for(size_t i=0; i< vTempKeyFrame.size(); i++)
 			{
 				cTempKeyFrameData *data = &vTempKeyFrame[i];
 				
@@ -831,7 +831,7 @@ namespace hpl {
 						fbxsdk::FbxLayerElementNormal::DirectArrayType pNormals = pNormLayer->GetDirectArray();
 
 						if(mbLowLog)Log("%s Normals:\n %s ",GetTabs(alDepth),GetTabs(alDepth));
-						for ( int i = 0; i < (int)mvIndexes.size(); i++)
+						for ( size_t i = 0; i < mvIndexes.size(); i++)
 						{
 							cVector3f vPos((float)pNormals[i][0],(float)pNormals[i][1],(float)pNormals[i][2]);
 							mvVertexes[mvIndexes[i]].norm = vPos;
@@ -919,7 +919,7 @@ namespace hpl {
 					if ( pTangentLayer->GetReferenceMode() == fbxsdk::FbxLayerElement::EReferenceMode::eDirect )
 					{					
 						if(mbLowLog)Log("%s Tangents:\n %s ",GetTabs(alDepth),GetTabs(alDepth));
-						for ( int i = 0; i < (int)mvIndexes.size(); i++)
+						for ( size_t i = 0; i < mvIndexes.size(); i++)
 						{
 							cVector3f vPos((float)pTangents[i][0],(float)pTangents[i][1],(float)pTangents[i][2]);
 							mvVertexes[mvIndexes[i]].tan = vPos;
@@ -980,7 +980,7 @@ namespace hpl {
 				else if(pUvLayer->GetMappingMode() == fbxsdk::FbxLayerElementNormal::EMappingMode::eByPolygonVertex)
 				{
 					if(mbLowLog)Log("%s Uvs:\n %s ",GetTabs(alDepth),GetTabs(alDepth));
-					for(int i=0;i<(int)mvIndexes.size();i++)
+					for(size_t i=0;i<mvIndexes.size();i++)
 					{
 						int lPos = pUvIndices[i];
 						if(mbLowLog)Log("(%.1f, %.1f) ", pUvs[lPos][0],pUvs[lPos][1]);
@@ -1024,7 +1024,7 @@ namespace hpl {
 				//Add extra vertexes if needed
 				if(mbLowLog)Log("%s Adding new vertexes to indices: ",GetTabs(alDepth));
 				tExtraVtxValueListIt it = lstExtraValues.begin();
-				int lStartPos = (int)mvVertexes.size();
+				size_t lStartPos = mvVertexes.size();
 				for(;it != lstExtraValues.end();it++)
 				{
 					cExtraVtxValue &val = *it;
@@ -1034,7 +1034,7 @@ namespace hpl {
 
 					//Check if there is allready a point added with the same values.
 					bool bOldFound = false;
-					for(int i=lStartPos; i<(int)mvVertexes.size();i++)
+					for(size_t i=lStartPos; i<mvVertexes.size();i++)
 					{
 						if(mvVertexes[i].tex == val.mvVal && 
 							mvVertexes[i].pos == mvVertexes[mvIndexes[val.mlIndexNum]].pos &&
@@ -1092,7 +1092,7 @@ namespace hpl {
 					{
 						fbxsdk::FbxDouble3 col = ((FbxSurfacePhong *)pMat)->Diffuse.Get();
 						fbxsdk::FbxDouble factor = ((FbxSurfacePhong *)pMat)->DiffuseFactor.Get();
-						for(int i=0;i<(int)mvVertexes.size();i++)
+						for(size_t i=0;i<mvVertexes.size();i++)
 						{
 							mvVertexes[i].col = cColor((float)col[0],(float)col[1], 
 								(float)col[2], (float)factor);
@@ -1160,7 +1160,7 @@ namespace hpl {
 			mtxNormTrans.m[1][3] =0;
 			mtxNormTrans.m[2][3] =0;
 
-			for(int i=0; i < (int)mvVertexes.size(); i++)
+			for(size_t i=0; i<mvVertexes.size(); i++)
 			{
 				mvVertexes[i].pos = cMath::MatrixMul(subMeshData.m_mtxGlobal, mvVertexes[i].pos);
 				mvVertexes[i].norm = cMath::MatrixMul(mtxNormTrans, mvVertexes[i].norm);
@@ -1170,7 +1170,7 @@ namespace hpl {
 			}
 
 			//Invert the positions of the indices
-			for(int i=0; i< (int)mvIndexes.size();i+=3)
+			for(size_t i=0; i< mvIndexes.size();i+=3)
 			{
 				unsigned int lTemp = mvIndexes[i+0];
 				mvIndexes[i+0] = mvIndexes[i+2];
@@ -1279,7 +1279,7 @@ namespace hpl {
 							subMeshData.mvVtxBonePairs.push_back(vtxBonePair);
 
 							//Add the new vertices that was made if the vertex was split.
-							for(int k=0;k< (int)vExtraVetrices[pVtxIndices[j]].mvNewPoints.size(); k++)
+							for (size_t k = 0; k < vExtraVetrices[pVtxIndices[j]].mvNewPoints.size(); k++)
 							{
 								vtxBonePair.vtxIdx = vExtraVetrices[pVtxIndices[j]].mvNewPoints[k];
 							}
@@ -1313,7 +1313,7 @@ namespace hpl {
 
 
 			//Add the vertices
-			for(int i=0;i<(int)mvVertexes.size();i++)
+			for(size_t i=0;i<mvVertexes.size();i++)
 			{
 				subMeshData.mpVtxBuffer->AddVertexVec3f(eVertexBufferElement_Position, mvVertexes[i].pos);
 				subMeshData.mpVtxBuffer->AddVertexColor(eVertexBufferElement_Color0, mvVertexes[i].col);
@@ -1328,7 +1328,7 @@ namespace hpl {
 			}
 
 			//Add the indices
-			for(int i=0;i<(int)mvIndexes.size();i++)
+			for(size_t i=0;i<mvIndexes.size();i++)
 			{
 				subMeshData.mpVtxBuffer->AddIndex(mvIndexes[i]);
 			}

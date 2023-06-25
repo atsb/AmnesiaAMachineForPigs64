@@ -100,7 +100,7 @@ namespace hpl {
 			const tSoundDeviceVec& vSndDevices = GetAvailableSoundDevices();
 
 			tString sLowCaseFilter = cString::ToLowerCase(msSoundDeviceNameFilter);
-			for(int i=0;i<(int)mvSoundDevices.size();++i)
+			for(size_t i=0;i<mvSoundDevices.size();++i)
 			{
 				iSoundDeviceIdentifier* pSndDev = mvSoundDevices[i];
 				tString sLowCaseName = cString::ToLowerCase(pSndDev->GetName());

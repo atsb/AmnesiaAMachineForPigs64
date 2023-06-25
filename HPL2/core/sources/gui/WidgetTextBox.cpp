@@ -345,11 +345,11 @@ namespace hpl {
 
 	int cWidgetTextBox::GetLastCharInSize(int alStartPos, float afMaxSize, float afLengthAdd)
 	{
-		int lCharPos = (int)msText.size();
+		size_t lCharPos = msText.size();
 		float fLength =0;
 		int lFirst = mpDefaultFontType->GetFirstChar();
 		int lLast = mpDefaultFontType->GetLastChar();
-		for(int i=alStartPos; i< (int)msText.size(); ++i)
+		for(size_t i=alStartPos; i<msText.size(); ++i)
 		{
 			if(i < lFirst || i >lLast) continue;
 
@@ -467,7 +467,7 @@ namespace hpl {
 	{
 		mlMarkerCharPos = alPos;
 		if(mlMarkerCharPos < 0) mlMarkerCharPos =0;
-		if(mlMarkerCharPos > (int)msText.size() && msText.size()>0) mlMarkerCharPos =(int)msText.size();
+		if(mlMarkerCharPos > msText.size() && msText.size()>0) mlMarkerCharPos = msText.size();
 
 		if(mlMarkerCharPos > mlFirstVisibleChar + mlVisibleCharSize)
 		{
@@ -772,7 +772,7 @@ namespace hpl {
 	bool cWidgetTextBox::OnGotTabFocus(const cGuiMessageData& aData)
 	{
 		//SetSelectedText();
-		mlMarkerCharPos = (int)msText.size();
+		mlMarkerCharPos = msText.size();
 		mlSelectedTextEnd = 0;
 		mbGotFocusRecently = false;
 
@@ -825,7 +825,7 @@ namespace hpl {
 			if(key == eKey_A)
 			{
 				mlSelectedTextEnd = 0;
-				mlMarkerCharPos = (int)msText.size(); // Marker must be after the last character.
+				mlMarkerCharPos = msText.size(); // Marker must be after the last character.
 
 				return true;
 			}

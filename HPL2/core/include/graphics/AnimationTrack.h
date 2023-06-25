@@ -45,7 +45,7 @@ namespace hpl {
 		void ClearKeyFrames();
 
 		inline cKeyFrame* GetKeyFrame(int alIndex){ return mvKeyFrames[alIndex];}
-		inline int GetKeyFrameNum(){ return (int) mvKeyFrames.size();}
+		inline size_t GetKeyFrameNum(){ return mvKeyFrames.size();}
 
 		inline tAnimTransformFlag GetTransformFlags(){ return mTransformFlags;}
 

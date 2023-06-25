@@ -80,24 +80,24 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	int cGamepadXInput::GetNumButtons()
+	size_t cGamepadXInput::GetNumButtons()
 	{
-		return (int)mvButtonArray.size();
+		return mvButtonArray.size();
 	}
 
-	int cGamepadXInput::GetNumAxes()
+	size_t cGamepadXInput::GetNumAxes()
 	{
-		return (int)mvAxisArray.size();
+		return mvAxisArray.size();
 	}
 
-	int cGamepadXInput::GetNumHats()
+	size_t cGamepadXInput::GetNumHats()
 	{
-		return (int)mvHatArray.size();
+		return mvHatArray.size();
 	}
 
-	int cGamepadXInput::GetNumBalls()
+	size_t cGamepadXInput::GetNumBalls()
 	{
-		return (int)mvBallAbsPosArray.size();
+		return mvBallAbsPosArray.size();
 	}
 
 	//-----------------------------------------------------------------------

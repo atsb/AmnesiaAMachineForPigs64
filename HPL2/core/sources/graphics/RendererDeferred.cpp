@@ -2166,14 +2166,14 @@ namespace hpl {
 
 		///////////////////////
 		// Render Inside Near Plane Lights
-		int lNumOfNearPlaneLights = (int)mvSortedLights[eDeferredLightList_StencilBack_ScreenQuad].size();
+		size_t lNumOfNearPlaneLights = mvSortedLights[eDeferredLightList_StencilBack_ScreenQuad].size();
 		int lStartLight = 0;
 		while(lNumOfNearPlaneLights>0)
 		{
 			//cVector2l vMinClip(10000,10000);
 			//cVector2l vMaxClip(-1000,-10000);
 
-			int lIterations;
+			size_t lIterations;
 			if(lNumOfNearPlaneLights >kMaxStencilBitsUsed)	lIterations = kMaxStencilBitsUsed;
 			else											lIterations = lNumOfNearPlaneLights;
 
@@ -2187,7 +2187,7 @@ namespace hpl {
 				SetDepthTest(false);
 			SetChannelMode(eMaterialChannelMode_None);
 			SetStencil(eStencilFunc_Always,0xFF,0xFF,eStencilOp_Keep,eStencilOp_Keep,eStencilOp_Replace);
-			for(int i=0; i<lIterations; ++i)
+			for(size_t i=0; i<lIterations; ++i)
 			{
 				cDeferredLight* pLightData = mvSortedLights[eDeferredLightList_StencilBack_ScreenQuad][lStartLight + i];
 				iLight *pLight = pLightData->mpLight;
@@ -2341,7 +2341,7 @@ namespace hpl {
 
 		///////////////////////
 		// Render Large Lights
-		int lNumOfNearPlaneLights = (int)mvSortedLights[eDeferredLightList_StencilFront_RenderBack].size();
+		size_t lNumOfNearPlaneLights = (int)mvSortedLights[eDeferredLightList_StencilFront_RenderBack].size();
 		int lStartLight = 0;
 		while(lNumOfNearPlaneLights>0)
 		{
@@ -2608,11 +2608,11 @@ namespace hpl {
 
 		///////////////////////
 		// Render Large Lights
-		int lNumOfNearPlaneLights = (int)mvSortedLights[eDeferredLightList_Box_StencilFront_RenderBack].size();
+		size_t lNumOfNearPlaneLights = (int)mvSortedLights[eDeferredLightList_Box_StencilFront_RenderBack].size();
 		int lStartLight = 0;
 		while(lNumOfNearPlaneLights>0)
 		{
-			int lIterations;
+			size_t lIterations;
 			if(lNumOfNearPlaneLights >kMaxStencilBitsUsed)	lIterations = kMaxStencilBitsUsed;
 			else											lIterations = lNumOfNearPlaneLights;
 
@@ -2623,7 +2623,7 @@ namespace hpl {
 			SetChannelMode(eMaterialChannelMode_None);
 			SetCullMode(eCullMode_CounterClockwise);
 			SetStencil(eStencilFunc_Always,0xFF,0xFF,eStencilOp_Keep,eStencilOp_Replace,eStencilOp_Keep);
-			for(int i=0; i<lIterations; ++i)
+			for(size_t i=0; i<lIterations; ++i)
 			{
 				cDeferredLight* pLightData = mvSortedLights[eDeferredLightList_Box_StencilFront_RenderBack][lStartLight + i];
 				iLight *pLight = pLightData->mpLight;

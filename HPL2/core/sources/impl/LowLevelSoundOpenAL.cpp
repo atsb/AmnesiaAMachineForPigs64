@@ -49,7 +49,7 @@ namespace hpl {
 
 		bool bDefaultFound = false;
 		tStringVec vDeviceNames = OAL_Info_GetOutputDevices();
-		for(int i=0;i<(int)vDeviceNames.size();++i)
+		for(size_t i=0;i<vDeviceNames.size();++i)
 		{
 			const tString& sDev = vDeviceNames[i];
 			bool bIsDefault = false;
@@ -240,7 +240,7 @@ namespace hpl {
 		if(vSndDevices.empty())
 			FatalError("   No sound devices available! Check your OpenAL installation\n");
 
-		for(int i=0;i<(int)vSndDevices.size();++i)
+		for(size_t i=0;i<vSndDevices.size();++i)
 		{
 			iSoundDeviceIdentifier* pSndDev = vSndDevices[i];
 			Log("   %i. %s", pSndDev->GetID(), pSndDev->GetName().c_str());
@@ -307,7 +307,7 @@ namespace hpl {
 		{
 			Log("Failed\n  Finding first device matching filter that works... ");
 
-			for(int i=0;i<(int)vValidSndDevices.size();++i)
+			for(size_t i=0;i<vValidSndDevices.size();++i)
 			{
 				iSoundDeviceIdentifier* pDev = vValidSndDevices[i];
 
@@ -330,7 +330,7 @@ namespace hpl {
 		{
 			Log("Failed\n  Trying with default device... ");
 
-			for(int i=0;i<(int)vSndDevices.size();++i)
+			for(size_t i=0;i<vSndDevices.size();++i)
 			{
 				iSoundDeviceIdentifier* pDev = vSndDevices[i];
 				if(pDev->IsDefault()==false)
@@ -360,7 +360,7 @@ namespace hpl {
 			if (mbInitialized)
 			{
 				tString sDeviceName = tString(OAL_Info_GetDeviceName());
-				for(int i=0; i<(int)vSndDevices.size(); ++i)
+				for(size_t i=0; i<vSndDevices.size(); ++i)
 				{
 					/////////////////////////////////////////////////////////////////////////////////////
 					// There is chance the picked device name doesn't match any of the enumerated ones
@@ -705,7 +705,7 @@ namespace hpl {
 
 		/////////////////////////////////
 		// Return first default device
-		for(int i=0; i<(int)vValidSndDevices.size(); ++i)
+		for(size_t i=0; i<vValidSndDevices.size(); ++i)
 		{
 			iSoundDeviceIdentifier* pSndDev = vValidSndDevices[i];
 			if(pSndDev->IsDefault())
@@ -735,7 +735,7 @@ namespace hpl {
 
 		/////////////////////////////////
 		// Return first default device in all devices
-		for(int i=0; i<(int)vSndDevices.size(); ++i)
+		for(size_t i=0; i<vSndDevices.size(); ++i)
 		{
 			iSoundDeviceIdentifier* pSndDev = vSndDevices[i];
 			if(pSndDev->IsDefault())

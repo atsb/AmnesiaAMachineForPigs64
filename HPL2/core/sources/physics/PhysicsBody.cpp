@@ -157,7 +157,7 @@ namespace hpl {
 
 		///////////////////////////
 		//Remove Joints
-		for(int i=0; i<(int)mvJoints.size(); i++)
+		for(size_t i=0; i<(int)mvJoints.size(); i++)
 		{
 			iPhysicsJoint *pJoint = mvJoints[i];
 

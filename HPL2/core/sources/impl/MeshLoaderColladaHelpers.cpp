@@ -1519,7 +1519,7 @@ namespace hpl {
 
 					//Log("Position vertex source: %s\n", sSource.c_str());
 
-					for(int i=0;i<(int) Geometry.mvArrayVec.size(); i++)
+					for(size_t i=0;i<Geometry.mvArrayVec.size(); i++)
 					{
 						//If the vertex array is found just change the name and break.
 						if(Geometry.mvArrayVec[i].msId == sSource)
@@ -1537,7 +1537,7 @@ namespace hpl {
 					//Log("%s vertex source: %s\n",sSemantic.c_str(), sSource.c_str());
 
 					//Find array and set some properties
-					for(int i=0;i<(int) Geometry.mvArrayVec.size(); i++)
+					for(size_t i=0;i<Geometry.mvArrayVec.size(); i++)
 						if(Geometry.mvArrayVec[i].msId == sSource)
 						{
 							Geometry.mvArrayVec[i].msType = sSemantic;
@@ -1595,7 +1595,7 @@ namespace hpl {
 				int lArrayNum = -1;
 
 				//Get what array that belongs to this input.
-				for(int i=0; i<(int)Geometry.mvArrayVec.size(); i++)
+				for(size_t i=0; i<Geometry.mvArrayVec.size(); i++)
 				{
 					if(Geometry.mvArrayVec[i].msId == sSource)
 					{
@@ -2101,14 +2101,14 @@ namespace hpl {
 		tVertexVec &avVertexVec, tUIntVec &avIndexVec)
 	{
 		//Resize the extra array and the vertex array
-		int lVtxSize = (int)aGeometry.mvArrayVec[aGeometry.mlPosArrayIdx].mvArray.size();
+		size_t lVtxSize = aGeometry.mvArrayVec[aGeometry.mlPosArrayIdx].mvArray.size();
 		avExtraVtxVec.resize(lVtxSize);
 		avVertexVec.resize(lVtxSize);
 		avIndexVec.resize(aGeometry.mvIndices.size());
 
 		tColladaVtxIndexVec &vIndices = aGeometry.mvIndices;
 
-		for(int i=0; i<(int) vIndices.size(); i++)
+		for(size_t i=0; i<vIndices.size(); i++)
 		{
 			cColladaVtxIndex &Data = vIndices[i];
 			//Log("Index %d: ", i);

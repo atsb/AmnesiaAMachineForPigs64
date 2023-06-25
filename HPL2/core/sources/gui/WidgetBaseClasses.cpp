@@ -397,7 +397,7 @@ namespace hpl {
 		// Get folders and files in current path
 		cPlatform::FindFoldersInDir(lstFolders, sCurrentFullPath , mbAddHiddenFiles, true);
 
-		for(int i=0; i<(int)pCat->mvFilters.size();++i)
+		for(size_t i=0; i<pCat->mvFilters.size();++i)
 		{
 			cPlatform::FindFilesInDir(lstFiles, sCurrentFullPath , pCat->mvFilters[i], mbAddHiddenFiles);
 		}
@@ -426,11 +426,11 @@ namespace hpl {
 		tWString sExt = cString::GetFileExtW(asFilename);
 		sExt = cString::ToLowerCaseW(sExt);
 
-		for(int i=0;i<(int)mvFileTypeExtensions.size();++i)
+		for(size_t i=0;i<mvFileTypeExtensions.size();++i)
 		{
 			tWStringVec& vFileExtensions = mvFileTypeExtensions[i];
 
-			for(int j=0;j<(int)vFileExtensions.size();++j)
+			for(size_t j=0;j<vFileExtensions.size();++j)
 			{
 				if(sExt == vFileExtensions[j])
 					return (eFileBrowserFileType)i;
@@ -587,7 +587,7 @@ namespace hpl {
 		sPath = _W("/");
 #endif
 
-		for(int i=0; i<(int)mvCurrentDirFullPath.size();++i)
+		for(size_t i=0; i<mvCurrentDirFullPath.size();++i)
 			sPath += cString::AddSlashAtEndW(mvCurrentDirFullPath[i]);
 
 		return sPath;

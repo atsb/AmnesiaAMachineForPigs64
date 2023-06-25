@@ -132,7 +132,7 @@ namespace hpl {
 		// Delete all textures / Images
 		if(mvImageBufferVec.size()>0)
 		{
-			for(int i=0; i< (int)mvImageBufferVec.size(); ++i)
+			for(size_t i=0; i< mvImageBufferVec.size(); ++i)
 			{
 				mpResources->GetImageManager()->Destroy(mvImageBufferVec[i]);
 			}

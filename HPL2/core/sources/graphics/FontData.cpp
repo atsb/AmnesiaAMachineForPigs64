@@ -68,7 +68,7 @@ namespace hpl {
 
 	iFontData::~iFontData()
 	{
-		for(int i=0;i<(int)mvGlyphs.size();i++)
+		for(size_t i=0;i<mvGlyphs.size();i++)
 		{
 			if(mvGlyphs[i]) hplDelete(mvGlyphs[i]);
 		}

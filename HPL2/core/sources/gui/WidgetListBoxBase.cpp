@@ -212,8 +212,8 @@ namespace hpl {
 
 	void iWidgetListBoxBase::UpdateProperties()
 	{
-		mlNumItems = (int)mvItems.size();
-		mlMaxItems = (int)(mvSize.y /(mvDefaultFontSize.y +2))-1;
+		mlNumItems = mvItems.size();
+		mlMaxItems = (mvSize.y /(mvDefaultFontSize.y +2))-1;
 
         if(mpSlider == NULL)
 			return;

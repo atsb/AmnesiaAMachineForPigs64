@@ -76,24 +76,24 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	int cGamepadSDL2::GetNumButtons()
+	size_t cGamepadSDL2::GetNumButtons()
 	{
-		return (int)mvButtonArray.size();
+		return mvButtonArray.size();
 	}
 
-	int cGamepadSDL2::GetNumAxes()
+	size_t cGamepadSDL2::GetNumAxes()
 	{
-		return (int)mvAxisArray.size();
+		return mvAxisArray.size();
 	}
 
-	int cGamepadSDL2::GetNumHats()
+	size_t cGamepadSDL2::GetNumHats()
 	{
-		return 0;
+		return mvHatArray.size();
 	}
 
-	int cGamepadSDL2::GetNumBalls()
+	size_t cGamepadSDL2::GetNumBalls()
 	{
-		return 0;
+		return mvBallAbsPosArray.size();
 	}
 
 	//-----------------------------------------------------------------------
@@ -403,9 +403,9 @@ namespace hpl {
 		return static_cast<eGamepadAxis>(alAxis);
 	}
 
-	float cGamepadSDL2::SDLToAxisValue(Sint16 alAxisValue)
+	float cGamepadSDL2::SDLToAxisValue(float alAxisValue)
 	{
-		return cMath::Clamp((float)alAxisValue*mfInvAxisMax, -1.0f, 1.0f);
+		return cMath::Clamp(alAxisValue*mfInvAxisMax, -1.0f, 1.0f);
 	}
 
 	eGamepadHat cGamepadSDL2::SDLToHat(Uint8 alHat)

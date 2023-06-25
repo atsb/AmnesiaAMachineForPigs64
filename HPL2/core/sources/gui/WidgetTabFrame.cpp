@@ -493,7 +493,7 @@ namespace hpl
 	int cWidgetTabFrame::GetTabOnTopIndex()
 	{
 		int lIndex = -1;
-		for(int i=0;i<(int)mvTabs.size();++i)
+		for(size_t i=0;i<mvTabs.size();++i)
 		{
 			if(mpTopTab==mvTabs[i])
 			{
@@ -629,7 +629,7 @@ namespace hpl
 
 		////////////////////////////////
 		// Check how many tabs are visible
-		for(int i=mlFirstVisibleTab; i<(int) mvTabs.size(); ++i)
+		for(size_t i=mlFirstVisibleTab; i<mvTabs.size(); ++i)
 		{
 			cWidgetTab* pTab = mvTabs[i];
 
@@ -694,7 +694,7 @@ namespace hpl
 		for(int i = 0; i<2; ++i)
 			mvArrowButtons[i]->SetPosition(cVector3f(mvSize.x - (mfButtonSize+2)*(2-i), 0, mfForegroundZ+0.5f));
 
-		for(int i=0; i<(int)mvTabs.size(); ++i)
+		for(size_t i=0; i<mvTabs.size(); ++i)
 			mvTabs[i]->SetSize(mvSize);
 
 		UpdateTabVisibility();
