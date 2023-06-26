@@ -86,7 +86,7 @@ void cLuxCompletionCountHandler::Update(float afTimeStep)
 	//Decrease alpha
 	if(mbActive==false)
 	{
-		mfAlpha -= 0.5 * afTimeStep;
+		mfAlpha -= 0.5f * afTimeStep;
 		if(mfAlpha <0) mfAlpha =0;
 		return;
 	}
@@ -109,7 +109,7 @@ void cLuxCompletionCountHandler::Update(float afTimeStep)
 		if(mfDisplayedAmount < mfNewAmount)
 		{
 			float fDistance = 0;//(mfNewAmount - mfDisplayedAmount);
-			mfDisplayedAmount += (fDistance+0.001) * 30 * afTimeStep;
+			mfDisplayedAmount += (fDistance+0.001f) * 30.0f * afTimeStep;
 			if(mfDisplayedAmount > mfNewAmount)mfDisplayedAmount = mfNewAmount;
 		}
 		else

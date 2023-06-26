@@ -216,10 +216,10 @@ namespace hpl {
 
 		double mfGameLogicIterations;
 		double mfGameLogicTime;
-		double mfRenderingLogicTime;
+		float mfRenderingLogicTime;
 
-		tFloatVec mvMaxGameLogic;
-		tFloatVec mvMaxRenderLogic;
+		tDoubleVec mvMaxGameLogic;
+		tDoubleVec mvMaxRenderLogic;
 
 		float mfMaxGameLogic;
 		float mfMaxRenderLogic;

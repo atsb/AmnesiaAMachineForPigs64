@@ -103,7 +103,7 @@ cLuxPlayer::cLuxPlayer() : iLuxUpdateable("LuxPlayer"), iLuxCollideCallbackConta
 
 	mfDefaultMass = gpBase->mpGameCfg->GetFloat("Player_Body","Mass",0);
 
-	miNumberOfInfectionLevels = gpBase->mpGameCfg->GetFloat("Player_Infection","NumberOfInfectionLevels",0);
+	miNumberOfInfectionLevels = gpBase->mpGameCfg->GetInt("Player_Infection","NumberOfInfectionLevels",0);
 
 	mfInfectionLevelOneSpeedMul = gpBase->mpGameCfg->GetFloat("Player_Infection","InfectionLevelOneSpeedMultiplier",0);
 	mfInfectionLevelTwoSpeedMul = gpBase->mpGameCfg->GetFloat("Player_Infection","InfectionLevelTwoSpeedMultiplier",0);
@@ -203,7 +203,7 @@ cLuxPlayer::cLuxPlayer() : iLuxUpdateable("LuxPlayer"), iLuxCollideCallbackConta
 	mpVoiceFlashback = hplNew( cLuxPlayerVoiceFlashback, (this));
 	mvHelpers.push_back(mpVoiceFlashback);
 
-	mfVomitEffectDuration = gpBase->mpGameCfg->GetInt("Player_Infection","VomitEffectDuration",1.0);
+	mfVomitEffectDuration = gpBase->mpGameCfg->GetFloat("Player_Infection","VomitEffectDuration",1.0f);
 	mfTimeSinceLastVomit = mfVomitEffectDuration + 10.0f;
 }
 

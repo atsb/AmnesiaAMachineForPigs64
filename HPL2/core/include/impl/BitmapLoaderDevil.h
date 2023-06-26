@@ -21,7 +21,6 @@
 #define HPL_BITMAP_LOADER_DEVIL_H
 
 #include "resources/BitmapLoader.h"
-
 #include <IL/il.h>
 
 namespace hpl {

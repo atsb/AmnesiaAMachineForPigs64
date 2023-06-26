@@ -75,7 +75,7 @@ static int OAL_OggBufferClose(OAL_OggMemoryFile* src)
 
 static long OAL_OggBufferTell(OAL_OggMemoryFile *src)
 {
-	return src->pos;
+	return (long)src->pos;
 }
 
 static ov_callbacks OAL_CALLBACKS_BUFFER = {

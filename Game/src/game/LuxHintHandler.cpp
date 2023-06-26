@@ -188,9 +188,9 @@ void cLuxHintHandler::DrawHintText(float afFrameTime, cGuiSet *apGuiSet)
 
 	if(mbActive==false || mfAlpha<=0) return;
 
-	float fX = mHintOscill.val*0.5;
+	float fX = mHintOscill.val*0.5f;
 	cColor hintCol(1,fX,fX, mfAlpha);
-	apGuiSet->DrawFont(mpFont, cVector3f(400,mfYPos,20),mvFontSize,hintCol, eFontAlign_Center, eGuiMaterial_FontNormal,
+	apGuiSet->DrawFont(mpFont, cVector3f(400.0f,mfYPos,20.0f),mvFontSize,hintCol, eFontAlign_Center, eGuiMaterial_FontNormal,
 		_W(" %ls"), kTranslate("Hints", "HINT:").c_str());
 
 	tWStringVec vRows;
@@ -231,7 +231,7 @@ void cLuxHintHandler::UpdateHintText(float afTimeStep)
 	//Decrease alpha
 	if(mfShowTextCount<=0 && mfAlpha>0)
 	{
-		mfAlpha -= 0.5 * afTimeStep;
+		mfAlpha -= 0.5f * afTimeStep;
 		if(mfAlpha <0) mfAlpha =0;
 		return;
 	}

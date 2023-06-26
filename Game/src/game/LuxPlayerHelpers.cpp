@@ -1395,7 +1395,7 @@ cLuxPlayerInfection::cLuxPlayerInfection(cLuxPlayer *apPlayer) : iLuxPlayerHelpe
 	mfHitZoomInAspectMul = gpBase->mpGameCfg->GetFloat("Player_Infection","HitZoomInAspectMul",0);
 
 	mfInfectionDecreaseSpeed = gpBase->mpGameCfg->GetFloat("Player_Infection","InfectionDecreaseSpeed",0);
-	miInfectionDecreaseLimitLevel = gpBase->mpGameCfg->GetFloat("Player_Infection","InfectionDecreaseLimitLevel",0);
+	miInfectionDecreaseLimitLevel = gpBase->mpGameCfg->GetInt("Player_Infection","InfectionDecreaseLimitLevel",0);
 
 	mfInfectionVeryHighLimit = gpBase->mpGameCfg->GetFloat("Player_Infection","InfectionVeryHighLimit",0);
 	mfInfectionEffectsStart = gpBase->mpGameCfg->GetFloat("Player_Infection","InfectionEffectsStart",0);
@@ -2520,8 +2520,8 @@ void cLuxPlayerDeath::OnDraw(float afFrameTime)
 			if(mfTextAlpha1 < 0.5f)	fBlurAlpha = mfTextAlpha1 / 0.5f;
 			else					fBlurAlpha = 1 - (mfTextAlpha1-0.5f) / 0.5f;
 
-			gpBase->mpGameHudSet->DrawFont(	sChar, mpFont,vPos + cVector3f(vSize.x*0.05,vSize.y*0.05, -1), vSize*1.1, cColor(1, fBlurAlpha * 0.3f ),eFontAlign_Right);
-			gpBase->mpGameHudSet->DrawFont(	sChar, mpFont,vPos + cVector3f(vSize.x*0.15,vSize.y*0.15, -2), vSize*1.3, cColor(1, fBlurAlpha * 0.2f ),eFontAlign_Right);
+			gpBase->mpGameHudSet->DrawFont(	sChar, mpFont,vPos + cVector3f(vSize.x*0.05f,vSize.y*0.05f, -1.0f), vSize*1.1f, cColor(1.0f, fBlurAlpha * 0.3f ),eFontAlign_Right);
+			gpBase->mpGameHudSet->DrawFont(	sChar, mpFont,vPos + cVector3f(vSize.x*0.15f,vSize.y*0.15f, -2.0f), vSize*1.3f, cColor(1.0f, fBlurAlpha * 0.2f ),eFontAlign_Right);
 
 			fX += mpFont->GetLength(vFontSize* fMul, sChar.c_str());
 		}
@@ -2751,8 +2751,8 @@ void cLuxPlayerLean::Update(float afTimeStep)
 		mfRotation =0;
 		mfMovement =0;
 
-		mpPlayer->FadeLeanRollTo(0, 4,2);
-		mpPlayer->MoveHeadPosAdd(eLuxHeadPosAdd_Lean, cVector3f(0,0,0), 1.3f, 0.1);
+		mpPlayer->FadeLeanRollTo(0.0f, 4.0f, 2.0f);
+		mpPlayer->MoveHeadPosAdd(eLuxHeadPosAdd_Lean, cVector3f(0,0,0), 1.3f, 0.1f);
 	}
 }
 

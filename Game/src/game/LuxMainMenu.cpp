@@ -156,8 +156,8 @@ cLuxMainMenu::cLuxMainMenu() : iLuxUpdateable("LuxDebugHandler")
 	msMusic = gpBase->mpMenuCfg->GetString("Main", "Music", "");
 	msZoomSound = gpBase->mpMenuCfg->GetString("Main", "ZoomSound", "");
 
-	mfBgCamera_FOV= cMath::ToRad(gpBase->mpMenuCfg->GetFloat("Main", "BGCamera_FOV", 0.1));
-	mfBgCamera_ZoomedFOV = cMath::ToRad(gpBase->mpMenuCfg->GetFloat("Main", "BGCamera_ZoomedFOV", 1));
+	mfBgCamera_FOV= cMath::ToRad(gpBase->mpMenuCfg->GetFloat("Main", "BGCamera_FOV", 0.1f));
+	mfBgCamera_ZoomedFOV = cMath::ToRad(gpBase->mpMenuCfg->GetFloat("Main", "BGCamera_ZoomedFOV", 1.0f));
 
 	///////////////////////////////
 	//Load data

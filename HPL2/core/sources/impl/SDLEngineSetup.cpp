@@ -99,7 +99,7 @@ namespace hpl {
 				notificationFilter.dbcc_size = sizeof(notificationFilter);
 
 				HDEVNOTIFY hDevNotify;
-#ifdef SDL_VERSION_ATLEAST(2, 0, 0)
+#if SDL_VERSION_ATLEAST(2, 0, 0)
 				hDevNotify = RegisterDeviceNotification(info.info.win.window, &notificationFilter,
 					DEVICE_NOTIFY_WINDOW_HANDLE |
 					DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);

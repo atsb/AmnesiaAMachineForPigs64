@@ -583,9 +583,9 @@ namespace hpl {
 				localTransform.GetElements( pTranslation, pRotation, pShearing, pScaling, pSign);
 				
 				vTempKeyFrame[i].mfTime = *it;
-				vTempKeyFrame[i].vTrans = cVector3f( pTranslation[0], pTranslation[1], pTranslation[2] );
-				vTempKeyFrame[i].vScale = cVector3f( pScaling[0], pScaling[1], pScaling[2] );
-				vTempKeyFrame[i].qFinalRot = cQuaternion( pRotation[3], pRotation[0], pRotation[1], pRotation[2] );
+				vTempKeyFrame[i].vTrans = cVector3f( pTranslation[0.0f], pTranslation[1.0f], pTranslation[2.0f] );
+				vTempKeyFrame[i].vScale = cVector3f( pScaling[0.0f], pScaling[1.0f], pScaling[2.0f] );
+				vTempKeyFrame[i].qFinalRot = cQuaternion( pRotation[3.0f], pRotation[0.0f], pRotation[1.0f], pRotation[2.0f] );
 				vTempKeyFrame[i].vRot = 0;
 				i++;
 			}

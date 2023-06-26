@@ -614,14 +614,14 @@ namespace hpl {
 				mpFPSCounter->AddFrame();
 	           	mpRenderingLogicTimer->Stop();
 
-				static double fRenderingLogic = 0;
+				static float fRenderingLogic = 0.0f;
 				static int lRenderingLogicIterations = 0;
 
 				mvMaxRenderLogic.push_back(mpRenderingLogicTimer->GetTimeInMilliSec());
 				fRenderingLogic += mpRenderingLogicTimer->GetTimeInMilliSec();
 				if(lRenderingLogicIterations++ % 60 == 0)
 				{
-					mfRenderingLogicTime = fRenderingLogic / 60.0;
+					mfRenderingLogicTime = fRenderingLogic / 60.0f;
 					fRenderingLogic = 0;
 				}
 

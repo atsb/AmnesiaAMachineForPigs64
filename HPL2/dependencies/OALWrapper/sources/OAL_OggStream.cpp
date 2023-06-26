@@ -80,7 +80,7 @@ int memorySeek(void *data, ogg_int64_t seek, int type)
 long memoryTell(void* data)
 {
 	tMemoryReader *of = reinterpret_cast<tMemoryReader*>(data);
-	return of->buff_pos;
+	return (long)of->buff_pos;
 }
 
 int memoryClose(void* data)

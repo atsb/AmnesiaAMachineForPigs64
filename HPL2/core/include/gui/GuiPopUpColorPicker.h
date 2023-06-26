@@ -178,7 +178,7 @@ namespace hpl {
 		static void SaveRecentColorList(cXmlElement* apElem);
 
 		static void SetRecentColorNum(int alX);
-		static int GetRecentColorNum() { return mlRecentColorNum; }
+		static size_t GetRecentColorNum() { return mlRecentColorNum; }
 
 		void SetShowTransPreview(bool abX) { mbShowTransPreview = abX; }
 

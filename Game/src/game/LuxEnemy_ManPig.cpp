@@ -2575,7 +2575,7 @@ void cLuxEnemy_ManPig::UpdateTesla(float afTimeStep)
 				}
 				else
 				{
-					mpMindFuckSound->FadeVolumeMulTo(0.1f + (mfTeslaSpecialNoticeCount/fMaxNoticeCount)*0.9, 10.0f);
+					mpMindFuckSound->FadeVolumeMulTo(0.1f + (mfTeslaSpecialNoticeCount/fMaxNoticeCount)*0.9f, 10.0f);
 				}
 			}
 		}

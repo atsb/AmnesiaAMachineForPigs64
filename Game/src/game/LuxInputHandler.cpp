@@ -1311,7 +1311,7 @@ void cLuxInputHandler::UpdateGamePlayerInput()
 			///////////////
 			// Make up for the dead zone
 			vAnalogLookAxis -= cVector2f(cMath::Sign(vAnalogLookAxis.x), cMath::Sign(vAnalogLookAxis.y)) * mpPad->GetAxisDeadZoneRadiusValue();
-			vAnalogLookAxis *= 1.0 / (1.0f - mpPad->GetAxisDeadZoneRadiusValue());
+			vAnalogLookAxis *= 1.0f / (1.0f - mpPad->GetAxisDeadZoneRadiusValue());
 
 			cVector2f vExponent = cMath::Vector2Abs(vAnalogLookAxis);	vExponent.x = sqrtf(vExponent.x); vExponent.y = sqrtf(vExponent.y);
 			cVector2f vGamepadPos = (vAnalogLookAxis * vExponent) * mfGamepadLookSensitivity*gpBase->mpEngine->GetStepSize();
