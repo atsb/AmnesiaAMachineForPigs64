@@ -85,13 +85,13 @@
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">$(IncludePath)</IncludePath>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">aamfpDebug</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Demo|Win32'">AmnesiaDemo</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">aamfp</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NakedMachineForPigs</TargetName>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>..\..\redist\</OutDir>
     <IntDir>$(SolutionDir)\Intermediate\$(ConfigurationName)</IntDir>
-    <TargetName>aamfp</TargetName>
+    <TargetName>NakedMachineForPigs</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -133,7 +133,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>HPL2.lib;wsock32.lib;comctl32.lib;libfbxsdk-md.lib;zlib.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;glew32.lib;opengl32.lib;libtheora.lib;libvorbis.lib;libvorbisfile.lib;SDL2.lib;ILUT.lib;ILU.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>..\..\redist\x86\aamfp.exe</OutputFile>
+      <OutputFile>..\..\redist\x86\NakedMachineForPigs.exe</OutputFile>
       <AdditionalLibraryDirectories>$(SolutionDir)HPL2\lib\x86;..\..\..\3rdparty\lib\x86;..\..\..\3rdparty\lib\x86\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreEmbeddedIDL>false</IgnoreEmbeddedIDL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -178,7 +178,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;USE_GAMEPAD;ANGELSCRIPT_EXPORT;USE_SDL2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <OutputFile>..\..\redist\x64\aamfp.exe</OutputFile>
+      <OutputFile>..\..\redist\x64\NakedMachineForPigs.exe</OutputFile>
       <AdditionalLibraryDirectories>$(SolutionDir)HPL2\lib\x64;..\..\..\3rdparty\lib\x64;..\..\..\3rdparty\lib\x64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>HPL2.lib;wsock32.lib;comctl32.lib;libfbxsdk-md.lib;zlib.lib;Wininet.lib;dbghelp.lib;libogg.lib;libxml2-md.lib;glew32.lib;opengl32.lib;libtheora.lib;libvorbis.lib;libvorbisfile.lib;SDL2.lib;ILUT.lib;ILU.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
