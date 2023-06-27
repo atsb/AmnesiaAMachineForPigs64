@@ -119,7 +119,7 @@ namespace hpl {
 		}
 #endif
 
-		//TTF_Init();
+		TTF_Init();
 	}
 
 	//-----------------------------------------------------------------------
@@ -344,7 +344,6 @@ namespace hpl {
 		{
 			Error(" Couldn't init glew!\n");
 		}
-
 		///Setup up windows specifc context:
 #if defined(_WIN32) && !SDL_VERSION_ATLEAST(2,0,0)
 		mGLContext = wglGetCurrentContext();
@@ -380,7 +379,6 @@ namespace hpl {
 
 		mbInitHasBeenRun = true;
 
-
 		/*if(GLEW_ARB_debug_output)
 		{
 			glDebugMessageCallbackARB(&OGLDebugOutputCallback, NULL);
@@ -390,7 +388,6 @@ namespace hpl {
 		{
 			Warning("OGL debug output not supported!\n");
 		}*/
-
 
 		return true;
 	}
