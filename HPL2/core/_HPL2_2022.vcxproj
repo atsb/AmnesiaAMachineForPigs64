@@ -180,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.\include;..\dependencies\AngelScript\include;..\dependencies\DevIL\include;..\dependencies\DevIL\include\IL;..\dependencies\freealut\AL;..\dependencies\jpeg;..\dependencies\Newton\core;..\dependencies\Newton\newton;..\dependencies\Newton\include;..\dependencies\Newton\physics;..\dependencies\OALWrapper\include\OALWrapper;..\dependencies\ogg;..\dependencies\png;..\dependencies\SDL2\include;..\dependencies\theora;..\dependencies\vorbis;..\dependencies\zlib;..\..\3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\include;..\dependencies\AngelScript\include;..\dependencies\DevIL\include;..\dependencies\DevIL\include\IL;..\dependencies\freealut\AL;..\dependencies\jpeg;..\dependencies\Newton\core;..\dependencies\Newton\newton;..\dependencies\Newton\include;..\dependencies\Newton\physics;..\dependencies\OALWrapper\include;..\dependencies\ogg;..\dependencies\png;..\dependencies\SDL2\include;..\dependencies\theora;..\dependencies\vorbis;..\dependencies\zlib;..\..\3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;HPL_EXPORTS;KFBX_DLLINFO;USE_SDL2;_WIN_64_VER;_NEWTON_USE_LIB;ANGELSCRIPT_EXPORT;_CRT_SECURE_NO_WARNINGS;TIXML_USE_STL;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>

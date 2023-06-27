@@ -172,7 +172,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\..\HPL2\core\include;..\..\..\3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\HPL2\core\include;..\..\..\3rdparty\include;..\..\..\HPL2\dependencies\OALWrapper\include\OALWrapper;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;USE_GAMEPAD;ANGELSCRIPT_EXPORT;USE_SDL2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
