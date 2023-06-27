@@ -21,8 +21,22 @@
 #define HPL_LOWLEVELSOUND_FMOD_H
 
 #include "sound/LowLevelSound.h"
-
+#ifdef INCLUDE_FMOD
 namespace hpl {
+
+	class cSoundDeviceIdentifierFmod : public iSoundDeviceIdentifier
+	{
+	public:
+		cSoundDeviceIdentifierFmod();
+
+		int	GetID() { return mlID; };
+		const tString& GetName() { return msName; }
+		bool IsDefault() { return mbDefault; }
+	private:
+		int mlID;
+		tString msName;
+		bool mbDefault;
+	};
 
 	class cLowLevelSoundFmod : public iLowLevelSound
 	{
@@ -32,7 +46,12 @@ namespace hpl {
 
 		void GetSupportedFormats(tStringList &alstFormats);
 
-		iSoundData* LoadSoundData(const tString& asName,const tString& asFilePath,
+		void Init(int alSoundDeviceID, bool abUseEnvAudio, int alMaxChannels,
+			int alStreamUpdateFreq, bool abUseThreading, bool abUseVoiceManagement,
+			int alMaxMonoSourceHint, int alMaxStereoSourceHint,
+			int alStreamingBufferSize, int alStreamingBufferCount, bool abEnableLowLevelLog);
+
+		iSoundData* LoadSoundData(const tString& asName,const tWString& asFilePath,
 									const tString& asType, bool abStream,bool abLoopStream);
 
 		void UpdateSound(float afTimeStep);
@@ -45,10 +64,13 @@ namespace hpl {
 
 		void SetListenerAttenuation (bool abEnabled);
 
-		virtual void SetVolume(float afVolume);
+		void SetVolume(float afVolume);
+
+		void SetEnvVolume(float afEnvVolume);
 
 	private:
 		tString mvFormats[30];
 	};
 };
+#endif
 #endif // HPL_LOWLEVELSOUND_FMOD_H

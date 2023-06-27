@@ -63,8 +63,6 @@ namespace hpl
 
 		void SetListenerAttenuation (bool abEnabled);
 
-//		void LogSoundStatus();
-
 		void Init(int alSoundDeviceID, bool abUseEnvAudio,int alMaxChannels,
 					int alStreamUpdateFreq, bool abUseThreading, bool abUseVoiceManagement,
 					int alMaxMonoSourceHint, int alMaxStereoSourceHint,

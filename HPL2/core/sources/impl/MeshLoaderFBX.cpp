@@ -338,8 +338,8 @@ namespace hpl {
 		}
 		Log("\n");
 
-		int lStart;
-		int lEnd;
+		FbxLongLong lStart;
+		FbxLongLong lEnd;
 		
         for(int i=0;i<vStrings.GetCount();i++)
 		{
@@ -350,10 +350,10 @@ namespace hpl {
 
 			lStart = pTakeInfo->mLocalTimeSpan.GetStart().GetMilliSeconds();
 			lEnd = pTakeInfo->mLocalTimeSpan.GetStop().GetMilliSeconds();
-			int lOffset = pTakeInfo->mImportOffset.GetMilliSeconds();
-			int lAnimLength = lEnd - lStart;
-			Log("TimeSpan: %d to %d\n",lStart,lEnd);
-			Log("Offset: %d\n",lOffset);
+			FbxLongLong lOffset = pTakeInfo->mImportOffset.GetMilliSeconds();
+			FbxLongLong lAnimLength = lEnd - lStart;
+			Log("TimeSpan: %ll to %ll\n",lStart,lEnd);
+			Log("Offset: %ll\n",lOffset);
 
 			if(lAnimLength > 0){
 				lTake = i;

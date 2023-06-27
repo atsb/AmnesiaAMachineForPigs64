@@ -311,6 +311,7 @@
     <ClInclude Include="include\impl\GamepadSDL.h" />
     <ClInclude Include="include\impl\GamepadSDL2.h" />
     <ClInclude Include="include\impl\GamepadXInput.h" />
+    <ClInclude Include="include\impl\LowLevelSoundFmod.h" />
     <ClInclude Include="include\impl\MeshLoaderFBX.h" />
     <ClInclude Include="include\impl\scriptarray.h" />
     <ClInclude Include="include\impl\scriptstdstring.h" />
@@ -705,6 +706,7 @@
     <ClCompile Include="sources\impl\GamepadSDL.cpp" />
     <ClCompile Include="sources\impl\GamepadSDL2.cpp" />
     <ClCompile Include="sources\impl\GamepadXInput.cpp" />
+    <ClCompile Include="sources\impl\LowLevelSoundFmod.cpp" />
     <ClCompile Include="sources\impl\MeshLoaderFBX.cpp" />
     <ClCompile Include="sources\impl\scriptarray.cpp" />
     <ClCompile Include="sources\impl\scriptstdstring.cpp" />

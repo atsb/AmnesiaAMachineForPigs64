@@ -618,7 +618,7 @@ namespace hpl {
 				static int lRenderingLogicIterations = 0;
 
 				mvMaxRenderLogic.push_back(mpRenderingLogicTimer->GetTimeInMilliSec());
-				fRenderingLogic += mpRenderingLogicTimer->GetTimeInMilliSec();
+				fRenderingLogic += (float)mpRenderingLogicTimer->GetTimeInMilliSec();
 				if(lRenderingLogicIterations++ % 60 == 0)
 				{
 					mfRenderingLogicTime = fRenderingLogic / 60.0f;

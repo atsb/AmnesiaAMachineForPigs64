@@ -16,8 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Amnesia: A Machine For Pigs.  If not, see <https://www.gnu.org/licenses/>.
  */
-
-#ifdef WIN32
+#ifdef INCLUDE_FMOD
+#ifdef _WIN64
+#pragma comment(lib, "fmod64vc.lib")
+#else
 #pragma comment(lib, "fmodvc.lib")
 #endif
 
@@ -39,41 +41,20 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
+	cSoundDeviceIdentifierFmod::cSoundDeviceIdentifierFmod()
+	{ 
+		mlID = 0;
+		msName = "";
+		mbDefault = false;
+	}
+
 	cLowLevelSoundFmod::cLowLevelSoundFmod()
 	{
-		mvFormats[0] = "WAV";mvFormats[1] = "OGG";mvFormats[2] = "MP3";
+		mvFormats[0] = "WAV";
+		mvFormats[1] = "OGG";
+		mvFormats[2] = "MP3";
 		mvFormats[3] = "";
 
-
-		Log(" Initializing FMOD.\n");
-		FSOUND_SetDriver(0);
-		FSOUND_SetMixer(FSOUND_MIXER_AUTODETECT);
-
-		//Debug:
-		//FSOUND_SetMaxHardwareChannels(0);
-
-		FSOUND_Init(44100, 32, 0); //Change this to get effects later on..
-
-		//Setup channel limit.
-		int lChannels2D, lChannels3d, lChannelsTotal;
-		FSOUND_GetNumHWChannels(&lChannels2D,&lChannels3d,&lChannelsTotal);
-		Log(" Number of hardware 2D channels: %d\n",lChannels2D);
-		Log(" Number of hardware 3D channels: %d\n",lChannels3d);
-		Log(" Number of total hardware channels: %d\n",lChannelsTotal);
-
-		FSOUND_SetMinHardwareChannels(32);
-		FSOUND_SetMaxHardwareChannels(32);
-
-		//Default listener settings.
-		float Pos[3] = {0,0,0};
-		float Vel[3] = {0,0,0};
-
-		FSOUND_3D_Listener_SetAttributes(Pos,Vel,0,0,-1,0,1,0);
-		mvListenerForward = cVector3f(0,0,-1);
-		mvListenerUp = cVector3f(0,1,0);
-
-		//Default volume:
-		SetVolume(1.0f);
 	}
 
 	//-----------------------------------------------------------------------
@@ -91,7 +72,44 @@ namespace hpl {
 
 	//-----------------------------------------------------------------------
 
-	iSoundData* cLowLevelSoundFmod::LoadSoundData(const tString& asName, const tString& asFilePath,
+	void cLowLevelSoundFmod::Init(int alSoundDeviceID, bool abUseEnvAudio, int alMaxChannels,
+		int alStreamUpdateFreq, bool abUseThreading, bool abUseVoiceManagement,
+		int alMaxMonoSourceHint, int alMaxStereoSourceHint,
+		int alStreamingBufferSize, int alStreamingBufferCount, bool abEnableLowLevelLog)
+	{
+		Log(" Initializing FMOD.\n");
+		FSOUND_SetDriver(0);
+		FSOUND_SetMixer(FSOUND_MIXER_AUTODETECT);
+
+		//Debug:
+#ifdef FMOD_DEBUG
+		FSOUND_SetMaxHardwareChannels(0);
+#endif
+		FSOUND_Init(44100, alMaxChannels, NULL); //Change this to get effects later on..
+
+		//Setup channel limit.
+		int lChannels2D, lChannels3d, lChannelsTotal;
+		FSOUND_GetNumHWChannels(&lChannels2D, &lChannels3d, &lChannelsTotal);
+		Log(" Number of hardware 2D channels: %d\n", lChannels2D);
+		Log(" Number of hardware 3D channels: %d\n", lChannels3d);
+		Log(" Number of total hardware channels: %d\n", lChannelsTotal);
+
+		FSOUND_SetMinHardwareChannels(alMaxChannels);
+		FSOUND_SetMaxHardwareChannels(alMaxChannels);
+
+		//Default listener settings.
+		const float Pos[3] = { 0,0,0 };
+		const float Vel[3] = { 0,0,0 };
+
+		FSOUND_3D_Listener_SetAttributes(Pos, Vel, 0, 0, -1, 0, 1, 0);
+		mvListenerForward = cVector3f(0, 0, -1);
+		mvListenerUp = cVector3f(0, 1, 0);
+
+		//Default volume:
+		SetVolume(1.0f);
+	}
+
+	iSoundData* cLowLevelSoundFmod::LoadSoundData(const tString& asName, const tWString& asFilePath,
 												const tString& asType, bool abStream,bool abLoopStream)
 	{
 		cFmodSoundData* pSoundData = new cFmodSoundData(asName,abStream);
@@ -188,5 +206,20 @@ namespace hpl {
 	}
 
 	//-----------------------------------------------------------------------
+	void cLowLevelSoundFmod::SetEnvVolume( float afEnvVolume )
+	{
+		if (!mbEnvAudioEnabled)
+			return;
 
+		if (afEnvVolume < 0)
+			afEnvVolume = 0;
+		if (afEnvVolume > 1)
+			afEnvVolume = 1;
+		mfEnvVolume = afEnvVolume;
+
+		FSOUND_SetVolumeAbsolute(2, mfEnvVolume);
+	}
+
+	//-----------------------------------------------------------------------
 }
+#endif

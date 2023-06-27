@@ -35,8 +35,11 @@
 #include "impl/LowLevelResourcesSDL.h"
 #include "impl/LowLevelSystemSDL.h"
 #include "impl/LowLevelInputSDL.h"
+#ifdef INCLUDE_FMOD
 #include "impl/LowLevelSoundFmod.h"
+#else
 #include "impl/LowLevelSoundOpenAL.h"
+#endif
 #include "impl/LowLevelPhysicsNewton.h"
 
 #ifdef INCLUDE_HAPTIC
@@ -66,7 +69,7 @@ namespace hpl {
 	cSDLEngineSetup::cSDLEngineSetup(tFlag alHplSetupFlags)
 	{
 
-#if SDL_VERSION_ATLEAST(2,0,0)
+#if SDL_VERSION_ATLEAST(2,0,0) && defined(__APPLE__)
 		SDL_SetHint(SDL_HINT_VIDEO_MAC_FULLSCREEN_SPACES, "0");
 #endif
 		if(alHplSetupFlags & (eHplSetup_Screen | eHplSetup_Video))
@@ -108,7 +111,8 @@ namespace hpl {
 					DEVICE_NOTIFY_WINDOW_HANDLE |
 					DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);
 #endif
-				if(hDevNotify == NULL) {
+				if(hDevNotify == NULL) 
+				{
 				}
 			}
 #endif
@@ -136,8 +140,11 @@ namespace hpl {
 
 		//////////////////////////
 		// Sound
+#ifdef INCLUDE_FMOD
+		mpLowLevelSound = hplNew(cLowLevelSoundFmod, ());
+#else
 		mpLowLevelSound	= hplNew( cLowLevelSoundOpenAL,() );
-
+#endif
 		//////////////////////////
 		// Physics
 		mpLowLevelPhysics = hplNew( cLowLevelPhysicsNewton,() );

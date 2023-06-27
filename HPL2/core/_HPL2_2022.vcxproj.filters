@@ -1294,6 +1294,9 @@
     <ClInclude Include="..\dependencies\OALWrapper\include\OALWrapper\OAL_WAVSample.h">
       <Filter>3rdparty\OALWrapper</Filter>
     </ClInclude>
+    <ClInclude Include="include\impl\LowLevelSoundFmod.h">
+      <Filter>Impl\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sources\system\Container.cpp">
@@ -2342,6 +2345,9 @@
     </ClCompile>
     <ClCompile Include="..\dependencies\OALWrapper\sources\OAL_WAVSample.cpp">
       <Filter>3rdparty\OALWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\impl\LowLevelSoundFmod.cpp">
+      <Filter>Impl\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

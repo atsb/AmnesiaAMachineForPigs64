@@ -1053,7 +1053,7 @@ namespace hpl {
 		int lOldW = mvSize.x;
 		int lOldH = mvSize.y;
 
-		int lSizeDiv = (int)powf((int)2,(int)mlSizeDownScaleLevel);
+		int lSizeDiv = (int)powf(2.0f, (unsigned int)mlSizeDownScaleLevel);
 
 		mvSize.x /= lSizeDiv;
 		mvSize.y /= lSizeDiv;
